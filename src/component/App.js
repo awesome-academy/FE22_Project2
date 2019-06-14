@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import Nav from '../pages/home/navHome';
-import Banner from '../pages/home/banner'
-import Main from '../pages/home/main/main'
+import Home from '../pages/home/home'
 
 class App extends Component {
   render() {
     return (
       <div >
-        <Nav></Nav>
-        <Banner></Banner>
-        <Main></Main>
+        <Home></Home>
       </div>
     );
   }
