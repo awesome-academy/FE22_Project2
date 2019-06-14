@@ -2,4 +2,4 @@ https://5c317daad18a50001463d41d.mockapi.io/api/products
 http://5c317daad18a50001463d41d.mockapi.io/api/categories
 http://5c317daad18a50001463d41d.mockapi.io/api/carts
 http://5c317daad18a50001463d41d.mockapi.io/api/comments
-http://5d0309add1471e00149ba7b8.mockapi.io/users?fbclid=IwAR3RFOXiBlMUYlBYSzP8eqgNmegtzKqy9TdynvcOVPu7uq1T0GgtMC4BFKI
+http://5d0309add1471e00149ba7b8.mockapi.io/users
