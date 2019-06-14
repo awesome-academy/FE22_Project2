@@ -1,0 +1,64 @@
+.cart--table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.cart--table .cart_btn .btn {
+  font-size: .9rem;
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.cart--table .cart_btn .btn.btn--update {
+  background-color: #789629;
+}
+
+.table-bordered thead tr {
+  background-color: #fafafa;
+}
+
+.table-bordered tr th {
+  font-family: "myriapro", sans-serif;
+}
+
+.table-bordered tr th:nth-child(1) {
+  width: 199px;
+}
+
+.table-bordered td {
+  font-size: 0.8rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.table-bordered td .table--item > input {
+  width: 30px;
+}
+
+.table-bordered td:nth-child(3), .table-bordered td:nth-child(5) {
+  font-family: "Lobster", cursive;
+}
+
+.table-bordered td:last-child img {
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .table-bordered td .table--item.content--cart {
+    position: static;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+/*# sourceMappingURL=shopping-cart.css.map */

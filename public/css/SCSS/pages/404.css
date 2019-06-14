@@ -1,0 +1,51 @@
+.img_page404 {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.img_page404 .img-thumbnail {
+  border: none;
+}
+
+.img_page404 .contact_404 a {
+  color: #949494;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.img_page404 .contact_404 a:first-child {
+  display: inline-block;
+  width: 90px;
+  border-right: 1px solid #949494;
+}
+
+.img_page404 .input-group {
+  width: 40%;
+  border-color: #666262;
+}
+
+.img_page404 .input-group input {
+  border-right: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  outline: none;
+}
+
+.img_page404 .input-group .input-group-text {
+  background-color: transparent;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+/*# sourceMappingURL=404.css.map */

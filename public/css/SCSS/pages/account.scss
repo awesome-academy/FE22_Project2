@@ -1,0 +1,59 @@
+@import "../common/variable";
+@import "../common/mixin";
+
+.account--page {
+  h4, h5 {
+    font-weight: 600;
+  }
+}
+
+.account--table {
+  font-weight: normal!important;
+  thead tr {
+    th {
+      &:nth-child(2) {width: 179px!important;}
+    }
+  }
+
+  td {
+    font-family: $font--open!important;
+    @include setSize(.8rem, 500);
+
+    &:nth-child(3) {
+      color: red;
+    }
+  }
+
+  .table--item {
+    top: 30%!important;
+  }
+}
+
+.account_item--sub {
+  display: flex;
+  justify-content: flex-start;
+  font-size: .9rem;
+
+  .img-thumbnail {
+    border: none;
+  }
+}
+
+.breadcrumb--account {
+  .breadcrumb {
+    .breadcrumb-item.active {
+      color: #c72527;
+    }
+
+    .breadcrumb-item+.breadcrumb-item::before {
+      color: #c72527;
+    }
+  }
+}
+
+.account--table {
+  .table-bordered td .table--item {
+    position: static;
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,17 @@
+.banner {
+  min-height: 800px;
+  background-image: url("../../images/HOME/banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.banner a {
+  position: absolute;
+  bottom: 5%;
+  left: 22%;
+  color: #353535;
+  font-weight: 500;
+}
+/*# sourceMappingURL=banner.css.map */

@@ -1,0 +1,51 @@
+.contact-us .img-thumbnail {
+  border: none;
+  border-radius: 0;
+}
+
+.contact-us h3 {
+  color: #6b6b6b;
+}
+
+.contact-us .form--contact {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.contact-us .form--contact h6 {
+  color: #6b6b6b;
+  font-weight: 600;
+}
+
+.contact-us .form--contact form .form-group {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 15% 85%;
+      grid-template-columns: 15% 85%;
+}
+
+.contact-us .form--contact form .form-group input {
+  border-radius: 0;
+}
+
+.contact-us .form--contact form .form-group input#messages {
+  height: 7rem;
+}
+
+.contact-us .form--contact form .wrap-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.contact-us .form--contact form .wrap-button button {
+  width: 5rem;
+  color: #FFFFFF;
+  background-color: black;
+  border-radius: 0;
+  border: none;
+}
+/*# sourceMappingURL=contact.css.map */

@@ -1,0 +1,253 @@
+@import "../common/variable";
+@import "../common/mixin";
+
+.info--further {display: none}
+
+.row_detail--custom {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+}
+
+.img-thumbnail_detail--custom {
+  width: 100%;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.demo {
+  opacity: .6;
+}
+
+.active_detail--custom {
+  opacity: 1;
+}
+
+.category_detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mySlides {
+  width: 100%
+}
+
+.detail_info {
+  .product--info--list {
+    h3 {
+      color: rgba(0,0,0,.6);
+    }
+
+    span {
+      font-weight: 600;
+      color: rgba(0,0,0,.4);
+    }
+
+    display: block!important;
+    @include setInfoDetail();
+
+    .product--price {
+      font-family: $font--lobster;
+      font-style: italic;
+      @include setSize(1.2rem, 700);
+
+      span:last-child {
+        font-size: .9rem;
+        color: rgba(0,0,0,.4)!important;
+      }
+    }
+  }
+
+  .rating--like {
+    p {
+      font-size: .8rem;
+    }
+
+    .product--btn--buy {
+      .btn-custom:first-child {
+        font-weight: 700;
+        border-color: rgba(0,0,0,.4);
+      }
+    }
+
+    select {
+      font-weight: 700;
+      color: rgba(0,0,0,.4);
+    }
+
+    span {
+      color: $product_page--color--black;
+      font-family: $font--my;
+      font-weight: 700;
+
+      &:last-child {
+        color: #c72527;
+      }
+    }
+
+    .ship {
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.detail_tab {
+  .nav {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+  }
+
+  .nav-item {
+    .nav-link {
+      font-size: .8rem;
+      color: rgba(0,0,0,.4);
+
+      &:hover {
+        color: rgba(0,0,0,1);
+      }
+
+      &.active {
+        color: rgba(0,0,0,1);
+        background-color: transparent;
+      }
+    }
+  }
+
+  .tab-item--sub {
+    display: flex;
+    flex-direction: column;
+
+    .img-thumbnail {
+      border: none;
+    }
+
+    &:nth-child(even) {
+      align-items: flex-start;
+      text-align: left;
+
+      .title {
+        @include setSize(1.2rem ,700);
+        color: #646464;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          width: 30%;
+          height: 1px;
+          border-bottom: 1px solid #e6e6e6;
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      align-items: flex-end;
+      text-align: right;
+
+      .title {
+        @include setSize(1.2rem ,700);
+        color: #646464;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          right: 0;
+          width: 30%;
+          height: 1px;
+          border-bottom: 1px solid #e6e6e6;
+        }
+      }
+    }
+
+    p {
+      font-size: .8rem;
+      color: #a0a0a0;
+    }
+  }
+}
+
+@media (min-width: 750px) {
+  .nav-item {
+    .nav-link {
+      font-size: 1.2rem!important;
+    }
+  }
+
+  .row_detail--custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tab-item--sub {
+    align-items: center!important;
+    flex-direction: row!important;
+
+    &:nth-child(odd) {
+      .tab_item--info{
+        p {
+          text-align: right;
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      .img-thumbnail {
+        order: 2;
+      }
+
+      .tab_item--info{
+        p {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .info--further {display: block}
+
+  .detail_product--hot {
+    h5 {
+      font-weight: 700;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .product--item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px dashed #e6e6e6;
+
+      .img-thumbnail {
+        border: none;
+      }
+
+      .product--info {
+        img {
+          display: block;
+        }
+
+        h6 {
+          @include setSize(1rem, 700);
+          color: rgba(0,0,0,.7);
+        }
+
+        span {
+          font: {
+            family: $font--lobster;
+            weight: 700;
+          }
+        }
+      }
+    }
+  }
+}

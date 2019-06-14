@@ -1,0 +1,27 @@
+.page_blog--content .img-thumbnail::after {
+  display: none;
+}
+
+.blog--show--item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+}
+
+@media (min-width: 750px) {
+  .blog--show--item {
+    -ms-grid-columns: auto auto;
+        grid-template-columns: auto auto;
+    grid-gap: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .blog--show--item {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+}
+/*# sourceMappingURL=blog.css.map */

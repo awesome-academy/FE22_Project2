@@ -1,0 +1,50 @@
+@import "../common/variable";
+@import "../common/mixin";
+
+.contact-us {
+  .img-thumbnail {
+    border: none;
+    border-radius: 0;
+  }
+
+  h3 {
+    color: #6b6b6b;
+  }
+
+  .form--contact {
+    @include setSize(.9rem, 700);
+
+    h6 {
+      color: #6b6b6b;
+      font-weight: 600;
+    }
+
+    form {
+      .form-group {
+        display: grid;
+        grid-template-columns: 15% 85%;
+
+        input {
+          border-radius: 0;
+
+          &#messages {
+            height: 7rem;
+          }
+        }
+      }
+
+      .wrap-button {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+          width: 5rem;
+          color: #FFFFFF;
+          background-color: black;
+          border-radius: 0;
+          border: none;
+        }
+      }
+    }
+  }
+}
