@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './component/App';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import 'bootstrap/dist/css/bootstrap.css';
 import './css/style.css';
+import './css/font-extention.css';
+
+require('dotenv').config();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
