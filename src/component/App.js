@@ -1,13 +1,17 @@
-import React from 'react';
-import Nav from './nav/Nav'
+import React, { Component } from 'react';
+import Nav from '../pages/home/navHome';
+import Banner from '../pages/home/banner'
+import Main from '../pages/home/main/main'
 
-
-function App() {
-  return (
-    <div >
-      <Nav></Nav>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div >
+        <Nav></Nav>
+        <Banner></Banner>
+        <Main></Main>
+      </div>
+    );
+  }
 }
-
 export default App;
