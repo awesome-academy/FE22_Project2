@@ -1,0 +1,29 @@
+.form--signup form {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #f2f2f2;
+}
+
+.form--signup form h5 {
+  font-weight: 700;
+}
+
+.form--signup form input {
+  border-radius: 0;
+}
+
+.form--signup form .button--sign-up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.form--signup form .button--sign-up .btn {
+  border-radius: 0;
+  background-color: #1a1a1a;
+  cursor: pointer;
+}
+/*# sourceMappingURL=sign-up.css.map */

@@ -23,8 +23,6 @@ export default class advance extends Component {
                     <div className="item--sub--2 pt-md-2 pt-sm-2"><a href="/"><img className="img-fluid" src={ImgItemMother4} alt="" /></a></div>
                 </div>
             </div>
-
-
         )
     }
 }

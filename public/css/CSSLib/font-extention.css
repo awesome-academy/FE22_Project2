@@ -1,0 +1,9 @@
+@font-face{
+    font-family:"utm-androgyne";
+    src: url('../../fonts/UTM-Androgyne.ttf') format("woff");
+}
+
+@font-face{
+    font-family:"myriapro";
+    src: url('../../fonts/MYRIADPRO-REGULAR.woff') format("woff");
+}

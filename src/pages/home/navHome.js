@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../../images/HOME/logo.png'
-import basket from '../../images/HOME/btn-search.png'
+import ImgSearch from '../../images/HOME/btn-search.png'
 import ImgShoppingCart  from '../../images/HOME/shoppoing-cart.png'
 
 
@@ -24,7 +24,7 @@ class navHome extends Component {
                                         <button className="text-uppercase btn btn-dark mb-3 mt-2">Giỏ hàng</button></a>
                                 </div>
                             </div>
-                        </div><a href="/"><img src={basket} alt="" /></a>
+                        </div><a href="/"><img src={ImgSearch} alt="" /></a>
                     </div>
                     {/* Toggler/collapsibe Button*/}
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="/collapsibleNavbar"><i className="fa fa-bars" /></button>
@@ -91,7 +91,7 @@ class navHome extends Component {
                     </div>
                     {/* Shopping cart and Search*/}
                     <div className="img--tool" id="manager--tool--2">
-                        <div className="cart dropdown pr-3 pr-md-1"><a className="mr-lg-3 show-amount-item" href="/"><img src="./images/HOME/shoppoing-cart.png" alt="" /><span className="badge badge-pill badge-success">0</span></a>
+                        <div className="cart dropdown pr-3 pr-md-1"><a className="mr-lg-3 show-amount-item" href="/"><img src={ImgShoppingCart} alt="" /><span className="badge badge-pill badge-success">0</span></a>
                             <div className="dropdown-menu w-100">
                                 <div className="cart_item">
                                     <div className="cart_item--sub" />
@@ -101,11 +101,10 @@ class navHome extends Component {
                                         <button className="text-uppercase btn btn-dark mb-3 mt-2">Giỏ hàng</button></a>
                                 </div>
                             </div>
-                        </div><a href="/"><img src="./images/HOME/btn-search.png" alt="" /></a>
+                        </div><a href="/"><img src={ImgSearch} alt="" /></a>
                     </div>
                 </div>
             </nav>
-
         );
     }
 }
