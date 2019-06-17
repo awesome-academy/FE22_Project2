@@ -1,36 +1,56 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ProductItem from "./ProductItem";
 
-import axios from 'axios';
+import { loadData } from '../../../redux/actions';
 
 class ProductList extends Component {
-    constructor() {
-        super();
-    }
-
-    showProducts() {
+    componentDidMount() {
         const url = process.env.REACT_APP_PRODUCTS;
-        axios.get(url)
-            .then(function (res) {
-                // handle success
-                console.log(res.data);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
+        const { data } = this.props;
+        fetch(url)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    data(result);
+                },
+                (error) => {
+
+                }
+            )
     }
 
     render() {
-        this.showProducts();
+        const { products } = this.props;
         return(
             <div className="product_list--item">
-                <ProductItem path="product_1.jpg"/>
-                <ProductItem path="product_2.jpg"/>
-                <ProductItem path="product_3.jpg"/>
+                {
+                    products.map((item, idx) => <ProductItem key={idx}
+                                                             id={item.id}
+                                                             productName={item.productName}
+                                                             decription={item.decription}
+                                                             price={item.price}
+                                                             productNameList={item.productNameList}
+                                                             decriptionList={item.decriptionList}
+                                                             path={item.image}/>)
+                }
             </div>
         );
     }
 }
 
-export default ProductList;
+function mapStateToProps(state) {
+    return {
+        products: state.products
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        data: (list) => {
+            dispatch(loadData(list));
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
