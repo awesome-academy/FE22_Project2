@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24a1261d-663f-4b27-b2cb-dfec64c361f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/CSSLib/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/CSSLib/font-extention.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/CSSLib/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/CSSLib/owl.carousel.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/CSSLib/owl.carousel.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/CSSLib/owl.theme.default.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/CSSLib/owl.theme.default.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/app/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/app/Layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/component/HotProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/component/HotProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/component/subComponent/ProductItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/component/subComponent/ProductItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/product/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/product/Product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/product/component/ListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/product/component/ProductPag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/product/component/ProductItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/product/component/ProductItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/product/component/ProductList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/product/component/ProductList.js" afterDir="false" />
-    </list>
+    <list default="true" id="24a1261d-663f-4b27-b2cb-dfec64c361f8" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -38,53 +15,58 @@
     <session id="962025544">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.19" value="2" />
           <entry key="project.open.time.25" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="9" />
+          <entry key="css" value="11" />
           <entry key="development" value="1" />
-          <entry key="env" value="6" />
+          <entry key="env" value="8" />
           <entry key="gitignore" value="5" />
-          <entry key="html" value="11" />
-          <entry key="js" value="133" />
-          <entry key="json" value="5" />
+          <entry key="html" value="12" />
+          <entry key="js" value="202" />
+          <entry key="json" value="7" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key=".env file" value="4" />
-          <entry key="CSS" value="9" />
-          <entry key="HTML" value="11" />
-          <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="133" />
+          <entry key=".env file" value="6" />
+          <entry key="CSS" value="11" />
+          <entry key="HTML" value="12" />
+          <entry key="JSON" value="7" />
+          <entry key="JavaScript" value="202" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="8" />
+          <entry key="css" value="25" />
           <entry key="env" value="117" />
           <entry key="gitignore" value="12" />
           <entry key="html" value="23" />
-          <entry key="js" value="3971" />
-          <entry key="json" value="54" />
+          <entry key="js" value="8862" />
+          <entry key="json" value="85" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="32" />
-          <entry key="CSS" value="8" />
+          <entry key="CSS" value="25" />
           <entry key="HTML" value="23" />
-          <entry key="JSON" value="54" />
-          <entry key="JavaScript" value="3971" />
+          <entry key="JSON" value="85" />
+          <entry key="JavaScript" value="8862" />
           <entry key="PLAIN_TEXT" value="97" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="ESLintLanguageService" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -104,6 +86,7 @@
       <find>a</find>
       <find>&lt;a</find>
       <find>manager--tool</find>
+      <find>owl-carousel</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -112,18 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pages/product/component/ProductCategories.js" />
-        <option value="$PROJECT_DIR$/src/pages/product/component/ProductCompare.js" />
-        <option value="$PROJECT_DIR$/src/pages/product/component/ProductTags.js" />
-        <option value="$PROJECT_DIR$/src/pages/product/component/ProductAdv.js" />
-        <option value="$PROJECT_DIR$/src/db.json" />
-        <option value="$PROJECT_DIR$/src/css/style.css" />
-        <option value="$PROJECT_DIR$/src/API.txt" />
-        <option value="$PROJECT_DIR$/src/component/App.js" />
-        <option value="$PROJECT_DIR$/src/component/common/Nav.js" />
-        <option value="$PROJECT_DIR$/src/component/common/nav/sub-component/Cart.js" />
-        <option value="$PROJECT_DIR$/src/component/common/nav/Nav.js" />
-        <option value="$PROJECT_DIR$/src/component/common/nav/sub-component/CartSm.js" />
         <option value="$PROJECT_DIR$/src/component/common/nav/sub-component/MenuBar.js" />
         <option value="$PROJECT_DIR$/src/component/common/nav/sub-component/NavItem.js" />
         <option value="$PROJECT_DIR$/src/pages/home/navHome.js" />
@@ -132,7 +103,6 @@
         <option value="$PROJECT_DIR$/src/pages/home/component/Banner.js" />
         <option value="$PROJECT_DIR$/src/pages/home/component/Delivery.js" />
         <option value="$PROJECT_DIR$/src/pages/home/component/ProductItem.js" />
-        <option value="$PROJECT_DIR$/src/pages/home/component/HotProduct.js" />
         <option value="$PROJECT_DIR$/src/pages/home/component/HotProductTitles.js" />
         <option value="$PROJECT_DIR$/src/pages/home/component/subComponent/HotProductTitles.js" />
         <option value="$PROJECT_DIR$/src/pages/home/component/Infofounder.js" />
@@ -154,15 +124,28 @@
         <option value="$PROJECT_DIR$/public/js/script.js" />
         <option value="$PROJECT_DIR$/src/pages/product/component/ListItem.js" />
         <option value="$PROJECT_DIR$/src/pages/product/component/ProductPag.js" />
-        <option value="$PROJECT_DIR$/src/pages/product/Product.js" />
-        <option value="$PROJECT_DIR$/src/pages/product/component/ProductItem.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/pages/home/Home.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/src/pages/product/component/ProductItem.js" />
+        <option value="$PROJECT_DIR$/src/redux/reducers.js" />
+        <option value="$PROJECT_DIR$/src/component/common/nav/sub-component/CartSm.js" />
+        <option value="$PROJECT_DIR$/src/pages/home/component/subComponent/ProductItem.js" />
+        <option value="$PROJECT_DIR$/src/css/style.css" />
+        <option value="$PROJECT_DIR$/src/component/common/nav/sub-component/CartItem.js" />
+        <option value="$PROJECT_DIR$/src/component/common/nav/sub-component/CartLg.js" />
+        <option value="$PROJECT_DIR$/src/redux/initReducers/products.js" />
+        <option value="$PROJECT_DIR$/src/redux/actions.js" />
+        <option value="$PROJECT_DIR$/src/pages/home/component/HotProduct.js" />
         <option value="$PROJECT_DIR$/src/pages/product/component/ProductList.js" />
+        <option value="$PROJECT_DIR$/db.json" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/src/pages/product/Product.js" />
         <option value="$PROJECT_DIR$/src/component/app/Layout.js" />
+        <option value="$PROJECT_DIR$/src/pages/shopping-cart/ShoppingCart.js" />
+        <option value="$PROJECT_DIR$/src/pages/shopping-cart/component/Cart.js" />
+        <option value="$PROJECT_DIR$/src/pages/shopping-cart/component/CartItem.js" />
       </list>
     </option>
   </component>
@@ -183,10 +166,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="45" />
+    <option name="x" value="73" />
     <option name="y" value="27" />
-    <option name="width" value="1270" />
-    <option name="height" value="722" />
+    <option name="width" value="1185" />
+    <option name="height" value="673" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -201,17 +184,6 @@
             <path>
               <item name="FE22_Project2-1" type="b2602c69:ProjectViewProjectNode" />
               <item name="FE22_Project2-1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FE22_Project2-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FE22_Project2-1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FE22_Project2-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FE22_Project2-1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -269,20 +241,21 @@
       <workItem from="1560484737211" duration="3855000" />
       <workItem from="1560573715202" duration="8856000" />
       <workItem from="1560651173209" duration="9722000" />
+      <workItem from="1560867763754" duration="4863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35985000" />
+    <option name="totallyTimeSpent" value="64855000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1325" height="743" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.24961598" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.24961598" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.2675367" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.2675367" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32952693" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
@@ -305,27 +278,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pages/product/component/ProductCompare.js" />
-    <entry file="file://$PROJECT_DIR$/src/pages/product/component/ProductAdv.js" />
-    <entry file="file://$PROJECT_DIR$/src/pages/product/component/ProductCategories.js" />
-    <entry file="file://$PROJECT_DIR$/src/pages/product/component/ProductTags.js" />
-    <entry file="file://$PROJECT_DIR$/src/db.json" />
-    <entry file="file://$PROJECT_DIR$/public/js/JSCommon/nav_cart.js" />
-    <entry file="file://$PROJECT_DIR$/src/component/common/Nav.js" />
-    <entry file="file://$PROJECT_DIR$/src/component/common/nav/sub-component/CartLg.js" />
-    <entry file="file://$PROJECT_DIR$/src/component/common/nav/sub-component/CartSm.js" />
-    <entry file="file://$PROJECT_DIR$/src/component/common/nav/sub-component/MenuBar.js" />
-    <entry file="file://$PROJECT_DIR$/src/component/common/nav/sub-component/NavItem.js" />
-    <entry file="file://$PROJECT_DIR$/src/component/common/nav/Nav.js" />
-    <entry file="file://$PROJECT_DIR$/src/pages/home/component/Banner.js" />
-    <entry file="file://$PROJECT_DIR$/src/pages/home/component/Delivery.js" />
     <entry file="file://$PROJECT_DIR$/src/pages/home/component/subComponent/HotProductTitles.js" />
     <entry file="file://$PROJECT_DIR$/public/js/JsPages/payment.js" />
     <entry file="file://$PROJECT_DIR$/public/js/JsPages/shopping-cart.js" />
     <entry file="file://$PROJECT_DIR$/src/pages/home/component/Infofounder.js" />
     <entry file="file://$PROJECT_DIR$/src/pages/home/component/subComponent/SendMail.js" />
     <entry file="file://$PROJECT_DIR$/src/pages/home/component/subComponent/Blog.js" />
-    <entry file="file://$PROJECT_DIR$/src/pages/home/component/NavHome.js" />
     <entry file="file://$PROJECT_DIR$/src/pages/home/component/subComponent/ProductTag.js" />
     <entry file="file://$PROJECT_DIR$/src/pages/home/component/subComponent/TagItem.js" />
     <entry file="file://$PROJECT_DIR$/src/pages/home/component/Advance.js" />
@@ -336,23 +294,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/common/footer/Footer.js" />
     <entry file="file://$PROJECT_DIR$/src/pages/product/component/ProductPag.js" />
-    <entry file="file://$PROJECT_DIR$/src/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="1496" column="28" lean-forward="true" selection-start-line="1496" selection-start-column="28" selection-end-line="1496" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css/font-extention.css" />
     <entry file="file://$PROJECT_DIR$/src/pages/home/component/subComponent/SocialNetwork.js" />
     <entry file="file://$PROJECT_DIR$/src/pages/home/component/InfoFurther.js" />
     <entry file="file://$PROJECT_DIR$/public/css/CSSLib/bootstrap.min.css" />
-    <entry file="file://$PROJECT_DIR$/src/pages/product/Product.js" />
-    <entry file="file://$PROJECT_DIR$/.env" />
     <entry file="file://$PROJECT_DIR$/src/redux/store.js" />
-    <entry file="file://$PROJECT_DIR$/src/redux/initReducers/products.js" />
-    <entry file="file://$PROJECT_DIR$/src/redux/actions.js" />
-    <entry file="file://$PROJECT_DIR$/src/redux/reducers.js" />
     <entry file="file://$PROJECT_DIR$/public/js/JSLib/jquery.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -361,30 +307,7 @@
         <state relative-caret-position="-309" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/CSSLib/owl.carousel.min.css" />
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/product/component/ProductList.js" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/home/Home.js" />
     <entry file="file://$PROJECT_DIR$/public/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -392,18 +315,213 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/product/component/ProductItem.js" />
-    <entry file="file://$PROJECT_DIR$/src/pages/home/component/subComponent/ProductItem.js" />
     <entry file="file://$PROJECT_DIR$/public/js/JsPages/detail.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/home/component/HotProduct.js" />
-    <entry file="file://$PROJECT_DIR$/src/App.js" />
-    <entry file="file://$PROJECT_DIR$/src/component/app/Layout.js" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="47" column="68" selection-start-line="47" selection-start-column="68" selection-end-line="47" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/component/NavHome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/common/nav/sub-component/NavItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/common/nav/sub-component/CartSm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="36" column="113" selection-start-line="36" selection-start-column="113" selection-end-line="36" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/component/subComponent/ProductItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="160" column="17" selection-start-line="160" selection-start-column="17" selection-end-line="160" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/common/nav/sub-component/CartItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="67" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/initReducers/products.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="27" selection-start-column="27" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="55" selection-start-column="55" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/reducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/component/HotProduct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/common/nav/sub-component/CartLg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="56" selection-start-line="1" selection-start-column="56" selection-end-line="1" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/common/nav/Nav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/component/app/Layout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="80" lean-forward="true" selection-start-line="1" selection-start-column="67" selection-end-line="1" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/shopping-cart/ShoppingCart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/product/Product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/product/component/ProductList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="51" column="54" selection-start-line="51" selection-start-column="54" selection-end-line="51" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/product/component/ProductItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="16" column="123" selection-start-line="16" selection-start-column="83" selection-end-line="16" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/shopping-cart/component/CartItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="92" selection-start-line="10" selection-start-column="92" selection-end-line="10" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/shopping-cart/component/Cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="61" lean-forward="true" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

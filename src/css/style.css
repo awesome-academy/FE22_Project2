@@ -157,6 +157,9 @@ body .img--tool .cart a:first-child::before {
   border-right: 5px solid transparent;
   display: none;
 }
+.cart-item--remove {
+  cursor: pointer;
+}
 body .img--tool .cart a:first-child:hover::before {
   display: block;
 }
