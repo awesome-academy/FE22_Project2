@@ -5,13 +5,13 @@ import imgReload from '../../../images/HOME/reload.png';
 
 class ProductItem extends Component{
     render() {
-        const { id,
-            productName,
+        const { productName,
             decription,
             price,
             path,
             productNameList,
-            decriptionList} = this.props;
+            decriptionList,
+            onClick} = this.props;
         return(
             <div className="item">
                 <div className="img-thumbnail"><img className="img-fluid p-4" src={require('../../../images/HOME/'+path+'')} alt="product 1" /></div>
@@ -21,7 +21,7 @@ class ProductItem extends Component{
                         <h3 className="mb-4">{decription}</h3>
                         <div className="product--price mb-3"><span>{price}.000<sup>đ</sup></span></div>
                         <div className="product--btn--buy pb-3">
-                            <button className="btn btn-custom btn--buy" value={id}>Mua hàng</button>
+                            <button className="btn btn-custom btn--buy" onClick={onClick}>Mua hàng</button>
                             <button className="btn btn-custom ml-1"><img src={imgHeart} alt="heart" /></button>
                             <button className="btn btn-custom ml-1"><img src={imgReload} alt="reload" /></button>
                         </div>
@@ -34,7 +34,7 @@ class ProductItem extends Component{
                             </p>
                             <div className="product--price mb-3"><span>{price}.000<sup>đ</sup></span></div>
                             <div className="product--btn--buy pb-3">
-                                <button className="btn btn-custom btn--buy" value={id}>Mua hàng</button>
+                                <button className="btn btn-custom btn--buy" onClick={onClick}>Mua hàng</button>
                                 <button className="btn btn-custom ml-1"><img src={imgHeart} alt="heart" /></button>
                                 <button className="btn btn-custom ml-1"><img src={imgReload} alt="reload" /></button>
                             </div>

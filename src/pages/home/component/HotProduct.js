@@ -3,10 +3,15 @@ import { connect } from 'react-redux';
 
 import ProductItem from "./subComponent/ProductItem";
 import HotProductTitles from "./subComponent/HotProductTitles";
-import { loadData } from "../../../redux/actions";
+import {clickAddItem, loadData} from "../../../redux/actions";
 import OwlCarousel from 'react-owl-carousel2';
 
 class HotProduct extends Component {
+    constructor(props) {
+        super(props);
+        this.onClickAdd = this.onClickAdd.bind(this);
+    }
+
     componentDidMount() {
         const url = process.env.REACT_APP_PRODUCTS;
         const { data } = this.props;
@@ -20,6 +25,25 @@ class HotProduct extends Component {
 
                 }
             )
+    }
+
+    onClickAdd(item) {
+        return (event) => {
+            let countObject = JSON.parse(localStorage.getItem('id-item--cart'));
+
+            if (!countObject) { // First Array Check Count Init
+                countObject = [];
+                countObject.push({id: item.id, count: 1})
+            }
+            else { // Array Check Count exist
+                let idx = countObject.findIndex(obj => obj.id === item.id); // Get index of element in Array Check Count
+                if (idx > -1) // Found element in Array Check Count
+                    countObject[idx].count += 1;
+                else // Don't Found element in Array Check Count
+                    countObject.push({id: item.id, count: 1})
+            }
+            localStorage.setItem('id-item--cart', JSON.stringify(countObject)); // Set LocalStorage for Array Check Count
+        }
     }
 
     render() {
@@ -55,32 +79,9 @@ class HotProduct extends Component {
                         products.map((item,idx) => <ProductItem key={idx}
                                                                 path={item.image}
                                                                 price={item.price}
-                                                                discount={item.discount}/>)
+                                                                discount={item.discount}
+                                                                onClick={this.onClickAdd(item)}/>)
                     }
-                    {/*<ProductItem key={0}*/}
-                                 {/*path="product_1.jpg"*/}
-                                 {/*price="100"*/}
-                                 {/*discount="0"/>*/}
-                    {/*<ProductItem key={1}*/}
-                                 {/*path="product_1.jpg"*/}
-                                 {/*price="100"*/}
-                                 {/*discount="0"/>*/}
-                    {/*<ProductItem key={2}*/}
-                                 {/*path="product_1.jpg"*/}
-                                 {/*price="100"*/}
-                                 {/*discount="0"/>*/}
-                    {/*<ProductItem key={3}*/}
-                                 {/*path="product_1.jpg"*/}
-                                 {/*price="100"*/}
-                                 {/*discount="0"/>*/}
-                    {/*<ProductItem key={4}*/}
-                                 {/*path="product_2.jpg"*/}
-                                 {/*price="100"*/}
-                                 {/*discount="0"/>*/}
-                    {/*<ProductItem key={5}*/}
-                                 {/*path="product_2.jpg"*/}
-                                 {/*price="100"*/}
-                                 {/*discount="0"/>*/}
                 </OwlCarousel>
 
             </div>

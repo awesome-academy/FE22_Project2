@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Home from "../../pages/home/Home";
-import Product from "../../pages/product/Product";
+import ShoppingCart from "../../pages/shopping-cart/ShoppingCart";
 
 class Layout extends Component {
     render() {
         return (
             <div className="layout--app">
-                <Home/>
+                <ShoppingCart/>
             </div>
         );
     }
