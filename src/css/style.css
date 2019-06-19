@@ -211,6 +211,21 @@ body .img--tool .cart button {
   border-radius: 0;
   font-size: .8rem;
 }
+body .account {
+  color: #000;
+  font-family: "Lobster", cursive;
+  font-size: 1rem;
+}
+body .signin--socialnetwork .btn {
+  color: #fff;
+  text-align: left;
+}
+body .signin--socialnetwork .btn:first-child {
+  background-color: rgb(59, 89, 152);
+}
+body .signin--socialnetwork .btn:nth-child(2) {
+  background-color: rgb(223, 74, 50);
+}
 @media (max-width: 750px) {
   body .img--tool .cart .dropdown-menu {
     left: 0 !important;
