@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ImgSearch from '../../../../images/HOME/btn-search.png';
 import ImgShoppingCart from "../../../../images/HOME/shoppoing-cart.png";
 import CartItem from "./CartItem";
-import {addItemSelected, loadData} from "../../../../redux/actions";
+import { addItemSelected } from "../../../../redux/actions";
 
 class CartLg extends Component {
     constructor(props) {
@@ -30,7 +30,6 @@ class CartLg extends Component {
         let sum = 0;
         let total = 0;
         let arr = productSelected;
-        if (!arr) arr = [];
         for (var it of arr) {
             sum += it.count;
             total += (it.count*it.price);

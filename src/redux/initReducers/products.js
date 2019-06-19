@@ -16,6 +16,7 @@ export const products = (state = [], action) => {
 export const productSelected = (state = itemSelected, action) => {
     switch (action.type) {
         case UPDATE_ITEMS_SELECTED: {
+            if (!action.item || !state) return [];
             state = [...action.item];
             return state;
         }

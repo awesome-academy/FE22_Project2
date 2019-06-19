@@ -1,6 +1,151 @@
 {
-  "products": [{"id":"1","productName":"OHUI","price":355,"image":"product_1.jpg","decription":"Mỹ phẩm châu Âu","IdCategory":1,"productNameList":"Mỹ phẩm châu âu thương hiệu hàng đầu thế giới","decriptionList":"Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà","discount":56},{"id":"2","productName":"OHUI","price":355,"image":"product_2.jpg","decription":"Mỹ phẩm châu Âu","IdCategory":1,"productNameList":"Mỹ phẩm châu âu thương hiệu hàng đầu thế giới","decriptionList":"Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà","discount":16},{"id":"3","productName":"HOME","price":355,"image":"product_3.jpg","decription":"Mỹ phẩm châu Âu","IdCategory":2,"productNameList":"Mỹ phẩm châu âu thương hiệu hàng đầu thế giới","decriptionList":"Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà","discount":16},{"id":"4","productName":"DEBORA","price":355,"image":"product_4.jpg","decription":"Mỹ phẩm châu Âu","IdCategory":2,"productNameList":"Mỹ phẩm châu âu thương hiệu hàng đầu thế giới","decriptionList":"Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà","discount":58},{"id":"5","productName":"SARVON","price":355,"image":"product_5.jpg","decription":"Mỹ phẩm châu Âu","IdCategory":3,"productNameList":"Mỹ phẩm châu âu thương hiệu hàng đầu thế giới","decriptionList":"Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà","discount":4},{"id":"6","productName":"TYFFANY","price":355,"image":"product_6.jpg","decription":"Mỹ phẩm châu Âu","IdCategory":3,"productNameList":"Mỹ phẩm châu âu thương hiệu hàng đầu thế giới","decriptionList":"Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà","discount":76},{"id":"7","productName":"SARVON","price":355,"image":"product_5.jpg","decription":"Mỹ phẩm châu Âu","IdCategory":3,"productNameList":"Mỹ phẩm châu âu thương hiệu hàng đầu thế giới","decriptionList":"Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà","discount":91}],
-  "categories": [{"id":"1","nameCategory":"Mỹ phẩm"},{"id":"2","nameCategory":"Trang sức"},{"id":"3","nameCategory":"Phụ kiện"},{"id":"4","nameCategory":"Chăm sóc"},{"id":"5","nameCategory":"Quà Tặng"},{"id":"6","nameCategory":"Nước Hoa"}],
-  "users": [{"id": 1, "firstName": "Tran", "lastName": "Duy", "email": "duyquang130@gmail.com", "password": "1234", "role": "1"}],
-  "roles": [{"id": 1, "nameRole": "admin"}]
+  "products": [
+    {
+      "id": "1",
+      "productName": "OHUI",
+      "price": 355,
+      "image": "product_1.jpg",
+      "decription": "Mỹ phẩm châu Âu",
+      "IdCategory": 1,
+      "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+      "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+      "discount": 56
+    },
+    {
+      "id": "2",
+      "productName": "OHUI",
+      "price": 355,
+      "image": "product_2.jpg",
+      "decription": "Mỹ phẩm châu Âu",
+      "IdCategory": 1,
+      "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+      "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+      "discount": 16
+    },
+    {
+      "id": "3",
+      "productName": "HOME",
+      "price": 355,
+      "image": "product_3.jpg",
+      "decription": "Mỹ phẩm châu Âu",
+      "IdCategory": 2,
+      "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+      "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+      "discount": 16
+    },
+    {
+      "id": "4",
+      "productName": "DEBORA",
+      "price": 355,
+      "image": "product_4.jpg",
+      "decription": "Mỹ phẩm châu Âu",
+      "IdCategory": 2,
+      "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+      "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+      "discount": 58
+    },
+    {
+      "id": "5",
+      "productName": "PERFUME",
+      "price": 355,
+      "image": "product_5.jpg",
+      "decription": "Mỹ phẩm châu Âu",
+      "IdCategory": 3,
+      "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+      "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+      "discount": 4
+    },
+    {
+      "id": "6",
+      "productName": "TYFFANY",
+      "price": 355,
+      "image": "product_6.jpg",
+      "decription": "Mỹ phẩm châu Âu",
+      "IdCategory": 3,
+      "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+      "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+      "discount": 76
+    },
+    {
+      "id": "7",
+      "productName": "SARVON",
+      "price": 355,
+      "image": "product_5.jpg",
+      "decription": "Mỹ phẩm châu Âu",
+      "IdCategory": 3,
+      "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+      "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+      "discount": 91
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "nameCategory": "Mỹ phẩm"
+    },
+    {
+      "id": "2",
+      "nameCategory": "Trang sức"
+    },
+    {
+      "id": "3",
+      "nameCategory": "Phụ kiện"
+    },
+    {
+      "id": "4",
+      "nameCategory": "Chăm sóc"
+    },
+    {
+      "id": "5",
+      "nameCategory": "Quà Tặng"
+    },
+    {
+      "id": "6",
+      "nameCategory": "Nước Hoa"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Tran",
+      "lastName": "Duy",
+      "email": "duyquang130@gmail.com",
+      "password": "1234",
+      "role": "1"
+    },
+    {
+      "id": 2,
+      "firstName": "Tran",
+      "lastName": "Duy",
+      "email": "abc@gmail.com",
+      "password": "1234",
+      "role": 2
+    },
+    {
+      "id": 3,
+      "firstName": "Tran",
+      "lastName": "Duy",
+      "email": "1234@gmail.com",
+      "password": "1234",
+      "role": 2
+    },
+    {
+      "id": 4,
+      "firstName": "Tran",
+      "lastName": "Duy",
+      "email": "asd@gmail.com",
+      "password": "1234",
+      "role": 2
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "nameRole": "admin"
+    },
+    {
+      "id": 2,
+      "nameRole": "user"
+    }
+  ]
 }

@@ -1289,8 +1289,8 @@ body .table-bordered td {
   font-weight: 600;
   vertical-align: middle;
 }
-body .table-bordered td .table--item > input {
-  width: 30px;
+body .table-bordered td:nth-child(4) {
+  width: 10%;
 }
 body .table-bordered td:nth-child(3), body .table-bordered td:nth-child(5) {
   font-family: "Lobster", cursive;
