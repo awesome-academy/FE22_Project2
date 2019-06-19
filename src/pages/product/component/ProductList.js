@@ -2,27 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProductItem from "./ProductItem";
 
-import { loadData, addItemSelected } from '../../../redux/actions';
+import { addItemSelected } from '../../../redux/actions';
 
 class ProductList extends Component {
     constructor(props) {
         super(props);
         this.onClickAdd = this.onClickAdd.bind(this);
-    }
-
-    componentDidMount() {
-        const url = process.env.REACT_APP_PRODUCTS;
-        const { data } = this.props;
-        fetch(url)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    data(result);
-                },
-                (error) => {
-
-                }
-            )
     }
 
     onClickAdd(item) {
@@ -74,9 +59,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        data: (list) => {
-            dispatch(loadData(list));
-        },
         add: (item) => {
             dispatch(addItemSelected(item));
         }

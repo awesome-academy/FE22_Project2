@@ -29,7 +29,9 @@ class CartLg extends Component {
         const { productSelected } = this.props;
         let sum = 0;
         let total = 0;
-        for (var it of productSelected) {
+        let arr = productSelected;
+        if (!arr) arr = [];
+        for (var it of arr) {
             sum += it.count;
             total += (it.count*it.price);
         }
@@ -43,7 +45,7 @@ class CartLg extends Component {
                         <div className="cart_item">
                             <div className="cart_item--sub">
                                 {
-                                    productSelected.map((item, idx) => <CartItem key={idx}
+                                    arr.map((item, idx) => <CartItem key={idx}
                                                                       count={item.count}
                                                                       path={item.image}
                                                                       price={item.price}

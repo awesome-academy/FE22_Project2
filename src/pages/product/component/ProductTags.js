@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
+import connect from "react-redux/es/connect/connect";
+import TagItem from "../../home/component/subComponent/TagItem";
 
 class ProductTags extends Component {
     render() {
+        const { categories } = this.props;
         return (
             <div className="product--tag mt-5">
                 <h5 className="text-uppercase product--title pb-3">Tag sản phẩm</h5>
                 <div className="product_item--tag mt-5">
-                    <h5><span className="badge badge-secondary p-2 mb-2 ml-2">Hoa tai</span></h5>
-                    <h5><span className="badge badge-secondary p-2 mb-2 ml-2">Son</span></h5>
-                    <h5><span className="badge badge-secondary p-2 mb-2 ml-2">Nước hoa</span></h5>
-                    <h5><span className="badge badge-secondary p-2 mb-2 ml-2">Giày</span></h5>
-                    <h5><span className="badge badge-secondary p-2 mb-2 ml-2">Sandal</span></h5>
-                    <h5><span className="badge badge-secondary p-2 mb-2 ml-2">Áo sơ mi</span></h5>
-                    <h5><span className="badge badge-secondary p-2 mb-2 ml-2">Nước hoa</span></h5>
-                    <h5><span className="badge badge-secondary p-2 mb-2 ml-2">Trẻ em</span></h5>
-                    <h5><span className="badge badge-secondary p-2 mb-2 ml-2">Thời trang nữ</span></h5>
+                    {
+                        categories.map((item, idx) => <TagItem key={idx} nameTag={item.nameCategory} />)
+                    }
                 </div>
             </div>
         );
     }
+}function mapStateToProps(state) {
+    return {
+        categories: state.categories
+    }
 }
 
-export default ProductTags;
+export default connect(mapStateToProps)(ProductTags);

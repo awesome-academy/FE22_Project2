@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 
 import imgLine from '../../../../images/HOME/line.png';
+import connect from "react-redux/es/connect/connect";
 
 class HotProductTitles extends Component {
     render() {
+        const { categories } = this.props;
         return (
             <section className="product--hot pt-4 pb-4">
                 <div className="info--select text-md-center">
@@ -16,16 +18,18 @@ class HotProductTitles extends Component {
                 <div className="product--choice mt-3">
                     <div className="product_item--choice--1">
                         <ul className="tag-product">
-                            <li><a href="#">Mỹ phẩm</a></li>
-                            <li><a href="#">Chăm sóc da</a></li>
-                            <li><a href="#">Dành cho tóc</a></li>
+                            {
+                                categories.slice(0, 3).map((item, idx) =>
+                                    <li><a key={idx} href="#">{item.nameCategory}</a></li>)
+                            }
                         </ul>
                     </div>
                     <div className="product_item--choice--1 pl-md-3">
                         <ul className="tag-product">
-                            <li><a href="#">Nước Hoa</a></li>
-                            <li><a href="#">Trang sức</a></li>
-                            <li className="mr-sm-5" id="last-child"><a href="#">Quà tặng</a></li>
+                            {
+                                categories.slice(3, categories.length).map((item, idx) =>
+                                    <li><a key={idx} href="#">{item.nameCategory}</a></li>)
+                            }
                         </ul>
                     </div>
                 </div>
@@ -34,4 +38,10 @@ class HotProductTitles extends Component {
     }
 }
 
-export default HotProductTitles;
+function mapStateToProps(state) {
+    return {
+        categories: state.categories
+    }
+}
+
+export default connect(mapStateToProps)(HotProductTitles);
