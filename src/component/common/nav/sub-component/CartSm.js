@@ -3,32 +3,32 @@ import ImgShoppingCart from "../../../../images/HOME/shoppoing-cart.png";
 import ImgSearch from "../../../../images/HOME/btn-search.png";
 import connect from "react-redux/es/connect/connect";
 import CartItem from "./CartItem";
+import {addItemSelected} from "../../../../redux/actions";
 
 class CartSm extends Component {
-    loadData() {
-        const { products } = this.props;
-        let arrItemCart = JSON.parse(localStorage.getItem("id-item--cart"));
-        let data = [];
-        if (!arrItemCart) arrItemCart = [];
+    constructor(props) {
+        super(props);
+        this.onRemove = this.onRemove.bind(this);
+    }
 
-        if (arrItemCart) {
-            for (var idx of arrItemCart) {
-                for (var item of products) {
-                    if (parseInt(idx.id) === parseInt(item.id)) {
-                        item = {...item, count: idx.count};
-                        data.push(item);
-                    }
-                }
-            }
+    onRemove(item) {
+        return (event) => {
+            const { productSelected, add } = this.props;
+            let arrItemRemove = productSelected;
+
+            let idx = arrItemRemove.findIndex(obj => obj.id === item.id);
+            arrItemRemove.splice(idx, 1);
+
+            localStorage.setItem("id-item--cart", JSON.stringify(arrItemRemove));
+            add(arrItemRemove);
         }
-        return data;
     }
 
     render() {
-        const list = this.loadData();
+        const { productSelected } = this.props;
         let sum = 0;
-        for (var l of list) {
-            sum+=l.count;
+        for (var it of productSelected) {
+            sum += it.count;
         }
         return (
             <div className="img--tool" id="manager--tool--1">
@@ -40,11 +40,12 @@ class CartSm extends Component {
                         <div className="cart_item">
                             <div className="cart_item--sub">
                                 {
-                                    list.map((item, idx) => <CartItem key={idx}
+                                    productSelected.map((item, idx) => <CartItem key={idx}
                                                                       count={item.count}
                                                                       path={item.image}
                                                                       price={item.price}
-                                                                      productName={item.productName}/>)
+                                                                      productName={item.productName}
+                                                                                 onClick={this.onRemove(item)}/>)
                                 }
                             </div>
                             <hr />
@@ -58,10 +59,19 @@ class CartSm extends Component {
         );
     }
 }
+
 function mapStateToProps(state) {
     return {
-        products: state.products
+        products: state.products,
+        productSelected: state.productSelected
     }
 }
 
-export default connect(mapStateToProps)(CartSm);
+function mapDispatchToProps(dispatch) {
+    return {
+        add: (item) => {
+            dispatch(addItemSelected(item));
+        }
+    };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CartSm);

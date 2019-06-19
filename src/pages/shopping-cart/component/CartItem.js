@@ -3,8 +3,17 @@ import React, { Component } from 'react';
 import imgRemove from '../../../images/Shopping-cart/remove--icon.png';
 
 class CartItem extends Component{
+    constructor(props) {
+        super(props);
+        this.onChange = this.onChange.bind(this);
+    }
+
+    onChange(event) {
+
+    }
+
     render() {
-        const { path, name, price, count } = this.props;
+        const { path, name, price, count, onClick } = this.props;
         return(
             <tr>
                 <td className="text-center">
@@ -18,7 +27,7 @@ class CartItem extends Component{
                 </td>
                 <td className="text-center">
                     <div className="table--item">
-                        <input className="input--value" type="number" value={count}/>
+                        <input className="input--value" type="number" value={count} onChange={this.onChange}/>
                     </div>
                 </td>
                 <td className="text-center">
@@ -26,7 +35,7 @@ class CartItem extends Component{
                 </td>
                 <td>
                     <div className="table--item text-center">
-                        <img className="item_icon--remove" src={imgRemove} alt="remove-icon"/>
+                        <img className="item_icon--remove" src={imgRemove} onClick={onClick} alt="remove-icon"/>
                     </div>
                 </td>
             </tr>

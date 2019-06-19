@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProductItem from "./ProductItem";
 
-import { loadData, clickAddItem } from '../../../redux/actions';
+import { loadData, addItemSelected } from '../../../redux/actions';
 
 class ProductList extends Component {
     constructor(props) {
@@ -27,20 +27,22 @@ class ProductList extends Component {
 
     onClickAdd(item) {
         return (event) => {
-            let countObject = JSON.parse(localStorage.getItem('id-item--cart'));
+            const { productSelected, add } = this.props;
+            let countObject = productSelected;
 
             if (!countObject) { // First Array Check Count Init
                 countObject = [];
-                countObject.push({id: item.id, count: 1})
+                countObject.push({...item, count: 1})
             }
             else { // Array Check Count exist
                 let idx = countObject.findIndex(obj => obj.id === item.id); // Get index of element in Array Check Count
                 if (idx > -1) // Found element in Array Check Count
                     countObject[idx].count += 1;
                 else // Don't Found element in Array Check Count
-                    countObject.push({id: item.id, count: 1})
+                    countObject.push({...item, count: 1})
             }
             localStorage.setItem('id-item--cart', JSON.stringify(countObject)); // Set LocalStorage for Array Check Count
+            add(countObject);
         }
     }
 
@@ -65,7 +67,8 @@ class ProductList extends Component {
 
 function mapStateToProps(state) {
     return {
-        products: state.products
+        products: state.products,
+        productSelected: state.productSelected
     }
 }
 
@@ -73,6 +76,9 @@ function mapDispatchToProps(dispatch) {
     return {
         data: (list) => {
             dispatch(loadData(list));
+        },
+        add: (item) => {
+            dispatch(addItemSelected(item));
         }
     };
 }

@@ -1,9 +1,23 @@
-import { LOAD_DATA_PRODUCTS } from '../actions'
+import { LOAD_DATA_PRODUCTS, UPDATE_ITEMS_SELECTED } from '../actions';
+
+const itemSelected = JSON.parse(localStorage.getItem('id-item--cart'));
 
 export const products = (state = [], action) => {
     switch (action.type) {
         case LOAD_DATA_PRODUCTS: {
-            return action.list;
+            state = [...action.list];
+            return state;
+        }
+        default:
+            return state;
+    }
+};
+
+export const productSelected = (state = itemSelected, action) => {
+    switch (action.type) {
+        case UPDATE_ITEMS_SELECTED: {
+            state = [...action.item];
+            return state;
         }
         default:
             return state;

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import ShoppingCart from "../../pages/shopping-cart/ShoppingCart";
+import Product from "../../pages/product/Product";
+import SignIn from "../../pages/sign-in/SignIn";
+import SignUp from "../../pages/sign-up/SignUp";
 
 class Layout extends Component {
     render() {
         return (
             <div className="layout--app">
-                <ShoppingCart/>
+                <SignUp/>
             </div>
         );
     }
