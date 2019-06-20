@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 import imgLine from '../../../../images/HOME/line.png';
 import connect from "react-redux/es/connect/connect";
@@ -20,7 +21,7 @@ class HotProductTitles extends Component {
                         <ul className="tag-product">
                             {
                                 categories.slice(0, 3).map((item, idx) =>
-                                    <li><a key={idx} href="#">{item.nameCategory}</a></li>)
+                                    <li key={idx}><Link to="/">{item.nameCategory}</Link></li>)
                             }
                         </ul>
                     </div>
@@ -28,7 +29,7 @@ class HotProductTitles extends Component {
                         <ul className="tag-product">
                             {
                                 categories.slice(3, categories.length).map((item, idx) =>
-                                    <li><a key={idx} href="#">{item.nameCategory}</a></li>)
+                                    <li key={idx}><Link to="/">{item.nameCategory}</Link ></li>)
                             }
                         </ul>
                     </div>

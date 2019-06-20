@@ -6,7 +6,7 @@ import { users } from './initReducers/users';
 
 export const app = combineReducers({
     products,
+    productSelected,
     categories,
-    users,
-    productSelected
+    users
 });

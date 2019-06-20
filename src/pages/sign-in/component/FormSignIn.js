@@ -28,7 +28,11 @@ class FormSignIn extends Component{
         if (idxEmail <= -1) alert("Email không tồn tại !!");
         else {
             if (idxPass <= -1) alert("Mật khẩu không đúng !!!");
-            else alert("Đăng nhập thành công !!!");
+            else {
+                const user = users.find((us) => us.email === email);
+                alert("Đăng nhập thành công !!!");
+                localStorage.setItem("logon", JSON.stringify({id: user.id, check: true}));
+            }
         }
     }
 
@@ -54,7 +58,7 @@ class FormSignIn extends Component{
                     <h3 className="text-uppercase">Đăng Nhập</h3>
                     <button className="btn btn-dark btn_sign-in text-uppercase">Đăng ký</button>
                 </div>
-                <form className="mt-4 p-5">
+                <form className="mt-4 p-5" method="get" action="/">
                     <h5 className="text-uppercase mb-3">Khách hàng Đăng ký</h5><span>Nếu bạn có một tài khoản, xin vui lòng đăng nhập</span>
                     <div className="row">
                         <div className="col-lg-6">

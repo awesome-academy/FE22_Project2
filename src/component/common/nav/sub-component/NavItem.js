@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
+
 import ImgLogo from "../../../../images/HOME/logo.png";
 import CartLg from "./CartLg";
 import CartSm from "./CartSm";
 import MenuBar from "./MenuBar";
 
-export default class NavItem extends Component {
+class NavItem extends Component {
     render() {
         return (
             <div className="container">
-                <a className="navbar-brand" href="#"><img src={ImgLogo} alt=""/></a>
+                <Link className="navbar-brand" to="/"><img src={ImgLogo} alt=""/></Link>
                 <CartSm/>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"><i className="fa fa-bars" /></button>
@@ -20,3 +22,5 @@ export default class NavItem extends Component {
         );
     }
 }
+
+export default NavItem;

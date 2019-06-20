@@ -25,7 +25,7 @@ class Cart extends Component {
     render() {
         const { productSelected } = this.props;
         return(
-            <div className="table--cart">
+            <div className="table--cart ml-3">
                 <h3 className="text-uppercase mt-3 mb-3">Giỏ hàng</h3>
                 <div className="cart--table mb-5">
                     <table className="table table-bordered table-responsive-sm">

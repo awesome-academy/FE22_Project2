@@ -1,63 +1,64 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class MenuBar extends Component {
     render() {
         return (
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav m-auto">
-                    <li className="nav-item"><a className="nav-link text-uppercase" href="#">TRANG CHỦ</a></li>
-                    <li className="nav-item"><a className="nav-link text-uppercase" href="#">GIỚI THIỆU</a></li>
-                    <li className="nav-item dropdown"><a className="nav-link text-uppercase" href="#">Sản phẩm</a>
+                    <li className="nav-item"><Link className="nav-link text-uppercase" to="/">TRANG CHỦ</Link></li>
+                    <li className="nav-item"><Link className="nav-link text-uppercase" to="/about">GIỚI THIỆU</Link></li>
+                    <li className="nav-item dropdown"><Link className="nav-link text-uppercase" to="/products">Sản phẩm</Link>
                         <div className="dropdown-menu">
                             <div className="menu_item">
                                 <div className="menu_item--sub">
                                     <h6 className="text-dark text-uppercase">Dưỡng Da</h6>
                                     <hr />
                                     <ul className="pl-0">
-                                        <li><a href="#">Áo khoác</a></li>
-                                        <li><a href="#">Bộ áo liền quần</a></li>
-                                        <li><a href="#">Dresses</a></li>
-                                        <li><a href="#">Quần /Váy</a></li>
-                                        <li><a href="#">Quần short</a></li>
-                                        <li><a href="#">Quần jean</a></li>
-                                        <li><a href="#">Đồ đan</a></li>
-                                        <li><a href="#">Áo nỉ</a></li>
+                                        <li><Link to="/products">Áo khoác</Link></li>
+                                        <li><Link to="/products">Bộ áo liền quần</Link></li>
+                                        <li><Link to="/products">Dresses</Link></li>
+                                        <li><Link to="/products">Quần /Váy</Link></li>
+                                        <li><Link to="/products">Quần short</Link></li>
+                                        <li><Link to="/products">Quần jean</Link></li>
+                                        <li><Link to="/products">Đồ đan</Link></li>
+                                        <li><Link to="/products">Áo nỉ</Link></li>
                                     </ul>
                                 </div>
                                 <div className="menu_item--sub">
                                     <h6 className="text-dark text-uppercase">Nước Hoa</h6>
                                     <hr />
                                     <ul className="pl-0">
-                                        <li><a href="#">Áo cánh /Áo sơ mi</a></li>
-                                        <li><a href="#">Túi sách &amp; Balô</a></li>
-                                        <li><a href="#">Khăn quàng cổ và Foulards</a></li>
-                                        <li><a href="#">Dệt kim Hats &amp; Gloves</a></li>
-                                        <li><a href="#">Vớ và Socks</a></li>
-                                        <li><a href="#">Jewerly</a></li>
-                                        <li><a href="#">Bị bảo vệ</a></li>
-                                        <li><a href="#">Gày</a></li>
+                                        <li><Link to="/products">Áo cánh /Áo sơ mi</Link></li>
+                                        <li><Link to="/products">Túi sách &amp; Balô</Link></li>
+                                        <li><Link to="/products">Khăn quàng cổ và Foulards</Link></li>
+                                        <li><Link to="/products">Dệt kim Hats &amp; Gloves</Link></li>
+                                        <li><Link to="/products">Vớ và Socks</Link></li>
+                                        <li><Link to="/products">Jewerly</Link></li>
+                                        <li><Link to="/products">Bị bảo vệ</Link></li>
+                                        <li><Link to="/products">Gày</Link></li>
                                     </ul>
                                 </div>
                                 <div className="menu_item--sub">
                                     <h6 className="text-dark text-uppercase">Trang sức</h6>
                                     <hr />
                                     <ul className="pl-0">
-                                        <li><a href="#">Áo cánh /Áo sơ mi</a></li>
-                                        <li><a href="#">Túi sách &amp; Balô</a></li>
-                                        <li><a href="#">Khăn quàng cổ và Foulards</a></li>
-                                        <li><a href="#">Dệt kim Hats &amp; Gloves</a></li>
-                                        <li><a href="#">Vớ và Socks</a></li>
-                                        <li><a href="#">Jewerly</a></li>
-                                        <li><a href="#">Bị bảo vệ</a></li>
-                                        <li><a href="#">Gày</a></li>
+                                        <li><Link to="/products">Áo cánh /Áo sơ mi</Link></li>
+                                        <li><Link to="/products">Túi sách &amp; Balô</Link></li>
+                                        <li><Link to="/products">Khăn quàng cổ và Foulards</Link></li>
+                                        <li><Link to="/products">Dệt kim Hats &amp; Gloves</Link></li>
+                                        <li><Link to="/products">Vớ và Socks</Link></li>
+                                        <li><Link to="/products">Jewerly</Link></li>
+                                        <li><Link to="/products">Bị bảo vệ</Link></li>
+                                        <li><Link to="/products">Gày</Link></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li className="nav-item"><a className="nav-link text-uppercase" href="#">tin tức</a></li>
-                    <li className="nav-item"><a className="nav-link text-uppercase" href="#">bản đồ</a></li>
-                    <li className="nav-item"><a className="nav-link text-uppercase" href="#">liên hệ</a></li>
+                    <li className="nav-item"><Link className="nav-link text-uppercase" to="/news">tin tức</Link></li>
+                    <li className="nav-item"><Link className="nav-link text-uppercase" to="/map">bản đồ</Link></li>
+                    <li className="nav-item"><Link className="nav-link text-uppercase" to="/contact">liên hệ</Link></li>
                 </ul>
             </div>
         );
