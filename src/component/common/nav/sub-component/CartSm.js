@@ -27,34 +27,41 @@ class CartSm extends Component {
     render() {
         const { productSelected } = this.props;
         let sum = 0;
-        for (var it of productSelected) {
+        let total = 0;
+        let arr = productSelected;
+        if (!arr) arr = [];
+        for (var it of arr) {
             sum += it.count;
+            total += (it.count*it.price);
         }
         return (
             <div className="img--tool" id="manager--tool--1">
                 <div className="cart dropdown pr-3 pr-md-1">
                     <a className="mr-lg-3 show-amount-item" href="#">
-                        <img src={ImgShoppingCart} alt=""/><span className="badge badge-pill badge-success">{sum}</span>
+                        <img src={ImgShoppingCart} alt="" /><span className="badge badge-pill badge-success">{sum}</span>
                     </a>
                     <div className="dropdown-menu w-100">
                         <div className="cart_item">
                             <div className="cart_item--sub">
                                 {
-                                    productSelected.map((item, idx) => <CartItem key={idx}
-                                                                      count={item.count}
-                                                                      path={item.image}
-                                                                      price={item.price}
-                                                                      productName={item.productName}
+                                    arr.map((item, idx) => <CartItem key={idx}
+                                                                                 count={item.count}
+                                                                                 path={item.image}
+                                                                                 price={item.price}
+                                                                                 productName={item.productName}
                                                                                  onClick={this.onRemove(item)}/>)
                                 }
                             </div>
                             <hr />
                             {/* Total price in cart*/}
-                            <div className="total--price" /><a href="#">
-                            <button className="text-uppercase btn btn-dark mb-3 mt-2">Giỏ hàng</button></a>
+                            <div className="total--price">
+                                <span>Tổng số</span><span className="float-right">{total}.000<sup>đ</sup></span>
+                            </div>
+                            <button className="text-uppercase btn btn-dark mb-3 mt-2">Giỏ hàng</button>
                         </div>
                     </div>
-                </div><a href="#"><img src={ImgSearch} alt="" /></a>
+                </div>
+                <a href="#"><img src={ImgSearch} alt="" /></a>
             </div>
         );
     }
@@ -62,7 +69,6 @@ class CartSm extends Component {
 
 function mapStateToProps(state) {
     return {
-        products: state.products,
         productSelected: state.productSelected
     }
 }
