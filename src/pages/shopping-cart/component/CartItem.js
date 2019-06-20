@@ -27,7 +27,7 @@ class CartItem extends Component{
                 </td>
                 <td className="text-center">
                     <div className="table--item">
-                        <input className="input--value" type="number" value={count} onChange={this.onChange}/>
+                        <input className="form-control input--value" type="number" value={count} onChange={this.onChange}/>
                     </div>
                 </td>
                 <td className="text-center">

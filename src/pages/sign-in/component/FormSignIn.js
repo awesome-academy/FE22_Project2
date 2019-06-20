@@ -1,6 +1,52 @@
 import React, { Component } from 'react';
+import connect from "react-redux/es/connect/connect";
+import {loadDataUsers} from "../../../redux/actions";
+
+const urlUsers = process.env.REACT_APP_USERS;
 
 class FormSignIn extends Component{
+    constructor(props) {
+        super(props);
+        this.email = React.createRef();
+        this.pass = React.createRef();
+        this.SubmitHandler = this.SubmitHandler.bind(this);
+    }
+
+    SubmitHandler(event) {
+        const email = this.email.current.value;
+        const pass = this.pass.current.value;
+        this.notifycationLogin(email, pass);
+    }
+
+    notifycationLogin(email, pass) {
+        const  { users } = this.props;
+
+        let idxEmail = users.findIndex((us) => us.email === email); // Find email
+        let idxPass = users.findIndex(us => us.password === pass); // Find password
+        console.log(idxEmail, idxPass);
+
+        if (idxEmail <= -1) alert("Email không tồn tại !!");
+        else {
+            if (idxPass <= -1) alert("Mật khẩu không đúng !!!");
+            else alert("Đăng nhập thành công !!!");
+        }
+    }
+
+    componentDidMount() {
+        // Fetch Data Users from API
+        const { data } = this.props;
+        fetch(urlUsers)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    data(result);
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
+    }
+
     render() {
         return(
             <div className="form--signup mt-4 mb-5">
@@ -14,13 +60,14 @@ class FormSignIn extends Component{
                         <div className="col-lg-6">
                             <div className="form-group mt-5">
                                 <label htmlFor="email_sign-in">Địa chỉ email *</label>
-                                <input className="form-control" id="email_sign-in" type="email" required="required" />
+                                <input className="form-control" id="email_sign-in" ref={this.email} type="email" required="required" />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password_sign-in">Password *</label>
-                                <input className="form-control" id="password_sign-in" type="password" required="required" />
-                            </div><a className="sign-in_forget--password text-capitalize mr-5" href="#">Quên Mật Khẩu?</a>
-                            <button className="btn btn-dark btn_sign-in text-uppercase mt-3 mt-sm-0">Đăng nhập</button>
+                                <input className="form-control" id="password_sign-in" ref={this.pass} type="password" required="required" />
+                            </div>
+                            <a className="sign-in_forget--password text-capitalize mr-5" href="#">Quên Mật Khẩu?</a>
+                            <button className="btn btn-dark btn_sign-in text-uppercase mt-3 mt-sm-0" onClick={this.SubmitHandler}>Đăng nhập</button>
                         </div>
                     </div>
                 </form>
@@ -29,4 +76,18 @@ class FormSignIn extends Component{
     }
 }
 
-export default FormSignIn;
+function mapStateToProps(state) {
+    return {
+        users: state.users
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        data: (list) => {
+            dispatch(loadDataUsers(list));
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormSignIn);

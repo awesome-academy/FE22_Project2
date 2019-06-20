@@ -3,7 +3,7 @@ import ImgShoppingCart from "../../../../images/HOME/shoppoing-cart.png";
 import ImgSearch from "../../../../images/HOME/btn-search.png";
 import connect from "react-redux/es/connect/connect";
 import CartItem from "./CartItem";
-import {addItemSelected} from "../../../../redux/actions";
+import { addItemSelected } from "../../../../redux/actions";
 
 class CartSm extends Component {
     constructor(props) {
@@ -29,7 +29,6 @@ class CartSm extends Component {
         let sum = 0;
         let total = 0;
         let arr = productSelected;
-        if (!arr) arr = [];
         for (var it of arr) {
             sum += it.count;
             total += (it.count*it.price);
@@ -62,6 +61,30 @@ class CartSm extends Component {
                     </div>
                 </div>
                 <a href="#"><img src={ImgSearch} alt="" /></a>
+                <div className="cart dropdown pl-4">
+                    <a className="mr-lg-3 account" href="#">
+                        <i className="fas fa-user"></i>
+                    </a>
+                    <div className="dropdown-menu w-100">
+                        <div className="cart_item">
+                            <div className="cart_item--sub">
+                                <button className="btn btn-success text-uppercase w-100">đăng nhập</button>
+                                <button className="btn btn-success text-uppercase w-100 mt-2">đăng ký</button>
+                            </div>
+                            <hr />
+                            <div className="signin--socialnetwork">
+                                <button className="btn w-100">
+                                    <i className="fab fa-facebook-f mr-3"></i>
+                                    Đăng nhập bằng Facebook
+                                </button>
+                                <button className="btn mt-2 w-100">
+                                    <i className="fab fa-google-plus-g mr-3"></i>
+                                    Đăng nhập bằng Gmail
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

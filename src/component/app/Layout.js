@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Home from "../../pages/home/Home";
 import { loadData, loadDataCate } from "../../redux/actions";
 import connect from "react-redux/es/connect/connect";
+import SignIn from "../../pages/sign-in/SignIn";
+import SignUp from "../../pages/sign-up/SignUp";
 import Product from "../../pages/product/Product";
 
 const urlProducts = process.env.REACT_APP_PRODUCTS;
@@ -39,7 +41,7 @@ class Layout extends Component {
     render() {
         return (
             <div className="layout--app">
-                <Product/>
+                <SignUp/>
             </div>
         );
     }
