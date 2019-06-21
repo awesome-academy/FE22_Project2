@@ -27,8 +27,12 @@ class RecentProducts extends Component {
         if (!temp) temp = [];
         temp.reverse();
         let arr = [];
-        for (var i = 0; i < 3; i++) {
-            arr.push(temp[i]);
+        if (temp.length > 3) {
+            for (var i = 0; i < 3; i++) {
+                arr.push(temp[i]);
+            }
+        } else {
+            arr = [...temp];
         }
 
         return (

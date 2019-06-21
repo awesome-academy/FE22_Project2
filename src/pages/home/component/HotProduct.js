@@ -20,14 +20,14 @@ class HotProduct extends Component {
 
             if (!countObject) { // First Array Check Count Init
                 countObject = [];
-                countObject.push({...item, count: 1})
+                countObject.push({...item, count: 1, status: 1})
             }
             else { // Array Check Count exist
                 let idx = countObject.findIndex(obj => obj.id === item.id); // Get index of element in Array Check Count
                 if (idx > -1) // Found element in Array Check Count
                     countObject[idx].count += 1;
                 else // Don't Found element in Array Check Count
-                    countObject.push({...item, count: 1})
+                    countObject.push({...item, count: 1, status: 1})
             }
             localStorage.setItem('id-item--cart', JSON.stringify(countObject)); // Set LocalStorage for Array Check Count
             add(countObject);

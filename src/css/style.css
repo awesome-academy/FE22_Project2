@@ -296,6 +296,10 @@ body .img--tool .cart .cart_item--sub a:before {
     display: none;
 }
 
+body .img--tool .cart .cart_item--sub a:before {
+    display: none;
+}
+
 body .img--tool .cart .cart_item--sub {
     font-size: 0.8rem;
     font-weight: 600;
