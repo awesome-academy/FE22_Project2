@@ -45,7 +45,10 @@ class FormSignUp extends Component{
         const passConfirm = this.passConfirm.current.value;
 
         if (this.checkPassword(password, passConfirm)) {
-            const id = users[users.length - 1].id + 1;
+            let id = 1;
+            if (users) {
+                id = users[users.length - 1].id + 1;
+            }
 
             if (!firstName || !lastName || !email || !password || !passConfirm) {
                 alert("Enter your infomation !!");
@@ -140,7 +143,7 @@ class FormSignUp extends Component{
 
 function mapStateToProps(state) {
     return {
-        users: state.users
+        users: state.users,
     }
 }
 

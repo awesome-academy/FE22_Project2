@@ -23,14 +23,23 @@ class AccountInfo extends Component {
     render() {
         const { users } = this.props;
         const user = JSON.parse(localStorage.getItem("logon"));
+        const access = JSON.parse(localStorage.getItem("access"));
 
-        let userLogon = {};
+        let firstName = "", lastName = "", email = "";
 
         if (user) {
             for (var u of users) {
                 if (u.id == user.id) {
-                    userLogon = u;
+                    firstName = u.firstName;
+                    lastName = u.lastName;
+                    email = u.email;
                 }
+            }
+        } else {
+            if (access) {
+                firstName = access.profile.first_name;
+                lastName = access.profile.last_name;
+                email = access.profile.email;
             }
         }
 
@@ -40,15 +49,15 @@ class AccountInfo extends Component {
                 <form className="form-horizontal" action="">
                     <div className="form-group">
                         <label className="control-label" htmlFor="firstName">First Name:</label>
-                        <input type="email" className="form-control" id="firstName" value={userLogon.firstName}/>
+                        <input type="email" className="form-control" id="firstName" value={firstName}/>
                     </div>
                     <div className="form-group">
                         <label className="control-label" htmlFor="lastName">Last Name:</label>
-                        <input type="text" className="form-control" id="lastName" value={userLogon.lastName}/>
+                        <input type="text" className="form-control" id="lastName" value={lastName}/>
                     </div>
                     <div className="form-group">
                         <label className="control-label" htmlFor="email">Email:</label>
-                        <input type="email" className="form-control" id="email" value={userLogon.email}/>
+                        <input type="email" className="form-control" id="email" value={email}/>
                     </div>
                 </form>
             </div>
