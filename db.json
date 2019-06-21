@@ -81,89 +81,107 @@
   "categories": [
     {
       "id": "1",
-      "nameCategory": "Mỹ phẩm"
+      "nameCategory": "Mỹ phẩm",
+      "isActive": true
     },
     {
       "id": "2",
-      "nameCategory": "Trang sức"
+      "nameCategory": "Trang sức",
+      "isActive": true
     },
     {
       "id": "3",
-      "nameCategory": "Phụ kiện"
+      "nameCategory": "Phụ kiện",
+      "isActive": true
     },
     {
       "id": "4",
-      "nameCategory": "Chăm sóc"
+      "nameCategory": "Chăm sóc",
+      "isActive": true
     },
     {
       "id": "5",
-      "nameCategory": "Quà Tặng"
+      "nameCategory": "Quà Tặng",
+      "isActive": true
     },
     {
       "id": "6",
-      "nameCategory": "Nước Hoa"
+      "nameCategory": "Nước Hoa",
+      "isActive": false
     }
   ],
   "subCategory": [
     {
       "id": 1,
       "nameSub": "a",
-      "idCate": 1
+      "idCate": 1,
+      "isActive": true
     },
     {
       "id": 2,
       "nameSub": "b",
-      "idCate": 1
+      "idCate": 1,
+      "isActive": true
     },
     {
       "id": 3,
       "nameSub": "c",
-      "idCate": 2
+      "idCate": 2,
+      "isActive": true
     },
     {
       "id": 4,
       "nameSub": "d",
-      "idCate": 2
+      "idCate": 2,
+      "isActive": true
     },
     {
       "id": 5,
       "nameSub": "e",
-      "idCate": 3
+      "idCate": 3,
+      "isActive": true
     },
     {
       "id": 6,
       "nameSub": "e",
-      "idCate": 3
+      "idCate": 3,
+      "isActive": true
     },
     {
       "id": 7,
       "nameSub": "f",
-      "idCate": 4
+      "idCate": 4,
+      "isActive": true
     },
     {
       "id": 8,
       "nameSub": "g",
-      "idCate": 4
+      "idCate": 4,
+      "isActive": true
     },
     {
       "id": 9,
       "nameSub": "h",
-      "idCate": 5
+      "idCate": 5,
+      "isActive": true
     },
     {
       "id": 10,
       "nameSub": "i",
-      "idCate": 5
+      "idCate": 5,
+      "isActive": true
     },
     {
       "id": 11,
       "nameSub": "j",
-      "idCate": 6
+      "idCate": 6,
+      "isActive": true
     },
     {
       "id": 12,
       "nameSub": "k",
-      "idCate": 6
+      "idCate": 6,
+      "isActive": true
     }
   ],
   "users": [
@@ -181,7 +199,8 @@
       "lastName": "Duy",
       "email": "abc@gmail.com",
       "password": "1234",
-      "role": 2
+      "role": 2,
+      "isActive": true
     },
     {
       "id": 3,
@@ -189,7 +208,8 @@
       "lastName": "Duy",
       "email": "1234@gmail.com",
       "password": "1234",
-      "role": 2
+      "role": 2,
+      "isActive": false
     },
     {
       "id": 4,
@@ -197,7 +217,26 @@
       "lastName": "Duy",
       "email": "asd@gmail.com",
       "password": "1234",
-      "role": 2
+      "role": 2,
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "firstName": "Thanh",
+      "lastName": "Huyen",
+      "email": "thanhhuyen@gmail.com",
+      "password": "1234",
+      "role": 2,
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "firstName": "ccc",
+      "lastName": "bbb",
+      "email": "duytrang130@gmail.com",
+      "role": 2,
+      "password": "1234",
+      "isActive": false
     }
   ],
   "roles": [
@@ -221,7 +260,11 @@
     },
     {
       "id": 3,
-      "statusName": "completed"
+      "statusName": "accept"
+    },
+    {
+      "id": 4,
+      "statusName": "complete"
     }
   ],
   "carts": [
@@ -546,6 +589,54 @@
           "count": 1,
           "status": 2,
           "day": "27/6/2019"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "idUser": 3,
+      "itemSelected": [
+        {
+          "id": "1",
+          "productName": "OHUI",
+          "price": 355,
+          "image": "product_1.jpg",
+          "decription": "Mỹ phẩm châu Âu",
+          "IdCategory": 1,
+          "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+          "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+          "discount": 56,
+          "count": 1,
+          "status": 2,
+          "day": "28/6/2019"
+        },
+        {
+          "id": "2",
+          "productName": "OHUI",
+          "price": 355,
+          "image": "product_2.jpg",
+          "decription": "Mỹ phẩm châu Âu",
+          "IdCategory": 1,
+          "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+          "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+          "discount": 16,
+          "count": 1,
+          "status": 2,
+          "day": "28/6/2019"
+        },
+        {
+          "id": "3",
+          "productName": "HOME",
+          "price": 355,
+          "image": "product_3.jpg",
+          "decription": "Mỹ phẩm châu Âu",
+          "IdCategory": 2,
+          "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+          "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+          "discount": 16,
+          "count": 1,
+          "status": 2,
+          "day": "28/6/2019"
         }
       ]
     }

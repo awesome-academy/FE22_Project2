@@ -1,53 +1,78 @@
 import React, { Component } from 'react';
 import ItemRowTable from "../sub-component/ItemRowTable";
+import {loadDataUsers, updateItemUsers} from "../../../../redux/actions";
+import connect from "react-redux/es/connect/connect";
+import RowItemUser from "./RowItemUser";
+
+const urlUsers = process.env.REACT_APP_USERS;
 
 class ItemTableUser extends Component {
-    editUser() {
-
+    constructor(props) {
+        super(props);
+        this.onEdit = this.onEdit.bind(this);
     }
 
-    onEdit(event) {
-        const { show } = this.props;
-        if (show) {
-            this.editUser();
-        }
+    editUser(user) {
+        const { update } = this.props;
+        update(user);
+    }
+
+    onEdit(user) {
+        return (event) => {
+            this.editUser(user);
+        };
+    }
+
+    componentDidMount() {
+        const { data } = this.props;
+        fetch(urlUsers).then(res => res.json())
+            .then(result => {
+                data(result);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     render() {
-        const { show } = this.props; // Check if true show Table have Button Edit
+        const { show, users } = this.props;
         return (
             <ItemRowTable>
-                <td className="text-center">
-                    <div className="table--item"><span>John</span></div>
-                </td>
-                <td className="text-center">
-                    <div className="table--item"><span>Doe</span></div>
-                </td>
-                <td className="text-center">
-                    <div className="table--item"><span>john@example.com</span></div>
-                </td>
-                <td className="text-center">
-                    <div className="table--item"><span>user</span></div>
-                </td>
                 {
-                    show &&
-                    <td className="text-center">
-                        <div className="table--item">
-                            <input type="checkbox"/>
-                        </div>
-                    </td>
+                    users.map((user, idx) => <RowItemUser key={idx}
+                                                          show={show}
+                                                          id={user.id}
+                                                          firstname={user.firstName}
+                                                          lastName={user.lastName}
+                                                          email={user.email}
+                                                          roleUser={user.role}
+                                                          active={user.isActive}
+                                                          user={user}
+                                                          onEdit={this.onEdit(user)}/>
+                    )
                 }
-                {
-                    show &&
-                    <td className="text-center">
-                        <div className="table--item">
-                            <button className="mr-2 btn btn-warning">Sửa</button>
-                        </div>
-                    </td>
-                }
+
             </ItemRowTable>
         );
     }
 }
 
-export default ItemTableUser;
+function mapStateToProps(state) {
+    return {
+        users: state.users,
+        usersUpdate: state.usersUpdate
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        data: (list) => {
+            dispatch(loadDataUsers(list));
+        },
+        update: (item) => {
+            dispatch(updateItemUsers(item));
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemTableUser);

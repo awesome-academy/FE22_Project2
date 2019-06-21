@@ -72,12 +72,12 @@ class FormSignIn extends Component{
 
     render() {
         return(
-            <div className="form--signup mt-4 mb-5">
+            <form className="form--signup mt-4 mb-5" action="/">
                 <div className="sign-in--header">
                     <h3 className="text-uppercase">Đăng Nhập</h3>
                     <button className="btn btn-dark btn_sign-in text-uppercase">Đăng ký</button>
                 </div>
-                <form className="mt-4 p-5" method="get" action="/">
+                <form className="mt-4 p-5">
                     <h5 className="text-uppercase mb-3">Khách hàng Đăng ký</h5><span>Nếu bạn có một tài khoản, xin vui lòng đăng nhập</span>
                     <div className="row">
                         <div className="col-lg-6">
@@ -94,7 +94,7 @@ class FormSignIn extends Component{
                         </div>
                     </div>
                 </form>
-            </div>
+            </form>
         );
     }
 }

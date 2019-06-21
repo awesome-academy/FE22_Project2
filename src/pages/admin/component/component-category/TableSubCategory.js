@@ -19,9 +19,7 @@ class TableSubCategory extends Component {
                                 <th> </th>
                             </tr>
                             </thead>
-                            <tbody className="tinfo_cart">
-                                <ItemSubCategory/>
-                            </tbody>
+                            <ItemSubCategory/>
                         </table>
                     </div>
                 </div>

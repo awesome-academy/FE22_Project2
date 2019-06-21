@@ -14,9 +14,7 @@ class ShowDashboard extends Component {
                         <th className="text-uppercase text-center">Role</th>
                     </tr>
                     </thead>
-                    <tbody className="tinfo_cart">
-                        <ItemTableUser show={false}/>
-                    </tbody>
+                    <ItemTableUser show={false}/>
                 </table>
             </div>
         );
