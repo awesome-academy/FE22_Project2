@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import Facebook from "../../../component/common/Facebook";
+import Facebook from "../../../component/Facebook/Facebook";
 
 class Login extends Component {
     render() {

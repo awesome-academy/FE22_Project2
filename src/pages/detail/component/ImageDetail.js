@@ -41,6 +41,9 @@ class ImageDetail extends Component {
     }
 
     render() {
+        let temp = JSON.parse(localStorage.getItem('item-detail'));
+        if (!temp) temp = [];
+        let item = temp[temp.length-1];
         return (
             <div className="row_detail--custom col-lg-6 col-12">
                 <div className="category_detail mr-2">
@@ -64,7 +67,7 @@ class ImageDetail extends Component {
                     </span>
                 </div>
                 <div className="column show--item">
-                    <ItemImagePrimary path="product_5.jpg"/>
+                    <ItemImagePrimary path={item.image}/>
                     <ItemImagePrimary path="product_4.jpg"/>
                     <ItemImagePrimary path="product_3.jpg"/>
                     <ItemImagePrimary path="product_2.jpg"/>
