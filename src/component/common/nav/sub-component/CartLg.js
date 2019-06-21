@@ -6,8 +6,8 @@ import {addItemSelected, loadDataUsers} from "../../../../redux/actions";
 import ImgSearch from '../../../../images/HOME/btn-search.png';
 import ImgShoppingCart from "../../../../images/HOME/shoppoing-cart.png";
 import CartItem from "./CartItem";
-import Logon from "../../../../pages/shopping-cart/component/Logon";
-import Login from "../../../../pages/shopping-cart/component/Login";
+import Logon from "./Logon";
+import Login from "./Login";
 
 const urlUsers = process.env.REACT_APP_USERS;
 
@@ -35,14 +35,14 @@ class CartLg extends Component {
 
     onRemove(item) {
         return (event) => {
-            const { productSelected, add } = this.props;
+            const { productSelected, remove } = this.props;
             let arrItemRemove = productSelected;
 
             let idx = arrItemRemove.findIndex(obj => obj.id === item.id);
             arrItemRemove.splice(idx, 1);
 
             localStorage.setItem("id-item--cart", JSON.stringify(arrItemRemove));
-            add(arrItemRemove);
+            remove(arrItemRemove);
         }
     }
 
@@ -72,16 +72,16 @@ class CartLg extends Component {
         let sum = 0;
         let total = 0;
         let nameShow = '';
-        let arr = productSelected;
         let temp = [];
+        let arr = productSelected;
 
         // Get Total product had choose
         if (!arr) arr = [];
 
         for (var it of arr) {
-            sum += it.count;
             total += (it.count*it.price);
             if (it.status === 1) {
+                sum += it.count;
                 temp.push(it);
             }
         }
@@ -153,7 +153,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        add: (item) => {
+        remove: (item) => {
             dispatch(addItemSelected(item));
         },
         data: (list) => {

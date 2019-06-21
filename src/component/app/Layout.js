@@ -10,6 +10,7 @@ import SignIn from "../../pages/sign-in/SignIn";
 import ShoppingCart from "../../pages/shopping-cart/ShoppingCart";
 import Detail from "../../pages/detail/Detail";
 import Footer from "../common/footer/Footer";
+import Admin from "../../pages/admin/Admin";
 
 const urlProducts = process.env.REACT_APP_PRODUCTS;
 const urlCategories = process.env.REACT_APP_CATEGORIES;
@@ -36,6 +37,10 @@ function shoppingCart() {
 
 function detail() {
     return <Detail/>;
+}
+
+function admin() {
+    return <Admin/>;
 }
 
 class Layout extends Component {
@@ -77,6 +82,7 @@ class Layout extends Component {
                     <Route path="/sign-up" component={signUp} />
                     <Route path="/shopping-cart" component={shoppingCart} />
                     <Route path="/detail" component={detail} />
+                    <Route path="/admin" component={admin} />
 
                     <Footer/>
                 </div>

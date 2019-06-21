@@ -13,19 +13,20 @@ class ProductList extends Component {
 
     onClickAdd(item) {
         return (event) => {
+            let day = `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`;
             const { productSelected, add } = this.props;
             let countObject = productSelected;
 
             if (!countObject) { // First Array Check Count Init
                 countObject = [];
-                countObject.push({...item, count: 1, status: 1})
+                countObject.push({...item, count: 1, status: 1, day})
             }
             else { // Array Check Count exist
                 let idx = countObject.findIndex(obj => obj.id === item.id); // Get index of element in Array Check Count
                 if (idx > -1) // Found element in Array Check Count
                     countObject[idx].count += 1;
                 else // Don't Found element in Array Check Count
-                    countObject.push({...item, count: 1, status: 1})
+                    countObject.push({...item, count: 1, status: 1, day})
             }
             localStorage.setItem('id-item--cart', JSON.stringify(countObject)); // Set LocalStorage for Array Check Count
             add(countObject);
@@ -37,8 +38,8 @@ class ProductList extends Component {
             let arrItemRecently = JSON.parse(localStorage.getItem('item-detail'));
             if (!arrItemRecently) arrItemRecently = [];
 
-            let findItem = arrItemRecently.findIndex(it => it.id === item.id);
-            if (findItem <= -1) {
+            if (arrItemRecently.length > 3) {
+                arrItemRecently.shift();
                 arrItemRecently.push(item);
             }
 
