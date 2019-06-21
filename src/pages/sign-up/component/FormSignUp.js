@@ -133,7 +133,7 @@ class FormSignUp extends Component{
                     </div>
                     <div className="button--sign-up mt-4">
                         <button className="btn btn-dark" onClick={this.SubmitHandler}>Gữi</button>
-                        <button className="btn btn-dark"><img src={imgReply}/>&nbsp;Quay lại</button>
+                        <button className="btn btn-dark"><img src={imgReply} alt="icon reply"/>&nbsp;Quay lại</button>
                     </div>
                 </form>
             </div>

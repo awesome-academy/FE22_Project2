@@ -45,8 +45,8 @@ class Logon extends Component {
             let dataCart = {id, idUser: dataUser.id}; // add data user and data cart current
             let itemSelected = [];
 
-            for (var dt of dataSelected) {
-                itemSelected.push(dt); // Push Data of localStorage
+            for (var data of dataSelected) {
+                itemSelected.push(data); // Push Data of localStorage
             }
             dataCart = {...dataCart, itemSelected}; // Data to add DB
             this.editDataCarts(dataCart, id);

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+
 import CartItem from "./CartItem";
 import {addItemSelected} from "../../../redux/actions";
 
@@ -51,9 +53,10 @@ class Cart extends Component {
                             }
                         </tbody>
                     </table>
-                    <div className="cart_btn text-uppercase"><a href="#">
-                        <div className="btn btn-dark">Tiếp tục mua hàng</div></a><a href="#">
-                        <div className="btn btn-dark btn--update">Thanh toán</div></a></div>
+                    <div className="cart_btn text-uppercase">
+                        <Link to="/products"><div className="btn btn-dark">Tiếp tục mua hàng</div></Link>
+                        <Link to="/"><div className="btn btn-dark btn--update">Thanh toán</div></Link>
+                    </div>
                 </div>
             </div>
         );

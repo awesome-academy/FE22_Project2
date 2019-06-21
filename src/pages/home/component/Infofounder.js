@@ -22,9 +22,11 @@ class Infofounder extends Component {
                                     đạo nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với
                                     công nghệ cải tiến mới nhất, hảng Rohto"
                                 </p>
-                                <div className="feedback_info"><img className="mr-4 mr-md-0 img-fluid" src={imgInfo1} alt />
+                                <div className="feedback_info">
+                                    <img className="mr-4 mr-md-0 img-fluid" src={imgInfo1} alt="img info 1" />
                                     <div className="title">
-                                        <h6 className="text-uppercase pr-lg-1">Tutile</h6><span>&nbsp;_&nbsp;</span><i>Giảm đốc phát trển sản phẩm</i>
+                                        <h6 className="text-uppercase pr-lg-1">Tutile</h6>
+                                        <span>&nbsp;_&nbsp;</span><i>Giảm đốc phát trển sản phẩm</i>
                                     </div>
                                 </div>
                             </div>
@@ -36,9 +38,11 @@ class Infofounder extends Component {
                                     đạo nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với
                                     công nghệ cải tiến mới nhất, hảng Rohto"
                                 </p>
-                                <div className="feedback_info"><img className="mr-4 mr-md-0 img-fluid" src={imgInfo2} alt />
+                                <div className="feedback_info">
+                                    <img className="mr-4 mr-md-0 img-fluid" src={imgInfo2} alt="img info 2" />
                                     <div className="title">
-                                        <h6 className="text-uppercase pr-lg-1">Tutile</h6><span>&nbsp;_&nbsp;</span><i>Giảm đốc phát trển sản phẩm</i>
+                                        <h6 className="text-uppercase pr-lg-1">Tutile</h6>
+                                        <span>&nbsp;_&nbsp;</span><i>Giảm đốc phát trển sản phẩm</i>
                                     </div>
                                 </div>
                             </div>

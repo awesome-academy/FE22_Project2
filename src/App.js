@@ -3,7 +3,6 @@ import { configureStore } from './redux/store';
 import React, { Component } from 'react';
 
 import Layout from "./component/app/Layout";
-import Footer from "./component/common/footer/Footer";
 
 const store = configureStore();
 
@@ -13,7 +12,6 @@ class App extends Component {
           <Provider store={store}>
               <div className="App">
                   <Layout/>
-                  <Footer/>
               </div>
           </Provider>
       );

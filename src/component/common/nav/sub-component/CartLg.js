@@ -85,7 +85,7 @@ class CartLg extends Component {
         // Get name who login
         if (user) {
             for (var u of users) {
-                if (u.id == user.id) {
+                if (u.id === user.id) {
                     nameShow = u.lastName;
                 }
             }
@@ -106,11 +106,11 @@ class CartLg extends Component {
                             <div className="cart_item--sub">
                                 {
                                     arr.map((item, idx) => <CartItem key={idx}
-                                                                      count={item.count}
-                                                                      path={item.image}
-                                                                      price={item.price}
-                                                                      productName={item.productName}
-                                                                      onClick={this.onRemove(item)}/>)
+                                                                     count={item.count}
+                                                                     path={item.image}
+                                                                     price={item.price}
+                                                                     productName={item.productName}
+                                                                     onClick={this.onRemove(item)}/>)
                                 }
                             </div>
                             <hr />
