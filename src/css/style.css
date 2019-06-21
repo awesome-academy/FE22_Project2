@@ -2303,6 +2303,69 @@ body .actions li[aria-disabled="false"] ~ li a:hover {
     box-shadow: 1px 0 10px rgba(0,0,0,.2);
 }
 
+@media (min-width: 768px) {
+    .notification_admin {
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: .9rem;
+        margin: 0 .6rem 0 .6rem;
+    }
 
+    .notification_admin i {
+        margin: 0 .6rem 0 .6rem;
+    }
+
+    .notification_admin i:hover {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .sidebar {
+        min-width: 255px;
+    }
+
+    .sidebar .nav-item .nav-link {
+        color: rgba(255, 255, 255, 0.5);
+        padding: 1rem;
+        margin-left: 20px;
+    }
+
+    .sidebar .nav-item .nav-link:hover {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .sidebar .nav-item.active .nav-link {
+        color: #fff;
+    }
+
+    .wrap--admin {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .wrap--content {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .card-body-icon {
+        position: absolute;
+        z-index: 0;
+        top: -1.25rem;
+        right: -1rem;
+        opacity: 0.4;
+        font-size: 5rem;
+        -webkit-transform: rotate(15deg);
+        transform: rotate(15deg);
+    }
+
+    .wrap--content footer {
+        height: 88px;
+        background-color: #e9ecef;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+        font-size: .8rem;
+    }
+}
 
 /*# sourceMappingURL=style.css.map */

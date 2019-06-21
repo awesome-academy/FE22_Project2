@@ -72,6 +72,7 @@ class Cart extends Component {
     }
 
     paymentCart(obj) {
+        const day = `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`;
         let dataSelected = JSON.parse(localStorage.getItem("id-item--cart"));
         for (var item of obj.itemSelected) {
             item.status = 2;
@@ -82,9 +83,11 @@ class Cart extends Component {
             let test = [...obj.itemSelected]; // Clone data cart of object current
             for (var data of dataSelected) {
                 data.status = 2; // set status = 2 (payment)
+                data.day = day; // add day payment
                 test.push(data); // push data changed to array
             }
-            let dataSave = {...obj, itemSelected: test}; // New Data will save in DB
+            let dataSave = {...obj, id: obj.id, itemSelected: test}; // New Data will save in DB
+            // console.log(dataSave);
             this.deleteDataCarts(obj.id);
             this.pushDataCarts(dataSave);
 

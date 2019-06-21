@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../../component/common/nav/Nav';
-import Breadcrumb from '../../component/common/tiltleAddress/titleAddress';
+import Breadcrumb from '../../component/common/tiltleAddress/Breadcrumb';
 
 import imgAdv from '../../images/Grid/adv.jpg';
 import ProductCategories from "./component/ProductCategories";
@@ -9,6 +9,7 @@ import ProductTags from "./component/ProductTags";
 import ProductAdv from "./component/ProductAdv";
 import ProductPag from "./component/ProductPag";
 import ProductList from "./component/ProductList";
+import Footer from "../../component/common/footer/Footer";
 
 class Product extends Component {
     render() {
@@ -31,6 +32,7 @@ class Product extends Component {
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </div>
         );
     }

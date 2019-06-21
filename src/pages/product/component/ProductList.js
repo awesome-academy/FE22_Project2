@@ -40,8 +40,8 @@ class ProductList extends Component {
 
             if (arrItemRecently.length > 3) {
                 arrItemRecently.shift();
-                arrItemRecently.push(item);
             }
+            arrItemRecently.push(item);
 
             localStorage.setItem('item-detail', JSON.stringify(arrItemRecently));
             window.location.href = '/detail';

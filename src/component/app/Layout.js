@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { loadData, loadDataCate } from "../../redux/actions";
 import connect from "react-redux/es/connect/connect";
@@ -9,39 +9,14 @@ import Product from "../../pages/product/Product";
 import SignIn from "../../pages/sign-in/SignIn";
 import ShoppingCart from "../../pages/shopping-cart/ShoppingCart";
 import Detail from "../../pages/detail/Detail";
-import Footer from "../common/footer/Footer";
-import Admin from "../../pages/admin/Admin";
+import Dashboard from "../../pages/admin/Dashboard";
+import Login from "../../pages/admin/Login";
+import NotFound from "../common/NotFound";
+import Users from "../../pages/admin/Users";
+import Categories from "../../pages/admin/Categories";
 
 const urlProducts = process.env.REACT_APP_PRODUCTS;
 const urlCategories = process.env.REACT_APP_CATEGORIES;
-
-function home() {
-    return <Home/>;
-}
-
-function product() {
-    return <Product/>;
-}
-
-function signIn() {
-    return <SignIn/>;
-}
-
-function signUp() {
-    return <SignUp/>;
-}
-
-function shoppingCart() {
-    return <ShoppingCart/>;
-}
-
-function detail() {
-    return <Detail/>;
-}
-
-function admin() {
-    return <Admin/>;
-}
 
 class Layout extends Component {
     componentDidMount() {
@@ -76,15 +51,22 @@ class Layout extends Component {
         return (
             <Router>
                 <div className="layout--app">
-                    <Route path="/" exact component={home} />
-                    <Route path="/products" component={product} />
-                    <Route path="/sign-in" exact component={signIn} />
-                    <Route path="/sign-up" component={signUp} />
-                    <Route path="/shopping-cart" component={shoppingCart} />
-                    <Route path="/detail" component={detail} />
-                    <Route path="/admin" component={admin} />
+                    <Switch>
+                        <Route path="/" exact component={() => <Home/>} />
+                        <Route path="/products" component={() => <Product/>} />
+                        <Route path="/sign-in" exact component={() => <SignIn/>} />
+                        <Route path="/sign-up" component={() => <SignUp/>} />
+                        <Route path="/shopping-cart" component={() => <ShoppingCart/>} />
+                        <Route path="/detail" component={() => <Detail/>} />
+                        <Route path="/admin" component={() => <Login/>} />
+                        <Route path="/dashboard" component={() => <Dashboard/>} />
+                        <Route path="/admin-users" component={() => <Users/>} />
+                        <Route path="/admin-categories" component={() => <Categories/>} />
+                        <Route path="/admin-products" component={() => <h2>Products</h2>} />
+                        <Route path="/admin-list" component={() => <h2>List</h2>} />
 
-                    <Footer/>
+                        <Route component={() => <NotFound/>} />
+                    </Switch>
                 </div>
             </Router>
         );

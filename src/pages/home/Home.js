@@ -6,11 +6,12 @@ import Advance from "./component/Advance";
 import Infofounder from "./component/Infofounder";
 import HotProduct from "./component/HotProduct";
 import InfoFurther from "./component/InfoFurther";
+import Footer from "../../component/common/footer/Footer";
 
 class Home extends Component {
     render() {
         return (
-            <div>
+            <div className="home_page">
                 <NavHome/>
                 <Banner/>
                 <div className="container pt-md-5 pt-4">
@@ -21,6 +22,8 @@ class Home extends Component {
 
                 <HotProduct/>
                 <InfoFurther/>
+
+                <Footer/>
             </div>
         );
     }

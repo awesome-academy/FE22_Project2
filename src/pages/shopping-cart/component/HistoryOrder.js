@@ -12,33 +12,41 @@ class HistoryOrder extends Component {
         }
     }
 
-    getDataHistory(carts) {
+    checkShowHistory(result) {
         const account = JSON.parse(localStorage.getItem("logon")); // get user current login account
         const fb = JSON.parse(localStorage.getItem("access")); // get user current login facebook
         if (!account) {
             if (!fb) {
 
             } else {
-                let obj = carts.find(c => c.idUser === fb.profile.id);
-                this.setState({
-                    dataSelected: obj.itemSelected
-                });
+                if (result) {
+                    let obj = result.find(c => c.idUser === fb.profile.id);
+                    if (obj){
+                        this.setState({
+                            dataSelected: obj.itemSelected
+                        });
+                    }
+                }
             }
         } else {
-            let obj = carts.find(c => c.idUser === account.id);
-            this.setState({
-                dataSelected: obj.itemSelected
-            });
+            if (result) {
+                console.log(result);
+                let obj = result.find(c => c.idUser === account.id);
+                if (obj){
+                    this.setState({
+                        dataSelected: obj.itemSelected
+                    });
+                }
+            }
         }
     }
 
-    async getDataCart() {
-        // Fetch Data Carts from API
+    async getDataHistory() {
         await fetch(urlCarts)
             .then(res => res.json())
             .then(
                 (result) => {
-                    this.getDataHistory(result);
+                    this.checkShowHistory(result);
                 },
                 (error) => {
                     console.log(error);
@@ -47,7 +55,7 @@ class HistoryOrder extends Component {
     }
 
     componentDidMount() {
-        this.getDataCart();
+        this.getDataHistory()
     }
 
     render() {
