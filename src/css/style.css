@@ -141,6 +141,39 @@ body .nav-item a.nav-link, body .nav-item .menu_item--sub h6 {
 body .nav-item a.nav-link:hover {
   color: #789629;
 }
+.my--account .form-horizontal .form-group label {
+  font-family: "myriapro", sans-serif;
+}
+@media (min-width: 760px) {
+  body .img--tool#manager--tool--2 .cart.account .dropdown-menu.menu-logon {
+    left: -8rem !important;
+  }
+}
+body .img--tool#manager--tool--2 .cart.account .dropdown-menu.menu-logon {
+  min-width: 230px;
+}
+body .img--tool .cart .cart_item.accout--logon a:first-child {
+  font-size: 1.2rem;
+  color: rgba(0,0,0,.3);
+}
+body .img--tool .cart .cart_item.accout--logon a:first-child:hover {
+  color: rgba(0,0,0,.4);
+}
+body .img--tool .cart .cart_item.accout--logon a {
+  display: block;
+  font-size: .9rem;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left;
+}
+body .img--tool .cart .cart_item.accout--logon a i {
+  font-weight: bold;
+}
+body .img--tool .cart .cart_item.accout--logon a:hover:not(:first-child) {
+  background-color: rgb(245, 244, 245);
+  color: #789629;
+}
 body .img--tool .cart a:first-child {
   position: relative;
 }
@@ -160,7 +193,7 @@ body .img--tool .cart a:first-child::before {
 .cart-item--remove {
   cursor: pointer;
 }
-body .img--tool .cart a:first-child:hover::before {
+body .img--tool .cart .show-amount-item a:first-child:hover::before, body .img--tool .cart .account a:first-child:hover::before {
   display: block;
 }
 body .img--tool .cart a:first-child::before {
@@ -169,6 +202,9 @@ body .img--tool .cart a:first-child::before {
 }
 body .img--tool .cart .dropdown-menu {
   left: -10rem !important;
+}
+body .img--tool .cart .cart_item--sub a:before {
+  display: none;
 }
 body .img--tool .cart .cart_item--sub {
   font-size: 0.8rem;
@@ -211,7 +247,7 @@ body .img--tool .cart button {
   border-radius: 0;
   font-size: .8rem;
 }
-body .account {
+body .account, body .account a {
   color: #000;
   font-family: "Lobster", cursive;
   font-size: 1rem;

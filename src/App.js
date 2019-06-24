@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux';
 import { configureStore } from './redux/store';
 import React, { Component } from 'react';
+
 import Layout from "./component/app/Layout";
 import Footer from "./component/common/footer/Footer";
 

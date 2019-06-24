@@ -9,7 +9,7 @@ const urlUsers = process.env.REACT_APP_USERS;
 class FormSignUp extends Component{
     constructor(props) {
         super(props);
-        this.createRef();
+        this.createRefComponent();
         this.SubmitHandler = this.SubmitHandler.bind(this);
     }
 
@@ -28,27 +28,40 @@ class FormSignUp extends Component{
             );
     }
 
-    createRef() {
+    createRefComponent() {
         this.firstName = React.createRef();
         this.lastName = React.createRef();
         this.email = React.createRef();
         this.pass = React.createRef();
-        this.passLogin = React.createRef();
         this.passConfirm = React.createRef();
     }
 
     SubmitHandler(event) {
+        const { users } = this.props;
         const firstName = this.firstName.current.value;
         const lastName = this.lastName.current.value;
         const email = this.email.current.value;
         const password = this.pass.current.value;
-        const { users } = this.props;
+        const passConfirm = this.passConfirm.current.value;
 
-        const id = users[users.length - 1].id + 1;
+        if (this.checkPassword(password, passConfirm)) {
+            const id = users[users.length - 1].id + 1;
 
-        const obj = {id, firstName, lastName, email, password, role: 2};
-        console.log(obj);
-        this.pushSignIn(obj);
+            if (!firstName || !lastName || !email || !password || !passConfirm) {
+                alert("Enter your infomation !!");
+            } else {
+                const obj = {id, firstName, lastName, email, password, role: 2};
+                this.pushSignIn(obj);
+                alert("Sign Up Success !!");
+            }
+        } else {
+            alert("Password incorrect !!");
+        }
+    }
+
+    checkPassword(pass, rePass) {
+        if (pass === rePass) return true;
+        return false;
     }
 
     async pushSignIn(obj) {
@@ -116,8 +129,8 @@ class FormSignUp extends Component{
                         </label>
                     </div>
                     <div className="button--sign-up mt-4">
-                        <div className="btn btn-dark" onClick={this.SubmitHandler}>Gữi</div>
-                        <div className="btn btn-dark"><img src={imgReply}/>&nbsp;Quay lại</div>
+                        <button className="btn btn-dark" onClick={this.SubmitHandler}>Gữi</button>
+                        <button className="btn btn-dark"><img src={imgReply}/>&nbsp;Quay lại</button>
                     </div>
                 </form>
             </div>

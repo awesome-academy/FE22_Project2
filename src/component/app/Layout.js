@@ -1,13 +1,36 @@
 import React, { Component } from 'react';
-import Home from "../../pages/home/Home";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import { loadData, loadDataCate } from "../../redux/actions";
 import connect from "react-redux/es/connect/connect";
-import SignIn from "../../pages/sign-in/SignIn";
 import SignUp from "../../pages/sign-up/SignUp";
+import Home from "../../pages/home/Home";
 import Product from "../../pages/product/Product";
+import SignIn from "../../pages/sign-in/SignIn";
+import ShoppingCart from "../../pages/shopping-cart/ShoppingCart";
 
 const urlProducts = process.env.REACT_APP_PRODUCTS;
 const urlCategories = process.env.REACT_APP_CATEGORIES;
+
+function home() {
+    return <Home/>;
+}
+
+function product() {
+    return <Product/>;
+}
+
+function signIn() {
+    return <SignIn/>;
+}
+
+function signUp() {
+    return <SignUp/>;
+}
+
+function shoppingCart() {
+    return <ShoppingCart/>;
+}
 
 class Layout extends Component {
     componentDidMount() {
@@ -40,9 +63,15 @@ class Layout extends Component {
 
     render() {
         return (
-            <div className="layout--app">
-                <SignUp/>
-            </div>
+            <Router>
+                <div className="layout--app">
+                    <Route path="/" exact component={home} />
+                    <Route path="/products" component={product} />
+                    <Route path="/sign-in" exact component={signIn} />
+                    <Route path="/sign-up" component={signUp} />
+                    <Route path="/shopping-cart" component={shoppingCart} />
+                </div>
+            </Router>
         );
     }
 }

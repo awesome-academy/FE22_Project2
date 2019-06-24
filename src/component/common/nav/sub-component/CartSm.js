@@ -1,14 +1,36 @@
 import React, { Component } from 'react';
+import connect from "react-redux/es/connect/connect";
+import { Link } from "react-router-dom";
+import {addItemSelected, loadDataUsers} from "../../../../redux/actions";
+
 import ImgShoppingCart from "../../../../images/HOME/shoppoing-cart.png";
 import ImgSearch from "../../../../images/HOME/btn-search.png";
-import connect from "react-redux/es/connect/connect";
+
 import CartItem from "./CartItem";
-import { addItemSelected } from "../../../../redux/actions";
+import Logon from "../../../../pages/shopping-cart/component/Logon";
+import Login from "../../../../pages/shopping-cart/component/Login";
+
+const urlUsers = process.env.REACT_APP_USERS;
 
 class CartSm extends Component {
     constructor(props) {
         super(props);
         this.onRemove = this.onRemove.bind(this);
+    }
+
+    componentDidMount() {
+        // Fetch Data Users from API
+        const { data } = this.props;
+        fetch(urlUsers)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    data(result);
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
     }
 
     onRemove(item) {
@@ -24,21 +46,38 @@ class CartSm extends Component {
         }
     }
 
+    checkLogin() {
+        let check = JSON.parse(localStorage.getItem("logon"));
+        if (!check) check = false;
+        return check;
+    }
+
     render() {
-        const { productSelected } = this.props;
+        const { productSelected, users } = this.props;
+        const user = JSON.parse(localStorage.getItem("logon"));
         let sum = 0;
-        let total = 0;
+        let total = 0, userLogon = {};
         let arr = productSelected;
+        if (!arr) arr = [];
         for (var it of arr) {
             sum += it.count;
             total += (it.count*it.price);
         }
+
+        if (user) {
+            for (var u of users) {
+                if (u.id == user.id) {
+                    userLogon = u;
+                }
+            }
+        }
+
         return (
             <div className="img--tool" id="manager--tool--1">
-                <div className="cart dropdown pr-3 pr-md-1">
-                    <a className="mr-lg-3 show-amount-item" href="#">
+                <div className="cart dropdown show-amount-item pr-3 pr-md-1">
+                    <Link className="mr-lg-3" to="/shopping-cart">
                         <img src={ImgShoppingCart} alt="" /><span className="badge badge-pill badge-success">{sum}</span>
-                    </a>
+                    </Link>
                     <div className="dropdown-menu w-100">
                         <div className="cart_item">
                             <div className="cart_item--sub">
@@ -56,34 +95,21 @@ class CartSm extends Component {
                             <div className="total--price">
                                 <span>Tổng số</span><span className="float-right">{total}.000<sup>đ</sup></span>
                             </div>
-                            <button className="text-uppercase btn btn-dark mb-3 mt-2">Giỏ hàng</button>
+                            <Link to="/shopping-cart"><button className="text-uppercase btn btn-dark mb-3 mt-2">Giỏ hàng</button></Link>
                         </div>
                     </div>
                 </div>
                 <a href="#"><img src={ImgSearch} alt="" /></a>
-                <div className="cart dropdown pl-4">
-                    <a className="mr-lg-3 account" href="#">
+                <div className="cart dropdown account pl-4">
+                    <Link className="mr-lg-3" to="/shopping-cart">
                         <i className="fas fa-user"></i>
-                    </a>
-                    <div className="dropdown-menu w-100">
-                        <div className="cart_item">
-                            <div className="cart_item--sub">
-                                <button className="btn btn-success text-uppercase w-100">đăng nhập</button>
-                                <button className="btn btn-success text-uppercase w-100 mt-2">đăng ký</button>
-                            </div>
-                            <hr />
-                            <div className="signin--socialnetwork">
-                                <button className="btn w-100">
-                                    <i className="fab fa-facebook-f mr-3"></i>
-                                    Đăng nhập bằng Facebook
-                                </button>
-                                <button className="btn mt-2 w-100">
-                                    <i className="fab fa-google-plus-g mr-3"></i>
-                                    Đăng nhập bằng Gmail
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    </Link>
+                    {
+                        this.checkLogin() && <Logon name={userLogon.lastName} /> // Nếu trả về true hiển thị layout đã đăng nhập
+                    }
+                    {
+                        !this.checkLogin() && <Login/> // Nếu trả về false hiển thị layout chưa đăng nhập
+                    }
                 </div>
             </div>
         );
@@ -92,7 +118,8 @@ class CartSm extends Component {
 
 function mapStateToProps(state) {
     return {
-        productSelected: state.productSelected
+        productSelected: state.productSelected,
+        users: state.users
     }
 }
 
@@ -100,6 +127,9 @@ function mapDispatchToProps(dispatch) {
     return {
         add: (item) => {
             dispatch(addItemSelected(item));
+        },
+        data: (list) => {
+            dispatch(loadDataUsers(list));
         }
     };
 }
