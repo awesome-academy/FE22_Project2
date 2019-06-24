@@ -29,7 +29,7 @@ class AccountInfo extends Component {
 
         if (user) {
             for (var u of users) {
-                if (u.id == user.id) {
+                if (u.id === user.id) {
                     firstName = u.firstName;
                     lastName = u.lastName;
                     email = u.email;

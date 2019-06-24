@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class ProductPag extends Component {
     render() {
@@ -9,12 +10,12 @@ class ProductPag extends Component {
                     <button className="custom--btn" id="list"><i className="fas fa-list" /></button>
                     <div className="pagination float-right text-center">
                         <ul>
-                            <li><a href="#"><i className="fas fa-caret-left" /></a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#"><i className="fas fa-caret-right" /></a></li>
+                            <li><Link to="#"><i className="fas fa-caret-left" /></Link></li>
+                            <li><Link to="#">1</Link></li>
+                            <li><Link to="#">2</Link></li>
+                            <li><Link to="#">3</Link></li>
+                            <li><Link to="#">4</Link></li>
+                            <li><Link to="#"><i className="fas fa-caret-right" /></Link></li>
                         </ul>
                     </div>
                 </div>

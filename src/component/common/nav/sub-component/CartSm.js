@@ -47,30 +47,53 @@ class CartSm extends Component {
     }
 
     checkLogin() {
-        let check = JSON.parse(localStorage.getItem("logon"));
-        if (!check) check = false;
-        return check;
+        let user = JSON.parse(localStorage.getItem("logon")); // Check login by account
+        let access = JSON.parse(localStorage.getItem("access")); // Check login by facebook
+        let test;
+
+        if (!user) {
+            if (!access) {
+                test = false;
+            } else {
+                test = true;
+            }
+        } else {
+            test = true;
+        }
+
+        return test;
     }
 
     render() {
         const { productSelected, users } = this.props;
         const user = JSON.parse(localStorage.getItem("logon"));
+        const access = JSON.parse(localStorage.getItem("access"));
+
         let sum = 0;
-        let total = 0, userLogon = {};
+        let total = 0;
+        let nameShow = '';
         let arr = productSelected;
+
+        // Get Total product had choose
         if (!arr) arr = [];
         for (var it of arr) {
             sum += it.count;
             total += (it.count*it.price);
         }
+        // Get Total product had choose
 
+        // Get name who login
         if (user) {
             for (var u of users) {
-                if (u.id == user.id) {
-                    userLogon = u;
+                if (u.id === user.id) {
+                    nameShow = u.lastName;
                 }
             }
         }
+        else if (access) {
+            nameShow = access.profile.short_name;
+        }
+        // Get name who login
 
         return (
             <div className="img--tool" id="manager--tool--1">
@@ -83,11 +106,11 @@ class CartSm extends Component {
                             <div className="cart_item--sub">
                                 {
                                     arr.map((item, idx) => <CartItem key={idx}
-                                                                                 count={item.count}
-                                                                                 path={item.image}
-                                                                                 price={item.price}
-                                                                                 productName={item.productName}
-                                                                                 onClick={this.onRemove(item)}/>)
+                                                                     count={item.count}
+                                                                     path={item.image}
+                                                                     price={item.price}
+                                                                     productName={item.productName}
+                                                                     onClick={this.onRemove(item)}/>)
                                 }
                             </div>
                             <hr />
@@ -99,13 +122,13 @@ class CartSm extends Component {
                         </div>
                     </div>
                 </div>
-                <a href="#"><img src={ImgSearch} alt="" /></a>
+                <Link to="/"><img src={ImgSearch} alt="" /></Link>
                 <div className="cart dropdown account pl-4">
                     <Link className="mr-lg-3" to="/shopping-cart">
                         <i className="fas fa-user"></i>
                     </Link>
                     {
-                        this.checkLogin() && <Logon name={userLogon.lastName} /> // Nếu trả về true hiển thị layout đã đăng nhập
+                        this.checkLogin() && <Logon name={nameShow} /> // Nếu trả về true hiển thị layout đã đăng nhập
                     }
                     {
                         !this.checkLogin() && <Login/> // Nếu trả về false hiển thị layout chưa đăng nhập

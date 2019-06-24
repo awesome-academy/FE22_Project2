@@ -111,7 +111,7 @@
       "lastName": "Duy",
       "email": "duyquang130@gmail.com",
       "password": "1234",
-      "role": "1"
+      "role": 1
     },
     {
       "id": 2,

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import connect from "react-redux/es/connect/connect";
 import {loadDataCarts, loadDataUsers} from "../../../redux/actions";
 
@@ -88,7 +89,7 @@ class FormSignIn extends Component{
                                 <label htmlFor="password_sign-in">Password *</label>
                                 <input className="form-control" id="password_sign-in" ref={this.pass} type="password" required="required" />
                             </div>
-                            <a className="sign-in_forget--password text-capitalize mr-5" href="#">Quên Mật Khẩu?</a>
+                            <Link className="sign-in_forget--password text-capitalize mr-5" to="/sign-in">Quên Mật Khẩu?</Link>
                             <button className="btn btn-dark btn_sign-in text-uppercase mt-3 mt-sm-0" onClick={this.SubmitHandler}>Đăng nhập</button>
                         </div>
                     </div>

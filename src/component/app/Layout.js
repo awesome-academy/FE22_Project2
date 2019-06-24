@@ -8,6 +8,8 @@ import Home from "../../pages/home/Home";
 import Product from "../../pages/product/Product";
 import SignIn from "../../pages/sign-in/SignIn";
 import ShoppingCart from "../../pages/shopping-cart/ShoppingCart";
+import Detail from "../../pages/detail/Detail";
+import Footer from "../common/footer/Footer";
 
 const urlProducts = process.env.REACT_APP_PRODUCTS;
 const urlCategories = process.env.REACT_APP_CATEGORIES;
@@ -30,6 +32,10 @@ function signUp() {
 
 function shoppingCart() {
     return <ShoppingCart/>;
+}
+
+function detail() {
+    return <Detail/>;
 }
 
 class Layout extends Component {
@@ -70,6 +76,9 @@ class Layout extends Component {
                     <Route path="/sign-in" exact component={signIn} />
                     <Route path="/sign-up" component={signUp} />
                     <Route path="/shopping-cart" component={shoppingCart} />
+                    <Route path="/detail" component={detail} />
+
+                    <Footer/>
                 </div>
             </Router>
         );

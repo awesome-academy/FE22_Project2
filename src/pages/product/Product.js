@@ -13,7 +13,7 @@ import ProductList from "./component/ProductList";
 class Product extends Component {
     render() {
         return (
-            <div className="product--page">
+            <div className="product_page">
                 <Nav />
                 <Breadcrumb />
                 <img className="product--adv img-fluid" src={imgAdv} alt="Adv"/>
