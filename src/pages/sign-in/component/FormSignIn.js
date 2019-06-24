@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import connect from "react-redux/es/connect/connect";
-import {loadDataUsers} from "../../../redux/actions";
+import {loadDataCarts, loadDataUsers} from "../../../redux/actions";
 
 const urlUsers = process.env.REACT_APP_USERS;
+const urlCarts = process.env.REACT_APP_CARTS;
 
 class FormSignIn extends Component{
     constructor(props) {
@@ -19,11 +20,11 @@ class FormSignIn extends Component{
     }
 
     notifycationLogin(email, pass) {
-        const  { users } = this.props;
+        const { users, carts } = this.props;
+        let cloneCarts = carts;
 
         let idxEmail = users.findIndex((us) => us.email === email); // Find email
         let idxPass = users.findIndex(us => us.password === pass); // Find password
-        console.log(idxEmail, idxPass);
 
         if (idxEmail <= -1) alert("Email không tồn tại !!");
         else {
@@ -32,6 +33,10 @@ class FormSignIn extends Component{
                 const user = users.find((us) => us.email === email);
                 alert("Đăng nhập thành công !!!");
                 localStorage.setItem("logon", JSON.stringify({id: user.id, check: true}));
+
+                const cart = cloneCarts.find(c => c.idUser === user.id);
+                if (cart)
+                    localStorage.setItem("id-item--cart", JSON.stringify(cart.itemSelected));
             }
         }
     }
@@ -44,6 +49,19 @@ class FormSignIn extends Component{
             .then(
                 (result) => {
                     data(result);
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
+
+        // Fetch Data Carts from API
+        const { dataCart } = this.props;
+        fetch(urlCarts)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    dataCart(result);
                 },
                 (error) => {
                     console.log(error);
@@ -82,7 +100,8 @@ class FormSignIn extends Component{
 
 function mapStateToProps(state) {
     return {
-        users: state.users
+        users: state.users,
+        carts: state.carts
     }
 }
 
@@ -90,6 +109,9 @@ function mapDispatchToProps(dispatch) {
     return {
         data: (list) => {
             dispatch(loadDataUsers(list));
+        },
+        dataCart: (list) => {
+            dispatch(loadDataCarts(list));
         }
     };
 }

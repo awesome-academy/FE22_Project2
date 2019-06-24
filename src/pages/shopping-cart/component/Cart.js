@@ -24,6 +24,8 @@ class Cart extends Component {
 
     render() {
         const { productSelected } = this.props;
+        let itemSelected = productSelected;
+        if (!itemSelected) itemSelected = [];
         return(
             <div className="table--cart ml-3">
                 <h3 className="text-uppercase mt-3 mb-3">Giỏ hàng</h3>
@@ -41,7 +43,7 @@ class Cart extends Component {
                         </thead>
                         <tbody className="tinfo_cart">
                             {
-                                productSelected.map((item, idx) => <CartItem key={idx}
+                                itemSelected.map((item, idx) => <CartItem key={idx}
                                                                              path={item.image}
                                                                              count={item.count}
                                                                              name={item.productName}

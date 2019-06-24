@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import {connect} from "react-redux";
+import {loadDataCarts} from "../../../redux/actions";
+
+const urlCarts = process.env.REACT_APP_CARTS;
 
 class Logon extends Component {
     constructor(props) {
@@ -8,8 +12,95 @@ class Logon extends Component {
     }
 
     handlerLogon(event) {
+        const { carts } = this.props;
+
+        let dataSelected = JSON.parse(localStorage.getItem("id-item--cart")); // get data in cart of user current
+        const account = JSON.parse(localStorage.getItem("logon")); // get user current login account
+        const fb = JSON.parse(localStorage.getItem("access")); // get user current login facebook
+
+        let dataUser = {};
+
+        if (!dataSelected) dataSelected = [];
+
+        if (account) dataUser = account;
+        else if (fb) dataUser = fb.profile;
+
+        let id = 1;
+        if (carts) {
+            id = carts[carts.length-1].id + 1; // Get next Id
+        }
+
+        if (!this.checkUserHad(dataUser.id, carts)) {
+            let dataCart = {id, idUser: dataUser.id}; // add data user and data cart current
+            let itemSelected = [];
+
+            for (var dt of dataSelected) {
+                itemSelected.push(dt); // Push Data of localStorage
+            }
+            dataCart = {...dataCart, itemSelected}; // Data to add DB
+            this.pushDataCarts(dataCart);
+        } else {
+            let cart = carts.find(c => c.idUser === dataUser.id);
+            let id = cart.id;
+            let dataCart = {id, idUser: dataUser.id}; // add data user and data cart current
+            let itemSelected = [];
+
+            for (var dt of dataSelected) {
+                itemSelected.push(dt); // Push Data of localStorage
+            }
+            dataCart = {...dataCart, itemSelected}; // Data to add DB
+            this.editDataCarts(dataCart, id);
+        }
+
         localStorage.removeItem("logon");
+        localStorage.removeItem("access");
+        localStorage.removeItem("id-item--cart");
         window.location.reload();
+    }
+
+    checkUserHad(userId, carts) {
+        const idx = carts.findIndex(c => c.idUser === userId);
+        if (idx <= -1) return false;
+        return true;
+    }
+
+    componentDidMount() {
+        // Fetch Data Carts from API
+        const { dataCart } = this.props;
+        fetch(urlCarts)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    dataCart(result);
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
+    }
+
+    async pushDataCarts(obj) {
+        // POST Data Carts
+        await fetch(urlCarts, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(obj)
+        });
+    }
+
+    async editDataCarts(obj, id) {
+        // PUT Data Carts
+        await fetch(urlCarts+"/"+id, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(obj)
+        });
     }
 
     render() {
@@ -27,4 +118,19 @@ class Logon extends Component {
     }
 }
 
-export default Logon;
+function mapStateToProps(state) {
+    return {
+        users: state.users,
+        carts: state.carts
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        dataCart: (list) => {
+            dispatch(loadDataCarts(list));
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Logon);

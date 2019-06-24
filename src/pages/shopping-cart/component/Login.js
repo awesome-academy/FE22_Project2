@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import Facebook from "../../../component/common/Facebook";
 
 class Login extends Component {
     render() {
@@ -12,10 +13,11 @@ class Login extends Component {
                     </div>
                     <hr />
                     <div className="signin--socialnetwork">
-                        <button className="btn w-100">
+                        <Facebook>
                             <i className="fab fa-facebook-f mr-3"></i>
                             Đăng nhập bằng Facebook
-                        </button>
+                        </Facebook>
+
                         <button className="btn mt-2 w-100">
                             <i className="fab fa-google-plus-g mr-3"></i>
                             Đăng nhập bằng Gmail
