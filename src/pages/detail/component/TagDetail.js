@@ -1,39 +1,28 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-
+import { Tabs, Tab } from 'react-bootstrap';
 import InfoItemTag from "./sub-component/InfoItemTag";
+import ShareFB from "../../../component/Facebook/ShareFB";
 
 class TagDetail extends Component {
     render() {
         return (
             <div className="detail_tab pb-5 col-lg-8 col-12">
-                <ul className="nav nav-pills" role="tablist">
-                    <li className="nav-item">
-                        <Link className="nav-link active pr-2 text-uppercase"
-                           data-toggle="pill" to="#home">Đặc điểm nổi bật</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link active pr-2 text-uppercase"
-                           data-toggle="pill" to="#abc">Thông tin sản phẩm</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link active pr-2 text-uppercase"
-                           data-toggle="pill" to="#home">Đánh giá</Link>
-                    </li>
-                </ul>
-                {/* Tab panes*/}
-                <div className="tab-content mt-5">
-                    <div className="container tab-pane active p-0" id="home"><br />
+                <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
+                    <Tab eventKey="home" title="đặt điểm nổi bật">
                         <InfoItemTag path="product_info--img--1.jpg" />
                         <InfoItemTag path="product_info--img--2.jpg" />
                         <InfoItemTag path="product_info--img--3.png" />
                         <InfoItemTag path="product_info--img--4.jpg" />
-                    </div>
+                    </Tab>
+                    <Tab eventKey="profile" title="Thông tin sản phẩm">
+                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
-                    <div className="container tab-pane p-0" id="abc"><br />
-                        asb
-                    </div>
-                </div>
+                        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+                    </Tab>
+                    <Tab eventKey="contact" title="Đánh giá">
+                        <ShareFB/>
+                    </Tab>
+                </Tabs>
             </div>
         );
     }

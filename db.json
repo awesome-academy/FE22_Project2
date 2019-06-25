@@ -148,6 +148,20 @@
       "nameRole": "user"
     }
   ],
+  "status": [
+    {
+      "id": 1,
+      "statusName": "order"
+    },
+    {
+      "id": 2,
+      "statusName": "bought"
+    },
+    {
+      "id": 3,
+      "statusName": "completed"
+    }
+  ],
   "carts": [
     {
       "id": 1,
@@ -163,7 +177,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 16,
-          "count": 1
+          "count": 1,
+          "status": 1
         },
         {
           "id": "6",
@@ -175,7 +190,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 76,
-          "count": 2
+          "count": 2,
+          "status": 1
         }
       ]
     },
@@ -193,7 +209,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 16,
-          "count": 2
+          "count": 2,
+          "status": 1
         },
         {
           "id": "6",
@@ -205,7 +222,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 76,
-          "count": 4
+          "count": 4,
+          "status": 1
         },
         {
           "id": "1",
@@ -217,7 +235,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 56,
-          "count": 1
+          "count": 1,
+          "status": 1
         },
         {
           "id": "3",
@@ -229,7 +248,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 16,
-          "count": 1
+          "count": 1,
+          "status": 1
         },
         {
           "id": "4",
@@ -241,7 +261,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 58,
-          "count": 1
+          "count": 1,
+          "status": 1
         },
         {
           "id": "5",
@@ -253,7 +274,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 4,
-          "count": 2
+          "count": 2,
+          "status": 1
         },
         {
           "id": "7",
@@ -265,7 +287,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 91,
-          "count": 2
+          "count": 2,
+          "status": 1
         }
       ]
     },
@@ -283,7 +306,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 76,
-          "count": 2
+          "count": 2,
+          "status": 1
         },
         {
           "id": "7",
@@ -295,7 +319,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 91,
-          "count": 1
+          "count": 1,
+          "status": 1
         },
         {
           "id": "5",
@@ -307,7 +332,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 4,
-          "count": 2
+          "count": 2,
+          "status": 1
         }
       ]
     },
@@ -325,7 +351,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 56,
-          "count": 1
+          "count": 1,
+          "status": 2
         },
         {
           "id": "2",
@@ -337,7 +364,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 16,
-          "count": 1
+          "count": 1,
+          "status": 2
         },
         {
           "id": "3",
@@ -349,7 +377,8 @@
           "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 16,
-          "count": 1
+          "count": 1,
+          "status": 2
         }
       ]
     }

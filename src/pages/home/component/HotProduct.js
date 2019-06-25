@@ -10,6 +10,7 @@ class HotProduct extends Component {
     constructor(props) {
         super(props);
         this.onClickAdd = this.onClickAdd.bind(this);
+        this.onShowDetail = this.onShowDetail.bind(this);
     }
 
     onClickAdd(item) {
@@ -30,6 +31,18 @@ class HotProduct extends Component {
             }
             localStorage.setItem('id-item--cart', JSON.stringify(countObject)); // Set LocalStorage for Array Check Count
             add(countObject);
+        }
+    }
+
+    onShowDetail(item) {
+        return event => {
+            let arrItemRecently = JSON.parse(localStorage.getItem('item-detail'));
+            if (!arrItemRecently) arrItemRecently = [];
+
+            arrItemRecently.push(item);
+
+            localStorage.setItem('item-detail', JSON.stringify(arrItemRecently));
+            window.location.href = '/detail';
         }
     }
 
@@ -64,10 +77,13 @@ class HotProduct extends Component {
                 <OwlCarousel options={options} className="product--carousel owl-carousel owl-theme pb-3">
                     {
                         products.map((item,idx) => <ProductItem key={idx}
+                                                                name={item.productName}
+                                                                decription={item.decription}
                                                                 path={item.image}
                                                                 price={item.price}
                                                                 discount={item.discount}
-                                                                onClick={this.onClickAdd(item)}/>)
+                                                                onClick={this.onClickAdd(item)}
+                                                                onShowDetail={this.onShowDetail(item)}/>)
                     }
                 </OwlCarousel>
 
