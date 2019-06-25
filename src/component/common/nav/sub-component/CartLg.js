@@ -73,12 +73,17 @@ class CartLg extends Component {
         let total = 0;
         let nameShow = '';
         let arr = productSelected;
+        let temp = [];
 
         // Get Total product had choose
         if (!arr) arr = [];
+
         for (var it of arr) {
             sum += it.count;
             total += (it.count*it.price);
+            if (it.status === 1) {
+                temp.push(it);
+            }
         }
         // Get Total product had choose
 
@@ -105,12 +110,12 @@ class CartLg extends Component {
                         <div className="cart_item">
                             <div className="cart_item--sub">
                                 {
-                                    arr.map((item, idx) => <CartItem key={idx}
-                                                                     count={item.count}
-                                                                     path={item.image}
-                                                                     price={item.price}
-                                                                     productName={item.productName}
-                                                                     onClick={this.onRemove(item)}/>)
+                                    temp.map((item, idx) => <CartItem key={idx}
+                                                                      count={item.count}
+                                                                      path={item.image}
+                                                                      price={item.price}
+                                                                      productName={item.productName}
+                                                                      onClick={this.onRemove(item)}/>)
                                 }
                             </div>
                             <hr />
