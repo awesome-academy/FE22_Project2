@@ -7,8 +7,8 @@ import ImgShoppingCart from "../../../../images/HOME/shoppoing-cart.png";
 import ImgSearch from "../../../../images/HOME/btn-search.png";
 
 import CartItem from "./CartItem";
-import Logon from "../../../../pages/shopping-cart/component/Logon";
-import Login from "../../../../pages/shopping-cart/component/Login";
+import Logon from "./Logon";
+import Login from "./Login";
 
 const urlUsers = process.env.REACT_APP_USERS;
 
@@ -72,13 +72,18 @@ class CartSm extends Component {
         let sum = 0;
         let total = 0;
         let nameShow = '';
+        let temp = [];
         let arr = productSelected;
 
         // Get Total product had choose
         if (!arr) arr = [];
+
         for (var it of arr) {
-            sum += it.count;
             total += (it.count*it.price);
+            if (it.status === 1) {
+                sum += it.count;
+                temp.push(it);
+            }
         }
         // Get Total product had choose
 
@@ -105,7 +110,7 @@ class CartSm extends Component {
                         <div className="cart_item">
                             <div className="cart_item--sub">
                                 {
-                                    arr.map((item, idx) => <CartItem key={idx}
+                                    temp.map((item, idx) => <CartItem key={idx}
                                                                      count={item.count}
                                                                      path={item.image}
                                                                      price={item.price}

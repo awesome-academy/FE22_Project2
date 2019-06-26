@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import CartItem from "./CartItem";
-import {addItemSelected} from "../../../redux/actions";
+import {addItemSelected, loadDataCarts} from "../../../redux/actions";
 
 const urlCarts = process.env.REACT_APP_CARTS;
 
@@ -14,7 +14,8 @@ class Cart extends Component {
         this.onPayment = this.onPayment.bind(this);
         this.btnPayment = React.createRef();
         this.state = {
-            check: true
+            check: true,
+            dataCarts: []
         }
     }
 
@@ -31,40 +32,82 @@ class Cart extends Component {
         }
     }
 
+    async getAgainData() {
+        await fetch(urlCarts)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        dataCarts: result
+                    });
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
+    }
+
     onPayment(event) {
         const account = JSON.parse(localStorage.getItem("logon")); // get user current login account
         const fb = JSON.parse(localStorage.getItem("access")); // get user current login facebook
-        const { carts } = this.props;
+        const day = `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`;
 
-        if (!account) {
-            if (!fb) {
+        this.getAgainData(); // Get Data Cart from API
 
-            } else {
+        let carts = this.state.dataCarts; // Set Data for state
+
+        if (!account) { // Check login account
+            if (!fb) { // Check login facebook
+
+            } else { // If login by facebook
                 let obj = carts.find(c => c.idUser === fb.profile.id);
-                this.paymentCart(obj);
+                const objectData = {...obj, day};
+                this.paymentCart(objectData);
             }
-        } else {
+        } else { // If login by facebook
             let obj = carts.find(c => c.idUser === account.id);
-            this.paymentCart(obj);
+            const objectData = {...obj, day};
+            this.paymentCart(objectData);
         }
     }
 
     paymentCart(obj) {
+        let dataSelected = JSON.parse(localStorage.getItem("id-item--cart"));
         for (var item of obj.itemSelected) {
             item.status = 2;
         }
+
         var result = window.confirm("Want to delete?");
-        if (result) {
+        if (result) { // If you click OK
+            let test = [...obj.itemSelected]; // Clone data cart of object current
+            for (var data of dataSelected) {
+                data.status = 2; // set status = 2 (payment)
+                test.push(data); // push data changed to array
+            }
+            let dataSave = {...obj, itemSelected: test}; // New Data will save in DB
+            this.deleteDataCarts(obj.id);
+            this.pushDataCarts(dataSave);
+
             localStorage.removeItem("id-item--cart");
-            this.editDataCarts(obj, obj.id);
             window.location.reload();
         }
     }
 
-    async editDataCarts(obj, id) {
-        // PUT Data Carts
+    async deleteDataCarts(id) {
+        // DELETE Data Carts
         await fetch(urlCarts+"/"+id, {
-            method: 'PUT',
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        });
+    }
+
+    async pushDataCarts(obj) {
+        // POST Data Carts
+        await fetch(urlCarts, {
+            method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -74,23 +117,49 @@ class Cart extends Component {
     }
 
     componentDidMount() {
+        this.getAgainData();
+        let dataSelected = JSON.parse(localStorage.getItem("id-item--cart"));
         const account = JSON.parse(localStorage.getItem("logon")); // get user current login account
         const fb = JSON.parse(localStorage.getItem("access")); // get user current login facebook
 
         if (!account) {
             if (!fb) {
                 this.setState({
-                    check: true
+                    check: true // Check if don't have anybody login => disable button payment
                 });
             } else {
-                this.setState({
-                    check: false
-                });
+                if (!dataSelected) {
+                    this.setState({
+                        check: true // If login by facebook and don't have the data in cart => disable button payment
+                    });
+                } else {
+                    if (dataSelected.length <= 0) {
+                        this.setState({
+                            check: true // If login by facebook have the cart but haven't any product in cart => disable button payment
+                        });
+                    } else {
+                        this.setState({
+                            check: false // if login by facebook have the product in cart => enable button payment
+                        });
+                    }
+                }
             }
         } else {
-            this.setState({
-                check: false
-            });
+            if (!dataSelected) {
+                this.setState({
+                    check: true // If login by account and don't have the data in cart => disable button payment
+                });
+            } else {
+                if (dataSelected.length <= 0) {
+                    this.setState({
+                        check: true // If login by account have the cart but haven't any product in cart => disable button payment
+                    });
+                } else {
+                    this.setState({
+                        check: false // if login by account have the product in cart => enable button payment
+                    });
+                }
+            }
         }
     }
 
@@ -100,7 +169,6 @@ class Cart extends Component {
         if (!itemSelected) itemSelected = [];
 
         let temp = [];
-
         for (var item of itemSelected) {
             if (item.status === 1) {
                 temp.push(item);
@@ -124,10 +192,11 @@ class Cart extends Component {
                         <tbody className="tinfo_cart">
                             {
                                 temp.map((item, idx) => <CartItem key={idx}
-                                                                             path={item.image}
-                                                                             count={item.count}
-                                                                             name={item.productName}
-                                                                             price={item.price} onClick={this.onRemove(item)}/>)
+                                                                  path={item.image}
+                                                                  count={item.count}
+                                                                  name={item.productName}
+                                                                  price={item.price}
+                                                                  onClick={this.onRemove(item)}/>)
                             }
                         </tbody>
                     </table>
@@ -155,6 +224,9 @@ function mapDispatchToProps(dispatch) {
     return {
         add: (item) => {
             dispatch(addItemSelected(item));
+        },
+        dataCart: (list) => {
+            dispatch(loadDataCarts(list));
         }
     };
 }

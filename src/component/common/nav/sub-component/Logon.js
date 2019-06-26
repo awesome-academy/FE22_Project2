@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import {connect} from "react-redux";
-import {loadDataCarts} from "../../../redux/actions";
+import {loadDataCarts} from "../../../../redux/actions";
 
 const urlCarts = process.env.REACT_APP_CARTS;
 
@@ -34,6 +34,14 @@ class Logon extends Component {
             let dataCart = {id, idUser: dataUser.id}; // add data user and data cart current
             let itemSelected = [];
 
+            for (var ca of carts) {
+                if (ca.idUser === dataUser.id) {
+                    for (var item of ca.itemSelected) {
+                        itemSelected.push(item);
+                    }
+                }
+            }
+
             for (var dt of dataSelected) {
                 itemSelected.push(dt); // Push Data of localStorage
             }
@@ -44,6 +52,14 @@ class Logon extends Component {
             let id = cart.id;
             let dataCart = {id, idUser: dataUser.id}; // add data user and data cart current
             let itemSelected = [];
+
+            for (var c of carts) {
+                if (c.idUser === dataUser.id) {
+                    for (var selected of c.itemSelected) {
+                        itemSelected.push(selected);
+                    }
+                }
+            }
 
             for (var data of dataSelected) {
                 itemSelected.push(data); // Push Data of localStorage

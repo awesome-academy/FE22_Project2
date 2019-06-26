@@ -13,15 +13,13 @@ class SaleHot extends Component {
     }
 
     componentDidMount() {
-        let arrItemRecently = JSON.parse(localStorage.getItem('item-detail'));
-        if (!arrItemRecently) window.location.href = '/';
-
         // Fetch Data Carts from API
         const { dataCart } = this.props;
         fetch(urlCarts)
             .then(res => res.json())
             .then(
                 (result) => {
+                    console.log(result);
                     dataCart(result);
                 },
                 (error) => {
