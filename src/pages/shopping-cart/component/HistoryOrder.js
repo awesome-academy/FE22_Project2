@@ -30,7 +30,6 @@ class HistoryOrder extends Component {
             }
         } else {
             if (result) {
-                console.log(result);
                 let obj = result.find(c => c.idUser === account.id);
                 if (obj){
                     this.setState({
@@ -55,7 +54,7 @@ class HistoryOrder extends Component {
     }
 
     componentDidMount() {
-        this.getDataHistory()
+        this.getDataHistory();
     }
 
     render() {

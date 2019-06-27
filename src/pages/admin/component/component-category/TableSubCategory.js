@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
-import ItemRowTable from "../sub-component/ItemRowTable";
+import ItemSubCategory from "./ItemSubCategory";
 
 class TableSubCategory extends Component {
     render() {
         return (
             <div className="card mb-3 mt-4">
                 <div className="card-header">
-                    <i className="fas fa-table"/> Data Table
+                    <i className="fas fa-table"/> Bảng Loại Sản Phẩm Con
                 </div>
                 <div className="card-body">
-                    <table className="table table-hover">
-                        <thead>
+                    <div className="cart--table mb-5">
+                        <table className="table table-bordered table-responsive-sm">
+                            <thead>
                             <tr>
-                                <th>Tên Loại Sản phẩm Con</th>
-                                <th>Tên Loại Sản phẩm</th>
+                                <th className="text-uppercase text-center">Tên Loại Sản phẩm Con</th>
+                                <th className="text-uppercase text-center">Tên Loại Sản phẩm</th>
+                                <th className="text-uppercase text-center">Hoạt động</th>
                                 <th> </th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <ItemRowTable>
-                                <td>John</td>
-                                <td>a</td>
-                                <td>
-                                    <button className="mr-2 btn btn-warning">Edit</button>
-                                </td>
-                            </ItemRowTable>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody className="tinfo_cart">
+                                <ItemSubCategory/>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div className="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
