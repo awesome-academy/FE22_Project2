@@ -40,6 +40,9 @@ class HotProduct extends Component {
             let arrItemRecently = JSON.parse(localStorage.getItem('item-detail'));
             if (!arrItemRecently) arrItemRecently = [];
 
+            if (arrItemRecently.length > 3) {
+                arrItemRecently.shift();
+            }
             arrItemRecently.push(item);
 
             localStorage.setItem('item-detail', JSON.stringify(arrItemRecently));

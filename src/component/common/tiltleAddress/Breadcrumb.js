@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-class titleAddress extends Component {
+class breadcrumb extends Component {
     render() {
         return (
             <div className="container mt-3">
@@ -18,4 +18,4 @@ class titleAddress extends Component {
     }
 }
 
-export default titleAddress;
+export default breadcrumb;
