@@ -20,9 +20,7 @@ class TableListOrder extends Component {
                                 <th className="text-uppercase text-center"> </th>
                             </tr>
                             </thead>
-                            <tbody className="tinfo_cart">
-                                <ItemOrder/>
-                            </tbody>
+                            <ItemOrder/>
                         </table>
                     </div>
                 </div>

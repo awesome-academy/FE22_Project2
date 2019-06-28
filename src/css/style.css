@@ -2346,6 +2346,7 @@ body .actions li[aria-disabled="false"] ~ li a:hover {
     }
 
     .wrap--admin {
+        min-height: 582px;
         display: flex;
         flex-direction: row;
     }
@@ -2353,6 +2354,10 @@ body .actions li[aria-disabled="false"] ~ li a:hover {
     .wrap--content {
         width: 100%;
         overflow: hidden;
+    }
+
+    .wrap--content .container-fluid {
+        min-height: 455px;
     }
 
     .wrap--content .nav-tabs .nav-link {

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
+
 import TableUsers from "./component/component-user/TableUsers";
-import AddUser from "./component/component-user/AddUser";
 import LayoutAdmin from "./component/LayoutAdmin";
 
 class Users extends Component {
     render() {
         return (
             <LayoutAdmin>
-                <AddUser/>
+                <Link to="/admin-users/add"><button className="btn btn-primary text-uppercase">Thêm</button></Link>
                 <TableUsers/>
             </LayoutAdmin>
         );

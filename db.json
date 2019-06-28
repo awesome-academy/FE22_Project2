@@ -181,7 +181,8 @@
       "lastName": "Duy",
       "email": "abc@gmail.com",
       "password": "1234",
-      "role": 2
+      "role": 2,
+      "isActive": true
     },
     {
       "id": 3,
@@ -189,7 +190,8 @@
       "lastName": "Duy",
       "email": "1234@gmail.com",
       "password": "1234",
-      "role": 2
+      "role": 2,
+      "isActive": false
     },
     {
       "id": 4,
@@ -197,7 +199,26 @@
       "lastName": "Duy",
       "email": "asd@gmail.com",
       "password": "1234",
-      "role": 2
+      "role": 2,
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "firstName": "Thanh",
+      "lastName": "Huyen",
+      "email": "thanhhuyen@gmail.com",
+      "password": "1234",
+      "role": 2,
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "firstName": "ccc",
+      "lastName": "bbb",
+      "email": "duytrang130@gmail.com",
+      "role": 2,
+      "password": "1234",
+      "isActive": false
     }
   ],
   "roles": [
@@ -221,7 +242,11 @@
     },
     {
       "id": 3,
-      "statusName": "completed"
+      "statusName": "accept"
+    },
+    {
+      "id": 4,
+      "statusName": "complete"
     }
   ],
   "carts": [

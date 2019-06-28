@@ -3,6 +3,8 @@ export const LOAD_DATA_CATEGORIES = "LOAD_DATA_CATEGORIES";
 export const LOAD_DATA_USERS = "LOAD_DATA_USERS";
 export const LOAD_DATA_CARTS = "LOAD_DATA_CARTS";
 export const UPDATE_ITEMS_SELECTED = "UPDATE_ITEMS_SELECTED";
+export const UPDATE_ITEMS_USERS = "UPDATE_ITEMS_USERS";
+export const UPDATE_ITEMS_CATEGORIES = "UPDATE_ITEMS_CATEGORIES";
 
 export function loadData(list) {
     return { type: LOAD_DATA_PRODUCTS, list }
@@ -22,4 +24,12 @@ export function loadDataCarts(list) {
 
 export function addItemSelected(item) {
     return { type: UPDATE_ITEMS_SELECTED, item }
+}
+
+export function updateItemUsers(item) {
+    return { type: UPDATE_ITEMS_USERS, item }
+}
+
+export function updateItemCategory(item) {
+    return { type: UPDATE_ITEMS_CATEGORIES, item }
 }

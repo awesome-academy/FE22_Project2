@@ -58,11 +58,10 @@ class Cart extends Component {
 
             } else { // If login by facebook
                 let obj = carts.find(c => c.idUser === fb.profile.id);
-                // this.paymentCart(obj);
+                this.paymentCart(obj);
             }
         } else { // If login by facebook
             let obj = carts.find(c => c.idUser === account.id);
-            // console.log(obj);
             this.paymentCart(obj);
         }
     }
@@ -72,19 +71,7 @@ class Cart extends Component {
         this.paymentTheCart(this.state.dataCarts);
     }
 
-    checkCart(test, dataSelected) {
-        for (var t of test) {
-            for (var d of dataSelected) {
-                if (_.isEqual(t, d)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     paymentCart(obj) {
-        const day = `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`;
         let dataSelected = JSON.parse(localStorage.getItem("id-item--cart"));
         for (var item of obj.itemSelected) {
             item.status = 2;
