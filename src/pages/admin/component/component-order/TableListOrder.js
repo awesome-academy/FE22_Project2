@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import ItemCategory from "./ItemCategory";
+import ItemOrder from "./ItemOrder";
 
-class TableCategory extends Component {
+class TableListOrder extends Component {
     render() {
         return (
             <div className="card mb-3 mt-4">
                 <div className="card-header">
-                    <i className="fas fa-table"/> Bảng Loại Sản Phẩm
+                    <i className="fas fa-table"/> Bảng Sản Phẩm
                 </div>
                 <div className="card-body">
                     <div className="cart--table mb-5">
                         <table className="table table-bordered table-responsive-sm">
                             <thead>
                             <tr>
-                                <th className="text-uppercase text-center">Tên Loại Sản phẩm</th>
-                                <th className="text-uppercase text-center">Hoạt động</th>
-                                <th> </th>
+                                <th className="text-uppercase text-center">Mã đơn hàng</th>
+                                <th className="text-uppercase text-center">Tên khách hàng</th>
+                                <th className="text-uppercase text-center">Tổng đơn hàng</th>
+                                <th className="text-uppercase text-center">Trạng thái</th>
+                                <th className="text-uppercase text-center"> </th>
                             </tr>
                             </thead>
                             <tbody className="tinfo_cart">
-                                <ItemCategory/>
+                                <ItemOrder/>
                             </tbody>
                         </table>
                     </div>
@@ -30,4 +32,4 @@ class TableCategory extends Component {
     }
 }
 
-export default TableCategory;
+export default TableListOrder;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import _ from 'lodash';
 
 import CartItem from "./CartItem";
 import {addItemSelected, loadDataCarts} from "../../../redux/actions";
@@ -47,28 +48,39 @@ class Cart extends Component {
             );
     }
 
-    onPayment(event) {
+    paymentTheCart(result) {
         const account = JSON.parse(localStorage.getItem("logon")); // get user current login account
         const fb = JSON.parse(localStorage.getItem("access")); // get user current login facebook
-        const day = `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`;
-
-        this.getAgainData(); // Get Data Cart from API
-
-        let carts = this.state.dataCarts; // Set Data for state
+        let carts = result; // Set Data for state
 
         if (!account) { // Check login account
             if (!fb) { // Check login facebook
 
             } else { // If login by facebook
                 let obj = carts.find(c => c.idUser === fb.profile.id);
-                const objectData = {...obj, day};
-                this.paymentCart(objectData);
+                // this.paymentCart(obj);
             }
         } else { // If login by facebook
             let obj = carts.find(c => c.idUser === account.id);
-            const objectData = {...obj, day};
-            this.paymentCart(objectData);
+            // console.log(obj);
+            this.paymentCart(obj);
         }
+    }
+
+    onPayment(event) {
+        this.getAgainData(); // Get Data Cart from API
+        this.paymentTheCart(this.state.dataCarts);
+    }
+
+    checkCart(test, dataSelected) {
+        for (var t of test) {
+            for (var d of dataSelected) {
+                if (_.isEqual(t, d)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     paymentCart(obj) {
@@ -81,13 +93,15 @@ class Cart extends Component {
         var result = window.confirm("Want to delete?");
         if (result) { // If you click OK
             let test = [...obj.itemSelected]; // Clone data cart of object current
-            for (var data of dataSelected) {
-                data.status = 2; // set status = 2 (payment)
-                data.day = day; // add day payment
-                test.push(data); // push data changed to array
+
+            var data = _.differenceWith(dataSelected, test, _.isEqual);
+
+            for (var d of data) {
+                d.status = 2;
             }
-            let dataSave = {...obj, id: obj.id, itemSelected: test}; // New Data will save in DB
-            // console.log(dataSave);
+
+            var a = [...test, ...data];
+            let dataSave = {...obj, id: obj.id, itemSelected: a}; // New Data will save in DB
             this.deleteDataCarts(obj.id);
             this.pushDataCarts(dataSave);
 

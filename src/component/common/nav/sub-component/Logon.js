@@ -45,8 +45,10 @@ class Logon extends Component {
             for (var dt of dataSelected) {
                 itemSelected.push(dt); // Push Data of localStorage
             }
-            dataCart = {...dataCart, itemSelected}; // Data to add DB
-            this.pushDataCarts(dataCart);
+            if (itemSelected.length > 0) {
+                dataCart = {...dataCart, itemSelected}; // Data to add DB
+                this.pushDataCarts(dataCart);
+            }
         } else {
             let cart = carts.find(c => c.idUser === dataUser.id);
             let id = cart.id;
@@ -124,10 +126,10 @@ class Logon extends Component {
         return (
             <div className="dropdown-menu menu-logon w-100">
                 <div className="cart_item accout--logon">
-                    <Link className="mb-2" to="/shopping-cart"><i className="far fa-eye"></i>&nbsp; Xin chào, {name}</Link>
+                    <Link className="mb-2" to="/shopping-cart"><i className="far fa-eye"/>&nbsp; Xin chào, {name}</Link>
                     <hr/>
-                    <Link to="/shopping-cart"><i className="far fa-user"></i>&nbsp; Tài khoản của tôi</Link>
-                    <Link to="/" onClick={this.handlerLogon}><i className="fas fa-sign-out-alt"></i>&nbsp; Đăng xuất</Link>
+                    <Link to="/shopping-cart"><i className="far fa-user"/>&nbsp; Tài khoản của tôi</Link>
+                    <Link to="/" onClick={this.handlerLogon}><i className="fas fa-sign-out-alt"/>&nbsp; Đăng xuất</Link>
                 </div>
             </div>
         );

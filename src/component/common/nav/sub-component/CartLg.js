@@ -15,6 +15,7 @@ class CartLg extends Component {
     constructor(props) {
         super(props);
         this.onRemove = this.onRemove.bind(this);
+        this.onRedirectCart = this.onRedirectCart.bind(this);
     }
 
     componentDidMount() {
@@ -31,6 +32,15 @@ class CartLg extends Component {
                     console.log(error);
                 }
             );
+    }
+
+    onRedirectCart(event) {
+        const account = JSON.parse(localStorage.getItem("logon")); // get user current login account
+        const fb = JSON.parse(localStorage.getItem("access")); // get user current login facebook
+
+        if (account || fb) {
+            window.location.href = "/shopping-cart";
+        }
     }
 
     onRemove(item) {
@@ -103,9 +113,9 @@ class CartLg extends Component {
         return (
             <div className="img--tool" id="manager--tool--2" >
                 <div className="cart dropdown show-amount-item pr-3 pr-md-1">
-                    <Link className="mr-lg-3" to="/shopping-cart">
+                    <div onClick={this.onRedirectCart} className="mr-2 icon-cart">
                         <img src={ImgShoppingCart} alt="" /><span className="badge badge-pill badge-success">{sum}</span>
-                    </Link>
+                    </div>
                     <div className="dropdown-menu w-100">
                         <div className="cart_item">
                             <div className="cart_item--sub">
@@ -123,15 +133,15 @@ class CartLg extends Component {
                             <div className="total--price">
                                 <span>Tổng số</span><span className="float-right">{total}.000<sup>đ</sup></span>
                             </div>
-                            <Link to="/shopping-cart"><button className="text-uppercase btn btn-dark mb-3 mt-2">Giỏ hàng</button></Link>
+                            <button onClick={this.onRedirectCart} className="text-uppercase btn btn-dark mb-3 mt-2">Giỏ hàng</button>
                         </div>
                     </div>
                 </div>
                 <Link to="/"><img src={ImgSearch} alt="" /></Link>
                 <div className="cart dropdown account pl-4">
-                    <Link className="mr-lg-3" to="/shopping-cart">
-                        <i className="fas fa-user"></i>
-                    </Link>
+                    <div onClick={this.onRedirectCart} className="mr-lg-3 icon-cart">
+                        <i className="fas fa-user"/>
+                    </div>
                     {
                         this.checkLogin() && <Logon name={nameShow} /> // Nếu trả về true hiển thị layout đã đăng nhập
                     }
@@ -162,4 +172,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartLg);
+export default  connect(mapStateToProps, mapDispatchToProps)(CartLg);

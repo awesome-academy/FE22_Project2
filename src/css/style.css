@@ -175,6 +175,10 @@ body .nav-item a.nav-link:hover {
     font-family: "myriapro", sans-serif;
 }
 
+body .cart .icon-cart {
+    cursor: pointer;
+}
+
 @media (min-width: 760px) {
     body .img--tool#manager--tool--2 .cart.account .dropdown-menu.menu-logon {
         left: -8rem !important;
@@ -1794,6 +1798,10 @@ body .account--table .table-bordered td .table--item {
     transform: translateX(0);
 }
 
+.table--item button {
+    font-family: "Lobster", cursive;
+}
+
 body .form--signup form {
     font-size: 0.8rem;
     font-weight: 600;
@@ -2345,6 +2353,18 @@ body .actions li[aria-disabled="false"] ~ li a:hover {
     .wrap--content {
         width: 100%;
         overflow: hidden;
+    }
+
+    .wrap--content .nav-tabs .nav-link {
+        text-transform: uppercase;
+        font-size: .9rem;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.4);
+    }
+
+    .wrap--content .nav-tabs .nav-link.active {
+        color: black;
+        background-color: transparent;
     }
 
     .card-body-icon {
