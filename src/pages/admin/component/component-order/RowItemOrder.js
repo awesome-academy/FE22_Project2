@@ -23,16 +23,18 @@ class RowItemOrder extends Component {
         let totalTemp = 0;
         let statusTemp = "";
         let numStatusTemp = 2;
-        for (var sum of myCart.itemSelected) {
-            if (sum.status === 2) {
-                totalTemp += (sum.price*sum.count);
-                statusTemp = "Đang chờ xử lý";
-                numStatusTemp = 2;
-            } else if (sum.status === 3) {
-                statusTemp = "Chấp nhận đơn hàng";
-                numStatusTemp = 3;
+        if(myCart) {
+            for (var sum of myCart.itemSelected) {
+                if (sum.status === 2) {
+                    totalTemp += (sum.price*sum.count);
+                    statusTemp = "Đang chờ xử lý";
+                    numStatusTemp = 2;
+                } else if (sum.status === 3) {
+                    statusTemp = "Chấp nhận đơn hàng";
+                    numStatusTemp = 3;
+                }
             }
-        }
+        }        
 
         this.setState({
             numStatus: numStatusTemp,

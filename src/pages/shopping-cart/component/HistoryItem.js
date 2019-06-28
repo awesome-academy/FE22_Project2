@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 
 class HistoryItem extends Component {
     render() {
-        const { path, name, price, count, day } = this.props;
+        const { path, name, price, count, day, status } = this.props;
+        let showStatus = "";
+        let unAccept = {color: "red"};
+        let accept = {color: "green"};
+        if (status === 2) {
+            showStatus = "Đang xử lý";
+        } else if (status === 3) {
+            showStatus = "Đang vận chuyển";
+        }
+
         return (
             <tr>
                 <td className="text-center">
@@ -21,6 +30,14 @@ class HistoryItem extends Component {
                 </td>
                 <td className="text-center">
                     <div className="table--item"><span>{parseInt(count*price)}.000đ</span></div>
+                </td>
+                <td className="text-center">
+                    {
+                        status === 2 && <div className="table--item" style={unAccept}><span>{showStatus}</span></div>
+                    }
+                    {
+                        status === 3 && <div className="table--item" style={accept}><span>{showStatus}</span></div>
+                    }
                 </td>
                 <td className="text-center">
                     <div className="table--item"><span>{day}</span></div>

@@ -22,7 +22,7 @@ class ProductList extends Component {
                 countObject.push({...item, count: 1, status: 1, day})
             }
             else { // Array Check Count exist
-                let idx = countObject.findIndex(obj => obj.id === item.id); // Get index of element in Array Check Count
+                let idx = countObject.findIndex(obj => {return obj.id === item.id && obj.status === 1}); // Get index of element in Array Check Count
                 if (idx > -1) // Found element in Array Check Count
                     countObject[idx].count += 1;
                 else // Don't Found element in Array Check Count

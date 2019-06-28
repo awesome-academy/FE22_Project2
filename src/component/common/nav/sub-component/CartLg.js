@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import {addItemSelected, loadDataUsers} from "../../../../redux/actions";
+import { addItemSelected, loadDataUsers } from "../../../../redux/actions";
 
 import ImgSearch from '../../../../images/HOME/btn-search.png';
 import ImgShoppingCart from "../../../../images/HOME/shoppoing-cart.png";
@@ -48,7 +48,7 @@ class CartLg extends Component {
             const { productSelected, remove } = this.props;
             let arrItemRemove = productSelected;
 
-            let idx = arrItemRemove.findIndex(obj => obj.id === item.id);
+            let idx = arrItemRemove.findIndex(obj => {return obj.id === item.id && obj.status === 1});
             arrItemRemove.splice(idx, 1);
 
             localStorage.setItem("id-item--cart", JSON.stringify(arrItemRemove));
@@ -63,12 +63,12 @@ class CartLg extends Component {
 
         if (!user) {
             if (!access) {
-                test = false;
+                test = false; // If don't have anyone login
             } else {
-                test = true;
+                test = true; // If Login with fb
             }
         } else {
-            test = true;
+            test = true; // If login with account
         }
 
         return test;

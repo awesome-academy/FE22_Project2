@@ -220,6 +220,12 @@ body .img--tool .cart .cart_item.accout--logon a:hover:not(:first-child) {
     font-family: "myriapro", sans-serif;
 }
 
+.my--account .form-horizontal {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
 @media (min-width: 760px) {
     body .img--tool#manager--tool--2 .cart.account .dropdown-menu.menu-logon {
         left: -8rem !important;
