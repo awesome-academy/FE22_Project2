@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {loadData, loadDataCate, redirectProducts} from "../../../../redux/actions";
+import {loadData, redirectProducts} from "../../../../redux/actions";
 import connect from "react-redux/es/connect/connect";
 
 const urlProducts = process.env.REACT_APP_PRODUCTS;
 
-class AddProduct extends Component {
+class EditProduct extends Component {
     constructor(props) {
         super(props);
+
+        const { updateProduct } = this.props;
         this.state = {
             selectedFile: null,
-            image: ""
+            image: updateProduct.image,
+            check: false
         };
 
         this.productName = React.createRef();
@@ -29,7 +32,8 @@ class AddProduct extends Component {
         this.setState({
             selectedFile: event.target.files[0],
             loaded: 0,
-            image: event.target.files[0].name
+            image: event.target.files[0].name,
+            check: true
         })
     }
 
@@ -47,9 +51,9 @@ class AddProduct extends Component {
             );
     }
 
-    async addDataProduct(product) {
-        await fetch(urlProducts, {
-            method: 'POST',
+    async editDataProduct(product) {
+        await fetch(urlProducts+"/"+product.id, {
+            method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -58,7 +62,7 @@ class AddProduct extends Component {
         });
     }
 
-    addProduct() {
+    editProduct() {
         const productName = this.productName.current.value;
         const price = parseInt(this.price.current.value);
         const decription = this.decription.current.value;
@@ -66,19 +70,14 @@ class AddProduct extends Component {
         const productNameList = this.productNameList.current.value;
         const decriptionList = this.decriptionList.current.value;
         const discount = parseInt(this.discount.current.value);
-        const { products, redirect } = this.props;
-
-        let id = 1;
-        if (products) {
-            id = parseInt(products[products.length-1].id)+1; // Get next ID in DB
-        }
+        const { updateProduct, redirect } = this.props;
 
         if (productName && price && decription && IdCategory && productNameList && decriptionList && discount) {
-            let product = {id, productName, price,
+            let product = {id: updateProduct.id, productName, price,
                 image: this.state.image, decription, IdCategory,
                 productNameList, decriptionList, discount, isActive: true};
 
-            this.addDataProduct(product);
+            this.editDataProduct(product);
             setTimeout(() => {
                 this.getDataProduct();
             }, 300);
@@ -87,54 +86,64 @@ class AddProduct extends Component {
     }
 
     onClickHandler(event) {
-        const data = new FormData();
-        data.append('file', this.state.selectedFile);
-        axios.post("http://localhost:8000/upload", data, {
+        if (this.state.check) {
+            const data = new FormData();
+            data.append('file', this.state.selectedFile);
+            axios.post("http://localhost:8000/upload", data, {
 
-        }).then(res => { // then print response status
-            console.log(res.statusText);
-        });
+            }).then(res => { // then print response status
+                console.log(res.statusText);
+            });
+        }
 
-        this.addProduct();
+        this.editProduct();
     }
 
     render() {
-        const { categories } = this.props;
+        const { updateProduct, categories } = this.props;
+        console.log(updateProduct);
         return (
             <div className="mt-3">
                 <div className="form-group">
                     <label htmlFor="nameCate">Tên Sản Phẩm Hiện Dạng Lưới:</label>
-                    <input type="text" className="form-control" ref={this.productName}
+                    <input type="text" className="form-control" defaultValue={updateProduct.productName}
+                           ref={this.productName}
                            id="nameCate" placeholder="Nhập tên sản phẩm"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="nameCate">Giá:</label>
-                    <input type="number" className="form-control" ref={this.price}
+                    <input type="number" className="form-control" defaultValue={updateProduct.price}
+                           ref={this.price}
                            id="nameCate" placeholder="Nhập tên sản phẩm"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="nameCate">Mô tả Hiện Dạng Lưới:</label>
-                    <textarea className="form-control" ref={this.decription}
+                    <textarea className="form-control" defaultValue={updateProduct.decription}
+                           ref={this.decription}
                            id="nameCate" placeholder="Nhập tên sản phẩm"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="nameCate">Mô tả Hiện Dạng Lưới:</label>
-                    <input type="text" className="form-control" ref={this.productNameList}
+                    <input type="text" className="form-control" defaultValue={updateProduct.productNameList}
+                           ref={this.productNameList}
                            id="nameCate" placeholder="Nhập tên sản phẩm"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="nameCate">Tên Sản Phẩm Hiện Dạng Danh Sách:</label>
-                    <textarea className="form-control" ref={this.decriptionList}
+                    <textarea className="form-control" defaultValue={updateProduct.decriptionList}
+                           ref={this.decriptionList}
                            id="nameCate" placeholder="Nhập tên sản phẩm"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="nameCate">Giảm giá(%):</label>
-                    <input type="number" className="form-control" ref={this.discount}
+                    <input type="number" className="form-control" defaultValue={updateProduct.discount}
+                           ref={this.discount}
                            id="nameCate" placeholder="Nhập tên sản phẩm"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="nameCate">Loại sản phẩm:</label>
-                    <select className="form-control" name="categoryProduct" ref={this.IdCategory}
+                    <select className="form-control" name="categoryProduct" defaultValue={updateProduct.IdCategory}
+                            ref={this.IdCategory}
                             id="category">
                         {
                             categories.map((item, idx) => <option key={idx}
@@ -144,10 +153,11 @@ class AddProduct extends Component {
                 </div>
                 <div className="form-group">
                     <label htmlFor="imgProduct">Hình hiển thị:</label>
+                    <img src={require(`../../../../images/HOME/${updateProduct.image}`)} alt=""/>
                     <input type="file" className="form-control"
                            id="imgProduct" onChange={this.onChangeHandler}/>
                 </div>
-                <button className="btn btn-primary" onClick={this.onClickHandler}>Thêm</button>
+                <button type="button" className="btn btn-primary" onClick={this.onClickHandler}>Sửa</button>
             </div>
         );
     }
@@ -155,16 +165,13 @@ class AddProduct extends Component {
 
 function mapStateToProps(state) {
     return {
-        products: state.products,
+        updateProduct: state.updateProduct,
         categories: state.categories
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        data: (list) => {
-            dispatch(loadDataCate(list));
-        },
         dataProduct: (list) => {
             dispatch(loadData(list));
         },
@@ -174,4 +181,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddProduct);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProduct);

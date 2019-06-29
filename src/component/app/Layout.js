@@ -16,8 +16,6 @@ import Users from "../../pages/admin/Users";
 import Categories from "../../pages/admin/Categories";
 import Products from "../../pages/admin/Products";
 import ListOrder from "../../pages/admin/ListOrder";
-import UserEdit from "../../pages/admin/component/UserEdit";
-import UserAdd from "../../pages/admin/component/UserAdd";
 
 const urlProducts = process.env.REACT_APP_PRODUCTS;
 const urlCategories = process.env.REACT_APP_CATEGORIES;
@@ -66,8 +64,6 @@ class Layout extends Component {
                         <Route path="/admin" exact component={() => <Login/>} />
                         <Route path="/dashboard" component={() => <Dashboard/>} />
                         <Route path="/admin-users" exact component={() => <Users/>} />
-                        <Route path="/admin-users/edit" exact component={() => <UserEdit/>} />
-                        <Route path="/admin-users/add" exact component={() => <UserAdd/>} />
                         <Route path="/admin-categories" component={() => <Categories/>} />
                         <Route path="/admin-products" component={() => <Products/>} />
                         <Route path="/admin-list" component={() => <ListOrder/>} />

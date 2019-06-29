@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import connect from "react-redux/es/connect/connect";
-import {loadDataUsers} from "../../../../redux/actions";
+import {loadDataUsers, redirect} from "../../../../redux/actions";
 
 const urlUsers = process.env.REACT_APP_USERS;
 
@@ -36,7 +36,7 @@ class AddUser extends Component {
     }
 
     async addUser(user) {
-        await await fetch(urlUsers, {
+        await fetch(urlUsers, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -52,9 +52,12 @@ class AddUser extends Component {
         const email = this.email.current.value;
         const password = this.password.current.value;
         const { role } = this.state;
-        const { users } = this.props;
+        const { users, redirect } = this.props;
 
-        let id = users[users.length-1].id+1;
+        let id = 1;
+        if (users) {
+            id = users[users.length-1].id+1; // Get next ID in DB
+        }
 
         if (firstName && lastName && email && password && role) {
             let user = {id, firstName, lastName, email, password, role, isActive: true};
@@ -64,6 +67,7 @@ class AddUser extends Component {
             this.lastName.current.value = "";
             this.email.current.value = "";
             this.password.current.value = "";
+            redirect(1); // redirect to Table Users
         }
     }
 
@@ -127,6 +131,9 @@ function mapDispatchToProps(dispatch) {
     return {
         data: (list) => {
             dispatch(loadDataUsers(list));
+        },
+        redirect: (item) => {
+            dispatch(redirect(item));
         }
     };
 }

@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 
 class RowItemOrder extends Component {
     render() {
+        const { id, idUser } = this.props;
         return (
             <tr>
                 <td className="text-center">
-                    <div className="table--item content--cart"><span>111111</span></div>
+                    <div className="table--item content--cart"><span>{id}</span></div>
                 </td>
                 <td className="text-center">
-                    <div className="table--item"><span>AAA</span></div>
+                    <div className="table--item"><span>{idUser}</span></div>
                 </td>
                 <td className="text-center">
                     <div className="table--item"><span>100.00đ</span></div>

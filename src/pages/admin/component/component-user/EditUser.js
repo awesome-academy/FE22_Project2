@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import connect from "react-redux/es/connect/connect";
+import { redirect } from "../../../../redux/actions";
 
 const urlUsers = process.env.REACT_APP_USERS;
 
@@ -51,12 +52,15 @@ class EditUser extends Component {
             const lastName = this.lastName.current.value;
             const email = this.email.current.value;
             const { role } = this.state;
+            const { redirect } = this.props;
 
             if (firstName && lastName && email && role) {
                 if (user.isActive) {
                     let obj = {id: user.id, firstName, lastName, email, role, password: user.password, isActive: user.isActive};
-                    this.edtDataUsers(obj);
-                    window.location.href = "/admin-users";
+                    setTimeout(() => {
+                        this.edtDataUsers(obj);
+                    }, 400);
+                    redirect(1); // redirect to Table Users
                 }
             }
         }
@@ -74,21 +78,21 @@ class EditUser extends Component {
                     <input type="text" className="form-control"
                            id="fname" defaultValue={usersUpdate.firstName}
                            ref={this.firstName}
-                           placeholder="Enter First Name"/>
+                           placeholder="Enter First Name" required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="lname">Last Name:</label>
                     <input type="text" className="form-control"
                            id="lname" defaultValue={usersUpdate.lastName}
                            ref={this.lastName}
-                           placeholder="Enter Last Name"/>
+                           placeholder="Enter Last Name" required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input type="email" className="form-control"
                            id="email" defaultValue={usersUpdate.email}
                            ref={this.email}
-                           placeholder="Enter email"/>
+                           placeholder="Enter email" required/>
                 </div>
                 <div className="form-group">
                     <label>Role</label>
@@ -120,4 +124,12 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(EditUser);
+function mapDispatchToProps(dispatch) {
+    return {
+        redirect: (item) => {
+            dispatch(redirect(item));
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditUser);

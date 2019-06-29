@@ -74,7 +74,7 @@ class FormSignIn extends Component{
 
     render() {
         return(
-            <div className="form--signup mt-4 mb-5">
+            <form className="form--signup mt-4 mb-5" action="/">
                 <div className="sign-in--header">
                     <h3 className="text-uppercase">Đăng Nhập</h3>
                     <button className="btn btn-dark btn_sign-in text-uppercase">Đăng ký</button>
@@ -96,7 +96,7 @@ class FormSignIn extends Component{
                         </div>
                     </div>
                 </form>
-            </div>
+            </form>
         );
     }
 }

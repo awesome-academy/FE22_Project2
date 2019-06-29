@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { loadDataRole } from "../../../../redux/actions";
+import connect from "react-redux/es/connect/connect";
 
 const urlUsers = process.env.REACT_APP_USERS;
+const urlRoles = process.env.REACT_APP_ROLES;
 
 class RowItemUser extends Component {
     constructor(props) {
@@ -25,6 +27,16 @@ class RowItemUser extends Component {
         });
     }
 
+    async getDataRoles() {
+        const { data } = this.props;
+        await fetch(urlRoles).then(res => res.json())
+            .then(result => {
+                data(result);
+            }).catch(err => {
+                console.log(err);
+            })
+    }
+
     onChangeHandler(event) {
         this.setState({
             toggleCheck: !this.state.toggleCheck
@@ -32,10 +44,14 @@ class RowItemUser extends Component {
 
         const { user } = this.props;
         let obj = {...user, isActive: !this.state.toggleCheck};
-        this.edtDataUsers(obj);
+        setTimeout(() => {
+            this.edtDataUsers(obj);
+        }, 400)
     }
 
     componentDidMount() {
+        this.getDataRoles();
+
         let { active } = this.props;
         if (typeof (active) === "undefined") active = true;
         this.setState({
@@ -44,8 +60,9 @@ class RowItemUser extends Component {
     }
 
     render() {
-        const { id, show, firstname, lastName, email, roleUser, onEdit } = this.props; // Check if true show Table have Button Edit
-        const active = this.state.toggleCheck;
+        const { id, show, firstname, lastName, roles,
+            email, roleUser, onEdit } = this.props;
+        const active = this.state.toggleCheck; // Check if true show Table have Button Edit
 
         if (show) {
             return (
@@ -80,7 +97,7 @@ class RowItemUser extends Component {
                         {
                             id !== 1 &&
                             <div className="table--item">
-                                <Link to="/admin-users/edit"><button onClick={onEdit} className="mr-2 btn btn-warning">Sửa</button></Link>
+                                <button onClick={onEdit} className="mr-2 btn btn-warning">Sửa</button>
                             </div>
                         }
                     </td>
@@ -108,4 +125,18 @@ class RowItemUser extends Component {
     }
 }
 
-export default RowItemUser;
+function mapStateToProps(state) {
+    return {
+        roles: state.roles
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        data: (list) => {
+            dispatch(loadDataRole(list));
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RowItemUser);

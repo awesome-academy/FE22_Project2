@@ -1,16 +1,36 @@
 import { combineReducers } from 'redux';
 
-import { products, productSelected } from './initReducers/products';
+import { products, productSelected, updateProduct } from './initReducers/products';
 import { categories, updateCagtegoy } from './initReducers/categories';
+import { subCategory, updateSubCagtegoy } from "./initReducers/subCategory";
 import { users, usersUpdate } from './initReducers/users';
-import { carts } from './initReducers/carts';
+import {carts, updateCarts} from './initReducers/carts';
+import {roles} from "./initReducers/role";
+
+import {
+    redirectFeature,
+    redirectCategory,
+    redirectSubCategory,
+    redirectProducts,
+    redirectCarts
+} from "./initReducers/control";
 
 export const app = combineReducers({
     products,
     productSelected,
+    updateProduct,
     categories,
     updateCagtegoy,
+    subCategory,
+    updateSubCagtegoy,
     users,
     usersUpdate,
-    carts
+    roles,
+    carts,
+    updateCarts,
+    redirectFeature,
+    redirectCategory,
+    redirectSubCategory,
+    redirectProducts,
+    redirectCarts
 });

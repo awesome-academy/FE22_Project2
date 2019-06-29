@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ItemRowTable from "../sub-component/ItemRowTable";
-import {loadDataUsers, updateItemUsers} from "../../../../redux/actions";
+import { loadDataUsers, updateItemUsers, redirect } from "../../../../redux/actions";
 import connect from "react-redux/es/connect/connect";
 import RowItemUser from "./RowItemUser";
 
@@ -12,17 +12,6 @@ class ItemTableUser extends Component {
         this.onEdit = this.onEdit.bind(this);
     }
 
-    editUser(user) {
-        const { update } = this.props;
-        update(user);
-    }
-
-    onEdit(user) {
-        return (event) => {
-            this.editUser(user);
-        };
-    }
-
     componentDidMount() {
         const { data } = this.props;
         fetch(urlUsers).then(res => res.json())
@@ -32,6 +21,19 @@ class ItemTableUser extends Component {
             .catch(err => {
                 console.log(err);
             })
+    }
+
+    editUser(user) {
+        const { update, redirect } = this.props;
+        update(user);
+
+        redirect(3); // Redirect to EditUser
+    }
+
+    onEdit(user) {
+        return (event) => {
+            this.editUser(user);
+        };
     }
 
     render() {
@@ -51,7 +53,6 @@ class ItemTableUser extends Component {
                                                           onEdit={this.onEdit(user)}/>
                     )
                 }
-
             </ItemRowTable>
         );
     }
@@ -59,8 +60,7 @@ class ItemTableUser extends Component {
 
 function mapStateToProps(state) {
     return {
-        users: state.users,
-        usersUpdate: state.usersUpdate
+        users: state.users
     }
 }
 
@@ -71,6 +71,9 @@ function mapDispatchToProps(dispatch) {
         },
         update: (item) => {
             dispatch(updateItemUsers(item));
+        },
+        redirect: (item) => {
+            dispatch(redirect(item));
         }
     };
 }
