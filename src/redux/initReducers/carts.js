@@ -1,4 +1,4 @@
-import { LOAD_DATA_CARTS, UPDATE_ITEMS_CARTS } from '../actions'
+import {LOAD_DATA_CARTS, UPDATE_ITEMS_CARTS} from '../actions'
 
 export const carts = (state = [], action) => {
   switch (action.type) {

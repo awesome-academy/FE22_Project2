@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import connect from "react-redux/es/connect/connect";
 import { Link } from 'react-router-dom';
 
-import {redirect, redirectCategory, redirectProducts, redirectSubCategory} from "../../../redux/actions";
+import {
+    redirect,
+    redirectCategory,
+    redirectProducts,
+    redirectSubCategory,
+} from "../../../redux/actions";
 
 class SideBar extends Component{
     constructor(props) {
@@ -66,6 +71,7 @@ class SideBar extends Component{
         );
     }
 }
+
 function mapStateToProps(state) {
     return {
     }
@@ -74,16 +80,16 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         redirect: (item) => {
-            dispatch(redirect(item));
-        },
-        redirectCategory: (item) => {
-            dispatch(redirectCategory(item));
-        },
-        redirectSubCategory: (item) => {
-            dispatch(redirectSubCategory(item));
+          dispatch(redirect(item));
         },
         redirectProducts: (item) => {
-            dispatch(redirectProducts(item));
+            dispatch(redirectProducts(item))
+        },
+        redirectCategory: (item) => {
+            dispatch(redirectCategory(item))
+        },
+        redirectSubCategory: (item) => {
+            dispatch(redirectSubCategory(item))
         }
     };
 }

@@ -13,39 +13,47 @@ import EditSubCategory from "./component/component-category/EditSubCategory";
 class Categories extends Component {
     render() {
         const { redirectCategory, redirectSubCategory } = this.props;
-
-        return (
-            <LayoutAdmin>
-                <Tabs defaultActiveKey="categories">
-                    <Tab eventKey="categories" title="Loại sản phẩm">
-                        {
-                            redirectCategory === 1 &&
-                            <div>
-                                <AddCategory/>
-                                <TableCategory/>
-                            </div>
-                        }
-                        {
-                            redirectCategory === 2 &&
-                                <EditCategory/>
-                        }
-                    </Tab>
-                    <Tab eventKey="supCate" title="Sản phẩm con">
-                        {
-                            redirectSubCategory === 1 &&
-                            <div>
-                                <AddSubCategory/>
-                                <TableSubCategory/>
-                            </div>
-                        }
-                        {
-                            redirectSubCategory === 2 &&
-                                <EditSubCategory/>
-                        }
-                    </Tab>
-                </Tabs>
-            </LayoutAdmin>
-        );
+        const checkLoginAdmin = JSON.parse(localStorage.getItem("admin"));
+        let check = false;
+        if (!checkLoginAdmin) check = false;
+        else check = true;
+        
+        if (check) {
+            return (
+                <LayoutAdmin>
+                    <Tabs defaultActiveKey="categories">
+                        <Tab eventKey="categories" title="Loại sản phẩm">
+                            {
+                                redirectCategory === 1 &&
+                                <div>
+                                    <AddCategory/>
+                                    <TableCategory/>
+                                </div>
+                            }
+                            {
+                                redirectCategory === 2 &&
+                                    <EditCategory/>
+                            }
+                        </Tab>
+                        <Tab eventKey="supCate" title="Sản phẩm con">
+                            {
+                                redirectSubCategory === 1 &&
+                                <div>
+                                    <AddSubCategory/>
+                                    <TableSubCategory/>
+                                </div>
+                            }
+                            {
+                                redirectSubCategory === 2 &&
+                                    <EditSubCategory/>
+                            }
+                        </Tab>
+                    </Tabs>
+                </LayoutAdmin>
+            );
+        } else {
+            window.location.href = "/admin";
+        }        
     }
 }
 

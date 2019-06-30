@@ -1802,26 +1802,26 @@ body .account--table .table-bordered td .table--item {
     font-family: "Lobster", cursive;
 }
 
-body .form--signup form {
+body .form--signup .form_signup--main {
     font-size: 0.8rem;
     font-weight: 600;
     background-color: #f2f2f2;
 }
 
-body .form--signup form h5 {
+body .form--signup .form_signup--main h5 {
     font-weight: 700;
 }
 
-body .form--signup form input {
+body .form--signup .form_signup--main input {
     border-radius: 0;
 }
 
-body .form--signup form .button--sign-up {
+body .form--signup .form_signup--main .button--sign-up {
     display: flex;
     justify-content: space-between;
 }
 
-body .form--signup form .button--sign-up .btn {
+body .form--signup .form_signup--main .button--sign-up .btn {
     border-radius: 0;
     background-color: #1a1a1a;
     cursor: pointer;

@@ -9,19 +9,28 @@ import EditProduct from "./component/component-products/EditProduct";
 class Products extends Component {
     render() {
         const { redirectProducts } = this.props;
-        return (
-            <LayoutAdmin>
-                {
-                    redirectProducts === 1 && <TableProducts/>
-                }
-                {
-                    redirectProducts === 2 && <AddProduct/>
-                }
-                {
-                    redirectProducts === 3 && <EditProduct/>
-                }
-            </LayoutAdmin>
-        );
+        const checkLoginAdmin = JSON.parse(localStorage.getItem("admin"));
+        let check = false;
+        if (!checkLoginAdmin) check = false;
+        else check = true;
+
+        if(check) {
+            return (
+                <LayoutAdmin>
+                    {
+                        redirectProducts === 1 && <TableProducts/>
+                    }
+                    {
+                        redirectProducts === 2 && <AddProduct/>
+                    }
+                    {
+                        redirectProducts === 3 && <EditProduct/>
+                    }
+                </LayoutAdmin>
+            );
+        } else {
+            window.location.href = "/admin";
+        }        
     }
 }
 

@@ -60,9 +60,9 @@ class RowItemUser extends Component {
     }
 
     render() {
-        const { id, show, firstname, lastName, roles,
+        const { id, show, firstname, lastName,
             email, roleUser, onEdit } = this.props;
-        const active = this.state.toggleCheck; // Check if true show Table have Button Edit
+        const active = this.state.toggleCheck; // Check if true show Table have Button Edit  
 
         if (show) {
             return (

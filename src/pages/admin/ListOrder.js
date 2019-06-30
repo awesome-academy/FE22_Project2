@@ -4,11 +4,20 @@ import LayoutAdmin from "./component/LayoutAdmin";
 
 class ListOrder extends Component {
     render() {
-        return (
-            <LayoutAdmin>
-                <TableListOrder/>
-            </LayoutAdmin>
-        );
+        const checkLoginAdmin = JSON.parse(localStorage.getItem("admin"));
+        let check = false;
+        if (!checkLoginAdmin) check = false;
+        else check = true;
+
+        if(check) {
+            return (
+                <LayoutAdmin>
+                    <TableListOrder/>
+                </LayoutAdmin>
+            );
+        } else {
+            window.location.href = "/admin";
+        }        
     }
 }
 

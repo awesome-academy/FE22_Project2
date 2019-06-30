@@ -83,18 +83,6 @@
       "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
       "discount": 91,
       "isActive": true
-    },
-    {
-      "id": 8,
-      "productName": "aaaa",
-      "price": 10,
-      "image": "Screenshot from 2019-06-15 13-34-18.png",
-      "decription": "bbb",
-      "IdCategory": 1,
-      "productNameList": "ccc",
-      "decriptionList": "ddd",
-      "discount": 10,
-      "isActive": true
     }
   ],
   "categories": [
@@ -121,7 +109,7 @@
     {
       "id": 5,
       "nameCategory": "Quà Tặng",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": 6,
@@ -201,6 +189,12 @@
       "nameSub": "k",
       "idCate": 6,
       "isActive": true
+    },
+    {
+      "id": 13,
+      "nameSub": "bbbbb",
+      "idCate": 1,
+      "isActive": true
     }
   ],
   "users": [
@@ -210,7 +204,8 @@
       "lastName": "Duy",
       "email": "duyquang130@gmail.com",
       "password": "1234",
-      "role": 1
+      "role": 1,
+      "isActive": true
     },
     {
       "id": 2,
@@ -228,7 +223,7 @@
       "email": "1234@gmail.com",
       "password": "1234",
       "role": 2,
-      "isActive": false
+      "isActive": true
     },
     {
       "id": 4,
@@ -250,11 +245,11 @@
     },
     {
       "id": 6,
-      "firstName": "ccc",
-      "lastName": "bbb",
-      "email": "duytrang130@gmail.com",
-      "role": 2,
+      "firstName": "Trần Nguyễn",
+      "lastName": "Diễm",
+      "email": "trannguyenngocdiem99@gmail.com",
       "password": "1234",
+      "role": 2,
       "isActive": false
     }
   ],
@@ -616,7 +611,7 @@
       "idUser": 3,
       "itemSelected": [
         {
-          "id": "1",
+          "id": 1,
           "productName": "OHUI",
           "price": 355,
           "image": "product_1.jpg",
@@ -626,11 +621,11 @@
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 56,
           "count": 1,
-          "status": 2,
+          "status": 3,
           "day": "28/6/2019"
         },
         {
-          "id": "2",
+          "id": 2,
           "productName": "OHUI",
           "price": 355,
           "image": "product_2.jpg",
@@ -640,11 +635,11 @@
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 16,
           "count": 1,
-          "status": 2,
+          "status": 3,
           "day": "28/6/2019"
         },
         {
-          "id": "3",
+          "id": 3,
           "productName": "HOME",
           "price": 355,
           "image": "product_3.jpg",
@@ -654,8 +649,38 @@
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 16,
           "count": 1,
-          "status": 2,
+          "status": 3,
           "day": "28/6/2019"
+        },
+        {
+          "id": 4,
+          "productName": "DEBORA",
+          "price": 355,
+          "image": "product_4.jpg",
+          "decription": "Mỹ phẩm châu Âu",
+          "IdCategory": 2,
+          "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+          "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+          "discount": 58,
+          "isActive": true,
+          "count": 1,
+          "status": 2,
+          "day": "30/6/2019"
+        },
+        {
+          "id": 5,
+          "productName": "PERFUME",
+          "price": 355,
+          "image": "product_5.jpg",
+          "decription": "Mỹ phẩm châu Âu",
+          "IdCategory": 3,
+          "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+          "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+          "discount": 4,
+          "isActive": true,
+          "count": 1,
+          "status": 2,
+          "day": "30/6/2019"
         }
       ]
     }

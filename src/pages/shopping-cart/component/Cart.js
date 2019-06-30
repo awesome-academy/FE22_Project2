@@ -102,9 +102,6 @@ class Cart extends Component {
 
     paymentCart(obj) {
         let dataSelected = JSON.parse(localStorage.getItem("id-item--cart"));
-        for (var item of obj.itemSelected) {
-            item.status = 2;
-        }
 
         var result = window.confirm("Want to payment?");
         if (result) { // If you click OK
@@ -118,7 +115,6 @@ class Cart extends Component {
 
             var a = [...test, ...data];
             let dataSave = {...obj, id: obj.id, itemSelected: a}; // New Data will save in DB
-            console.log(dataSave);
             this.deleteDataCarts(dataSave.id);
             setTimeout(() => {
                 this.pushDataCarts(dataSave);

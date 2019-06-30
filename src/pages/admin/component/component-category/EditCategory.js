@@ -13,7 +13,7 @@ class EditCategory extends Component {
     }
 
     async edtDataCategory(obj) {
-        // POST Data Carts
+        // PUT Data Carts
         await fetch(urlCategories+"/"+obj.id, {
             method: 'PUT',
             headers: {

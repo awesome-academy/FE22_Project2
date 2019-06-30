@@ -1,5 +1,4 @@
-import { LOAD_DATA_PRODUCTS,
-    UPDATE_ITEMS_SELECTED, UPDATE_ITEMS_PRODUCTS } from '../actions';
+import {LOAD_DATA_PRODUCTS, UPDATE_ITEMS_PRODUCTS, UPDATE_ITEMS_SELECTED} from '../actions';
 
 const itemSelected = JSON.parse(localStorage.getItem('id-item--cart'));
 

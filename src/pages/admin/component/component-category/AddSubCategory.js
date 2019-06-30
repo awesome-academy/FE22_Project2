@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import {loadDataCate, loadDataSubCate} from "../../../../redux/actions";
+import { loadDataSubCate } from "../../../../redux/actions";
 import connect from "react-redux/es/connect/connect";
 
-const urlCategories = process.env.REACT_APP_CATEGORIES;
 const urlSubCategories = process.env.REACT_APP_SUB_CATEGORIES;
 
 class AddSubCategory extends Component {

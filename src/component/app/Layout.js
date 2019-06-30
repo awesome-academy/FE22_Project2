@@ -16,6 +16,9 @@ import Users from "../../pages/admin/Users";
 import Categories from "../../pages/admin/Categories";
 import Products from "../../pages/admin/Products";
 import ListOrder from "../../pages/admin/ListOrder";
+import Introduce from '../../pages/introduce/Introduce';
+import Contact from '../../pages/contact/Contact';
+import Blog from '../../pages/blog/Blog';
 
 const urlProducts = process.env.REACT_APP_PRODUCTS;
 const urlCategories = process.env.REACT_APP_CATEGORIES;
@@ -60,6 +63,9 @@ class Layout extends Component {
                         <Route path="/sign-up" component={() => <SignUp/>} />
                         <Route path="/shopping-cart" component={() => <ShoppingCart/>} />
                         <Route path="/detail" component={() => <Detail/>} />
+                        <Route path="/about" component={() => <Introduce/>} />
+                        <Route path="/map" component={() => <Contact/>} />
+                        <Route path="/news" component={() => <Blog/>} />
 
                         <Route path="/admin" exact component={() => <Login/>} />
                         <Route path="/dashboard" component={() => <Dashboard/>} />

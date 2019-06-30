@@ -7,13 +7,22 @@ import LayoutAdmin from "./component/LayoutAdmin";
 
 class Dashboard extends Component {
     render() {
-        return (
-            <LayoutAdmin>
-                <IconCard/>
-                <LineChart/>
-                <DataTable/>
-            </LayoutAdmin>
-        );
+        const checkLoginAdmin = JSON.parse(localStorage.getItem("admin"));
+        let check = false;
+        if (!checkLoginAdmin) check = false;
+        else check = true;
+        
+        if (check) {
+            return (
+                <LayoutAdmin>
+                    <IconCard/>
+                    <LineChart/>
+                    <DataTable/>
+                </LayoutAdmin>
+            );
+        } else {
+            window.location.href = "/admin";
+        }
     }
 }
 

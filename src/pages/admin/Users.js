@@ -9,19 +9,28 @@ import EditUser from "./component/component-user/EditUser";
 class Users extends Component {
     render() {
         const { redirectFeature } = this.props;
-        return (
-            <LayoutAdmin>
-                {
-                    redirectFeature === 1 && <TableUsers/>
-                }
-                {
-                    redirectFeature === 2 && <AddUser/>
-                }
-                {
-                    redirectFeature === 3 && <EditUser/>
-                }
-            </LayoutAdmin>
-        );
+        const checkLoginAdmin = JSON.parse(localStorage.getItem("admin"));
+        let check = false;
+        if (!checkLoginAdmin) check = false;
+        else check = true;
+
+        if(check) {
+            return (
+                <LayoutAdmin>
+                    {
+                        redirectFeature === 1 && <TableUsers/>
+                    }
+                    {
+                        redirectFeature === 2 && <AddUser/>
+                    }
+                    {
+                        redirectFeature === 3 && <EditUser/>
+                    }
+                </LayoutAdmin>
+            );
+        } else {
+            window.location.href = "/admin";
+        }
     }
 }
 

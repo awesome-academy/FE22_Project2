@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ItemRowTable from "../sub-component/ItemRowTable";
 import RowItemOrder from "./RowItemOrder";
-import { loadDataCarts, redirectCarts, updateItemCart } from "../../../../redux/actions";
+import { loadDataCarts } from "../../../../redux/actions";
 import connect from "react-redux/es/connect/connect";
 
 const urlCarts = process.env.REACT_APP_CARTS;
@@ -23,7 +23,10 @@ class ItemOrder extends Component {
         return (
             <ItemRowTable>
                 {
-                    carts.map((item, idx) => <RowItemOrder key={idx} id={item.id} idUser={item.idUser}/>)
+                    carts.map((item, idx) => <RowItemOrder key={idx} 
+                                                            id={item.id} 
+                                                            idUser={item.idUser} 
+                                                            item={item}/>)
                 }
             </ItemRowTable>
         );
@@ -40,12 +43,6 @@ function mapDispatchToProps(dispatch) {
     return {
         data: (list) => {
             dispatch(loadDataCarts(list));
-        },
-        update: (item) => {
-            dispatch(updateItemCart(item));
-        },
-        redirect: (item) => {
-            dispatch(redirectCarts(item));
         }
     };
 }

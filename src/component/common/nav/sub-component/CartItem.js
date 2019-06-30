@@ -4,7 +4,8 @@ import imgRemove from '../../../../images/HOME/shopping-cart--icon--remove.png';
 
 class CartItem extends Component {
     render() {
-        const { count, path, price, productName, onClick } = this.props;
+        const { count, path, price, 
+            productName, onClick } = this.props;
         return (
             <div className="item--sub--sub mt-lg-1 pt-lg-1 mt-2">
                 <div className="cart_item--show w-50">
