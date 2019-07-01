@@ -297,7 +297,7 @@
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 56,
           "count": 1,
-          "status": 2,
+          "status": 3,
           "day": "26/6/2019"
         },
         {
@@ -337,7 +337,7 @@
           "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
           "discount": 16,
           "count": 1,
-          "status": 2,
+          "status": 3,
           "day": "26/6/2019"
         }
       ]
@@ -607,6 +607,27 @@
       ]
     },
     {
+      "id": 7,
+      "idUser": 2,
+      "itemSelected": [
+        {
+          "id": 4,
+          "productName": "DEBORA",
+          "price": 355,
+          "image": "product_4.jpg",
+          "decription": "Mỹ phẩm châu Âu",
+          "IdCategory": 2,
+          "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+          "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+          "discount": 58,
+          "isActive": true,
+          "count": 1,
+          "status": 1,
+          "day": "1/7/2019"
+        }
+      ]
+    },
+    {
       "id": 6,
       "idUser": 3,
       "itemSelected": [
@@ -681,6 +702,51 @@
           "count": 1,
           "status": 2,
           "day": "30/6/2019"
+        },
+        {
+          "id": 1,
+          "productName": "OHUI",
+          "price": 355,
+          "image": "product_1.jpg",
+          "decription": "Mỹ phẩm châu Âu",
+          "IdCategory": 1,
+          "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+          "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+          "discount": 56,
+          "isActive": true,
+          "count": 1,
+          "status": 2,
+          "day": "1/7/2019"
+        },
+        {
+          "id": 2,
+          "productName": "OHUI",
+          "price": 355,
+          "image": "product_2.jpg",
+          "decription": "Mỹ phẩm châu Âu",
+          "IdCategory": 1,
+          "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+          "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+          "discount": 16,
+          "isActive": true,
+          "count": 1,
+          "status": 2,
+          "day": "1/7/2019"
+        },
+        {
+          "id": 6,
+          "productName": "TYFFANY",
+          "price": 355,
+          "image": "product_6.jpg",
+          "decription": "Mỹ phẩm châu Âu",
+          "IdCategory": 3,
+          "productNameList": "Mỹ phẩm châu âu thương hiệu hàng đầu thế giới",
+          "decriptionList": "Tự hào được ghi là năm mà Tiffany & Co là thành lập, bộ sưu tập mang tính biểu tượng này cung cấp cho một cái gật đầu với qua trong khí thể hiện một cảm giác hiện đại với kiểu dáng đẹp đường cong và đường nét mượt mà",
+          "discount": 76,
+          "isActive": true,
+          "count": 1,
+          "status": 1,
+          "day": "1/7/2019"
         }
       ]
     }

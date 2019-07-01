@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import _ from 'lodash';
 
 import CartItem from "./CartItem";
-import {addItemSelected, loadDataCarts} from "../../../redux/actions";
+import {addItemSelected, loadDataCarts } from "../../../redux/actions";
 
 const urlCarts = process.env.REACT_APP_CARTS;
 
@@ -25,7 +25,7 @@ class Cart extends Component {
             const { productSelected, add } = this.props;
             let arrItemRemove = productSelected;
 
-            let idx = arrItemRemove.findIndex(obj => obj.id === item.id);
+            let idx = arrItemRemove.findIndex(obj => {return obj.id === item.id && obj.status === 1});
             arrItemRemove.splice(idx, 1);
 
             localStorage.setItem("id-item--cart", JSON.stringify(arrItemRemove));
@@ -149,9 +149,19 @@ class Cart extends Component {
     }
 
     checkButton() {
-        let dataSelected = JSON.parse(localStorage.getItem("id-item--cart"));
         const account = JSON.parse(localStorage.getItem("logon")); // get user current login account
         const fb = JSON.parse(localStorage.getItem("access")); // get user current login facebook
+
+        let dataSelected = JSON.parse(localStorage.getItem("id-item--cart"));
+        let itemSelected = dataSelected;
+        if (!itemSelected) itemSelected = [];
+
+        let temp = [];
+        for (var item of itemSelected) {
+            if (item.status === 1) {
+                temp.push(item);
+            }
+        }
 
         if (!account) {
             if (!fb) {
@@ -159,15 +169,13 @@ class Cart extends Component {
                     check: true // Check if don't have anybody login => disable button payment
                 });
             } else {
-                if (!dataSelected) {
+                if (!temp) {
                     this.setState({
                         check: true // If login by facebook and don't have the data in cart => disable button payment
                     });
                 } else {
-                    if (dataSelected.length <= 0) {
-                        this.setState({
-                            check: true // If login by facebook have the cart but haven't any product in cart => disable button payment
-                        });
+                    if (temp.length <= 0) {
+                        
                     } else {
                         this.setState({
                             check: false // if login by facebook have the product in cart => enable button payment
@@ -176,15 +184,16 @@ class Cart extends Component {
                 }
             }
         } else {
-            if (!dataSelected) {
+            if (!temp) {
                 this.setState({
                     check: true // If login by account and don't have the data in cart => disable button payment
                 });
             } else {
-                if (dataSelected.length <= 0) {
+                if (temp.length <= 0) {
                     this.setState({
                         check: true // If login by account have the cart but haven't any product in cart => disable button payment
                     });
+                    console.log(this.state.check);
                 } else {
                     this.setState({
                         check: false // if login by account have the product in cart => enable button payment
@@ -201,6 +210,7 @@ class Cart extends Component {
 
     render() {
         const { productSelected } = this.props;
+        let dataSelected = JSON.parse(localStorage.getItem("id-item--cart"));
         let itemSelected = productSelected;
         if (!itemSelected) itemSelected = [];
 
@@ -228,6 +238,7 @@ class Cart extends Component {
                         <tbody className="tinfo_cart">
                             {
                                 temp.map((item, idx) => <CartItem key={idx}
+                                                                  id={item.id}
                                                                   path={item.image}
                                                                   count={item.count}
                                                                   name={item.productName}
@@ -238,10 +249,17 @@ class Cart extends Component {
                     </table>
                     <div className="cart_btn text-uppercase">
                         <Link to="/products"><div className="btn btn-dark">Tiếp tục mua hàng</div></Link>
-                        <button ref={this.btnPayment}
-                             disabled={ this.state.check }
-                             onClick={this.onPayment}
-                             className="btn btn-dark btn--update">Thanh toán</button>
+                        {
+                            (!dataSelected || dataSelected.length) <= 0 &&
+                                <button disabled className="btn btn-dark btn--update">Thanh toán</button>
+                        }
+                        {
+                            dataSelected && dataSelected.length > 0 &&
+                                <button ref={this.btnPayment}
+                                disabled={ this.state.check }
+                                onClick={this.onPayment}
+                                className="btn btn-dark btn--update">Thanh toán</button>
+                        }                        
                     </div>
                 </div>
             </div>
@@ -252,7 +270,8 @@ class Cart extends Component {
 function mapStateToProps(state) {
     return {
         productSelected: state.productSelected,
-        carts: state.carts
+        carts: state.carts,
+        checkButtonCarts: state.checkButtonCarts
     }
 }
 

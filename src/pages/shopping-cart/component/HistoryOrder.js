@@ -81,6 +81,7 @@ class HistoryOrder extends Component {
                             <th className="text-uppercase text-center">Giá</th>
                             <th className="text-uppercase text-center">Số lượng</th>
                             <th className="text-uppercase text-center">Tổng số</th>
+                            <th className="text-uppercase text-center">Trạng Thái</th>
                             <th className="text-uppercase text-center">Ngày thanh toán</th>
                         </tr>
                         </thead>
@@ -91,6 +92,7 @@ class HistoryOrder extends Component {
                                                                  count={item.count}
                                                                  price={item.price}
                                                                  name={item.productName}
+                                                                 status={item.status}
                                                                  day={item.day}/>)
                         }
                         </tbody>
