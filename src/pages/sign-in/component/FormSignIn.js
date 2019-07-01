@@ -23,21 +23,31 @@ class FormSignIn extends Component{
     notifycationLogin(email, pass) {
         const { users, carts } = this.props;
         let cloneCarts = carts;
+        let tempUsers = [];
+        for(var user of users) {
+            if(user.isActive) {
+                tempUsers.push(user);
+            }
+        }
 
-        let idxEmail = users.findIndex((us) => us.email === email); // Find email
-        let idxPass = users.findIndex(us => us.password === pass); // Find password
+        let findEmail = tempUsers.find((us) => us.email === email); // Find Email admin
+        let idxEmail = tempUsers.findIndex((us) => us.email === email); // Find email
+        let idxPass = tempUsers.findIndex(us => us.password === pass); // Find password
 
         if (idxEmail <= -1) alert("Email không tồn tại !!");
+        else if(findEmail.role === 1) alert("Vui lòng đăng nhập bằng tài khoản user !!");
         else {
             if (idxPass <= -1) alert("Mật khẩu không đúng !!!");
             else {
-                const user = users.find((us) => us.email === email);
+                const user = tempUsers.find((us) => us.email === email);
                 alert("Đăng nhập thành công !!!");
                 localStorage.setItem("logon", JSON.stringify({id: user.id, check: true}));
 
                 const cart = cloneCarts.find(c => c.idUser === user.id);
                 if (cart)
                     localStorage.setItem("id-item--cart", JSON.stringify(cart.itemSelected));
+
+                window.location.href = "/";
             }
         }
     }
@@ -75,25 +85,30 @@ class FormSignIn extends Component{
             <div className="form--signup mt-4 mb-5">
                 <div className="sign-in--header">
                     <h3 className="text-uppercase">Đăng Nhập</h3>
-                    <button className="btn btn-dark btn_sign-in text-uppercase">Đăng ký</button>
+                    <Link to="/sign-up"><button className="btn btn-dark btn_sign-in text-uppercase">Đăng ký</button></Link>
                 </div>
-                <form className="mt-4 p-5" method="get" action="/">
-                    <h5 className="text-uppercase mb-3">Khách hàng Đăng ký</h5><span>Nếu bạn có một tài khoản, xin vui lòng đăng nhập</span>
+                <div className="mt-4 p-5 form_signup--main">
+                    <h5 className="text-uppercase mb-3">Khách hàng Đăng ký</h5>
+                    <span>Nếu bạn có một tài khoản, xin vui lòng đăng nhập</span>
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="form-group mt-5">
                                 <label htmlFor="email_sign-in">Địa chỉ email *</label>
-                                <input className="form-control" id="email_sign-in" ref={this.email} type="email" required="required" />
+                                <input className="form-control" id="email_sign-in" ref={this.email}
+                                 type="email" required="required" />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password_sign-in">Password *</label>
-                                <input className="form-control" id="password_sign-in" ref={this.pass} type="password" required="required" />
+                                <input className="form-control" id="password_sign-in" ref={this.pass}
+                                 type="password" required="required" />
                             </div>
-                            <Link className="sign-in_forget--password text-capitalize mr-5" to="/sign-in">Quên Mật Khẩu?</Link>
-                            <button className="btn btn-dark btn_sign-in text-uppercase mt-3 mt-sm-0" onClick={this.SubmitHandler}>Đăng nhập</button>
+                            <Link className="sign-in_forget--password text-capitalize mr-5" 
+                            to="/sign-in">Quên Mật Khẩu?</Link>
+                            <button className="btn btn-dark btn_sign-in text-uppercase mt-3 mt-sm-0" 
+                            onClick={this.SubmitHandler}>Đăng nhập</button>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         );
     }

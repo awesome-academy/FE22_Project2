@@ -9,6 +9,10 @@ import OwlCarousel from 'react-owl-carousel2';
 class HotProduct extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            showProduct: []
+        }
         this.onClickAdd = this.onClickAdd.bind(this);
         this.onShowDetail = this.onShowDetail.bind(this);
     }
@@ -52,6 +56,16 @@ class HotProduct extends Component {
 
     render() {
         const { products } = this.props;
+        let temp = [];
+        
+        if (products.length > 0) {
+            for(var product of products) {
+                if (product.isActive) {
+                    temp.push(product);
+                }
+            }
+        } 
+
         const options = {
             loop:true,
             margin:10,
@@ -80,7 +94,7 @@ class HotProduct extends Component {
 
                 <OwlCarousel options={options} className="product--carousel owl-carousel owl-theme pb-3">
                     {
-                        products.map((item,idx) => <ProductItem key={idx}
+                        temp.map((item,idx) => <ProductItem key={idx}
                                                                 name={item.productName}
                                                                 decription={item.decription}
                                                                 path={item.image}

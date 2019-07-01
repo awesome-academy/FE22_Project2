@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Nav from "../../component/common/nav/Nav";
 import FormSignUp from "./component/FormSignUp";
-import NotFound from "../../component/common/NotFound";
 import Footer from "../../component/common/footer/Footer";
 
 class SignUp extends Component{
@@ -19,7 +18,7 @@ class SignUp extends Component{
                 </div>
             );
         } else {
-            return (<div><NotFound/></div>);
+            window.location.href = "/";
         }
     }
 }

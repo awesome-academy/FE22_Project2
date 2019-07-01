@@ -58,7 +58,6 @@ class MenuBar extends Component {
                     </li>
                     <li className="nav-item"><Link className="nav-link text-uppercase" to="/news">tin tức</Link></li>
                     <li className="nav-item"><Link className="nav-link text-uppercase" to="/map">bản đồ</Link></li>
-                    <li className="nav-item"><Link className="nav-link text-uppercase" to="/contact">liên hệ</Link></li>
                 </ul>
             </div>
         );

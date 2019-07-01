@@ -64,7 +64,7 @@ class HistoryOrder extends Component {
 
         let temp = [];
         for (var item of itemSelected) {
-            if (item.status === 2) {
+            if (item.status === 2 || item.status === 3) {
                 temp.push(item);
             }
         }

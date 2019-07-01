@@ -8,17 +8,15 @@ class ShowTabUsers extends Component {
                 <table className="table table-bordered table-responsive-sm">
                     <thead>
                     <tr>
-                        <th className="text-uppercase text-center">Firstname</th>
-                        <th className="text-uppercase text-center">Lastname</th>
+                        <th className="text-uppercase text-center">Họ Lót</th>
+                        <th className="text-uppercase text-center">Tên</th>
                         <th className="text-uppercase text-center">Email</th>
-                        <th className="text-uppercase text-center">Role</th>
+                        <th className="text-uppercase text-center">Vai Trò</th>
                         <th className="text-uppercase text-center">Hoạt động</th>
                         <th> </th>
                     </tr>
                     </thead>
-                    <tbody>
-                        <ItemTableUser show={true}/>
-                    </tbody>
+                    <ItemTableUser show={true}/>
                 </table>
             </div>
         );

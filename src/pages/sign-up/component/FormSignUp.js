@@ -53,7 +53,7 @@ class FormSignUp extends Component{
             if (!firstName || !lastName || !email || !password || !passConfirm) {
                 alert("Enter your infomation !!");
             } else {
-                const obj = {id, firstName, lastName, email, password, role: 2};
+                const obj = {id, firstName, lastName, email, password, role: 2, isActive: true};
                 this.pushSignIn(obj);
                 alert("Sign Up Success !!");
             }

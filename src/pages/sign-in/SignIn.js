@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Nav from "../../component/common/nav/Nav";
 import FormSignIn from "./component/FormSignIn";
-import NotFound from "../../component/common/NotFound";
 import Footer from "../../component/common/footer/Footer";
 
 class SignIn extends Component {
@@ -19,7 +18,7 @@ class SignIn extends Component {
                 </div>
             );
         } else {
-            return(<div><NotFound/></div>);
+            window.location.href = "/";
         }
     }
 }

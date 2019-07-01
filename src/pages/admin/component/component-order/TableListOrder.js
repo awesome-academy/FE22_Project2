@@ -14,15 +14,13 @@ class TableListOrder extends Component {
                             <thead>
                             <tr>
                                 <th className="text-uppercase text-center">Mã đơn hàng</th>
-                                <th className="text-uppercase text-center">Tên khách hàng</th>
+                                <th className="text-uppercase text-center">Mã Khách hàng</th>
                                 <th className="text-uppercase text-center">Tổng đơn hàng</th>
                                 <th className="text-uppercase text-center">Trạng thái</th>
                                 <th className="text-uppercase text-center"> </th>
                             </tr>
                             </thead>
-                            <tbody className="tinfo_cart">
-                                <ItemOrder/>
-                            </tbody>
+                            <ItemOrder/>
                         </table>
                     </div>
                 </div>

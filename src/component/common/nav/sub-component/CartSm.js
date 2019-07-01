@@ -89,8 +89,8 @@ class CartSm extends Component {
         if (!arr) arr = [];
 
         for (var it of arr) {
-            total += (it.count*it.price);
             if (it.status === 1) {
+                total += (it.count*it.price);
                 sum += it.count;
                 temp.push(it);
             }

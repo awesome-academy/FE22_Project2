@@ -50,10 +50,19 @@ class ProductList extends Component {
 
     render() {
         const { products } = this.props;
+        let temp = [];
+        
+        if (products.length > 0) {
+            for(var product of products) {
+                if (product.isActive) {
+                    temp.push(product);
+                }
+            }
+        } 
         return(
             <div className="product_list--item">
                 {
-                    products.map((item, idx) => <ProductItem key={idx}
+                    temp.map((item, idx) => <ProductItem key={idx}
                                                              productName={item.productName}
                                                              decription={item.decription}
                                                              price={item.price}
