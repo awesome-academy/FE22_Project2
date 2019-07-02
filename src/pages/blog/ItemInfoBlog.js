@@ -7,7 +7,7 @@ class ItemInfoBlog extends Component {
             <div className="blog--content page_blog--content mt-5">
                 <div className="blog pb-5 pb-sm-0">
                     <div className="img-thumbnail p-0">
-                        <img className="img-fluid w-100" src={require("../../images/Blog/blog_item--img1.png")} alt="Blog Image"/>
+                        <img className="img-fluid w-100" src={require("../../images/Blog/blog_item--img1.png")} alt="Blog"/>
                     </div>
                     <div className="blog--content">
                         <h6 className="text-uppercase title--content mt-3">Review son kem Bourjois velvet</h6>

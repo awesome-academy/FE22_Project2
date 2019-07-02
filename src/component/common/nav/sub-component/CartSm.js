@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import connect from "react-redux/es/connect/connect";
 import { Link } from "react-router-dom";
-import {addItemSelected, loadDataUsers} from "../../../../redux/actions";
+import { addItemSelected, loadDataUsers } from "../../../../redux/actions";
 
 import ImgShoppingCart from "../../../../images/HOME/shoppoing-cart.png";
 import ImgSearch from "../../../../images/HOME/btn-search.png";
@@ -48,7 +48,7 @@ class CartSm extends Component {
             const { productSelected, add } = this.props;
             let arrItemRemove = productSelected;
 
-            let idx = arrItemRemove.findIndex(obj => obj.id === item.id);
+            let idx = arrItemRemove.findIndex(obj => {return obj.id === item.id && obj.status === 1});
             arrItemRemove.splice(idx, 1);
 
             localStorage.setItem("id-item--cart", JSON.stringify(arrItemRemove));

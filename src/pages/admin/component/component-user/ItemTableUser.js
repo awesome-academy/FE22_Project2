@@ -53,6 +53,7 @@ class ItemTableUser extends Component {
                                                           onEdit={this.onEdit(user)}/>
                     )
                 }
+
             </ItemRowTable>
         );
     }

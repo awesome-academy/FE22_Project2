@@ -18,6 +18,8 @@ export const REDIRECT_SUB_CATEGORY = "REDIRECT_SUB_CATEGORY";
 export const REDIRECT_PRODUCTS = "REDIRECT_PRODUCTS";
 export const REDIRECT_CARTS = "REDIRECT_CARTS";
 
+export const CHECK_BUTTON = "CHECK_BUTTON";
+
 export function loadData(list) {
     return { type: LOAD_DATA_PRODUCTS, list }
 }
@@ -84,4 +86,8 @@ export function redirectProducts(item) {
 
 export function redirectCarts(item) {
     return { type: REDIRECT_CARTS, item }
+}
+
+export function checkButton(list) {
+    return { type: CHECK_BUTTON, list }
 }
