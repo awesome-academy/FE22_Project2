@@ -58,12 +58,19 @@ class Cart extends Component {
 
             } else { // If login by facebook
                 let obj = carts.find(c => c.idUser === fb.profile.id);
-                // this.paymentCart(obj);
+                if (obj) {
+                    this.paymentCart(obj);
+                } else {
+                    this.paymentCartWithoutObj(fb.profile.id);
+                }
             }
         } else { // If login by facebook
             let obj = carts.find(c => c.idUser === account.id);
-            // console.log(obj);
-            this.paymentCart(obj);
+            if (obj) {
+                this.paymentCart(obj);
+            } else {
+                this.paymentCartWithoutObj(account.id);
+            }
         }
     }
 
@@ -72,25 +79,31 @@ class Cart extends Component {
         this.paymentTheCart(this.state.dataCarts);
     }
 
-    checkCart(test, dataSelected) {
-        for (var t of test) {
-            for (var d of dataSelected) {
-                if (_.isEqual(t, d)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    paymentCart(obj) {
-        const day = `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`;
+    paymentCartWithoutObj(idUser) {
         let dataSelected = JSON.parse(localStorage.getItem("id-item--cart"));
-        for (var item of obj.itemSelected) {
-            item.status = 2;
+        const { dataCarts } = this.state;
+        let id = 1;
+        if (dataCarts) {
+            id = dataCarts[dataCarts.length - 1].id + 1;
+        }
+
+        for (var d of dataSelected) {
+            d.status = 2;
         }
 
         var result = window.confirm("Want to delete?");
+        if (result) { // If you click OK
+            let obj = {id, idUser, itemSelected: dataSelected};
+            this.pushDataCarts(obj);
+            localStorage.removeItem("id-item--cart");
+            window.location.reload();
+        }
+    }
+
+    paymentCart(obj) {
+        let dataSelected = JSON.parse(localStorage.getItem("id-item--cart"));
+
+        var result = window.confirm("Want to payment?");
         if (result) { // If you click OK
             let test = [...obj.itemSelected]; // Clone data cart of object current
 
@@ -102,8 +115,10 @@ class Cart extends Component {
 
             var a = [...test, ...data];
             let dataSave = {...obj, id: obj.id, itemSelected: a}; // New Data will save in DB
-            this.deleteDataCarts(obj.id);
-            this.pushDataCarts(dataSave);
+            this.deleteDataCarts(dataSave.id);
+            setTimeout(() => {
+                this.pushDataCarts(dataSave);
+            }, 300);
 
             localStorage.removeItem("id-item--cart");
             window.location.reload();
@@ -133,8 +148,7 @@ class Cart extends Component {
         });
     }
 
-    componentDidMount() {
-        this.getAgainData();
+    checkButton() {
         let dataSelected = JSON.parse(localStorage.getItem("id-item--cart"));
         const account = JSON.parse(localStorage.getItem("logon")); // get user current login account
         const fb = JSON.parse(localStorage.getItem("access")); // get user current login facebook
@@ -178,6 +192,11 @@ class Cart extends Component {
                 }
             }
         }
+    }
+
+    componentDidMount() {
+        this.getAgainData();
+        this.checkButton();
     }
 
     render() {

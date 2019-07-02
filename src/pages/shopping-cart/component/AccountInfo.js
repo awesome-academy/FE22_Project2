@@ -49,15 +49,18 @@ class AccountInfo extends Component {
                 <form className="form-horizontal" action="">
                     <div className="form-group">
                         <label className="control-label" htmlFor="firstName">First Name:</label>
-                        <input type="email" disabled className="form-control" id="firstName" value={firstName}/>
+                        <input type="email" disabled className="form-control" 
+                        id="firstName" value={firstName}/>
                     </div>
                     <div className="form-group">
                         <label className="control-label" htmlFor="lastName">Last Name:</label>
-                        <input type="text" disabled className="form-control" id="lastName" value={lastName}/>
+                        <input type="text" disabled className="form-control" 
+                        id="lastName" value={lastName}/>
                     </div>
                     <div className="form-group">
                         <label className="control-label" htmlFor="email">Email:</label>
-                        <input type="email" disabled className="form-control" id="email" value={email}/>
+                        <input type="email" disabled className="form-control" 
+                        id="email" value={email}/>
                     </div>
                 </form>
             </div>

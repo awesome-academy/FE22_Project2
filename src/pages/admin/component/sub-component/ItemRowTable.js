@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class ItemRowTable extends Component {
     render() {
         return (
-            <tr>{this.props.children}</tr>
+            <tbody className="tinfo_cart">{this.props.children}</tbody>
         );
     }
 }

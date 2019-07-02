@@ -6,7 +6,6 @@ import InfoDetail from "./component/InfoDetail";
 import TagDetail from "./component/TagDetail";
 import SaleHot from "./component/SaleHot";
 import RecentProducts from "./component/RecentProducts";
-import NotFound from "../../component/common/NotFound";
 import Footer from "../../component/common/footer/Footer";
 
 class Detail extends Component {
@@ -36,7 +35,7 @@ class Detail extends Component {
                 </div>
             );
         } else {
-            return(<div><NotFound/></div>);
+            window.location.href = "/";
         }
     }
 }
