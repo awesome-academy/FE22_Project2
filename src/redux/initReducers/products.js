@@ -1,15 +1,39 @@
-import {LOAD_DATA_PRODUCTS, UPDATE_ITEMS_PRODUCTS, UPDATE_ITEMS_SELECTED} from '../actions';
+import {
+    FETCH_DATA, FETCH_DATA_FAILURE,
+    FETCH_DATA_SUCCESS,
+    UPDATE_ITEMS_PRODUCTS,
+    UPDATE_ITEMS_SELECTED
+} from '../types';
 
 const itemSelected = JSON.parse(localStorage.getItem('id-item--cart'));
+const initialState = {
+    data: [],
+    isFetching: false,
+    error: false
+};
 
-export const products = (state = [], action) => {
+export const products = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD_DATA_PRODUCTS: {
-            state = [...action.list];
-            return state;
-        }
+        case FETCH_DATA:
+            return {
+                ...state,
+                data: [],
+                isFetching: true
+            };
+        case FETCH_DATA_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                data: action.data
+            };
+        case FETCH_DATA_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: true
+            };
         default:
-            return state;
+            return state
     }
 };
 

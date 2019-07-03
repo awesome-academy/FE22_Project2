@@ -12,7 +12,7 @@ class HotProduct extends Component {
 
         this.state = {
             showProduct: []
-        }
+        };
         this.onClickAdd = this.onClickAdd.bind(this);
         this.onShowDetail = this.onShowDetail.bind(this);
     }
@@ -56,10 +56,11 @@ class HotProduct extends Component {
 
     render() {
         const { products } = this.props;
+        const dataProducts = products.data;
         let temp = [];
         
-        if (products.length > 0) {
-            for(var product of products) {
+        if (dataProducts.length > 0) {
+            for(var product of dataProducts) {
                 if (product.isActive) {
                     temp.push(product);
                 }

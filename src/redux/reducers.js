@@ -12,8 +12,7 @@ import {
     redirectCategory,
     redirectSubCategory,
     redirectProducts,
-    redirectCarts,
-    checkButtonCarts
+    redirectCarts
 } from "./initReducers/control";
 
 export const app = combineReducers({
@@ -33,6 +32,5 @@ export const app = combineReducers({
     redirectCategory,
     redirectSubCategory,
     redirectProducts,
-    redirectCarts,
-    checkButtonCarts
+    redirectCarts
 });

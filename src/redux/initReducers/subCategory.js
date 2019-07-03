@@ -1,4 +1,4 @@
-import { LOAD_DATA_SUB_CATEGORIES, UPDATE_ITEMS_SUB_CATEGORIES } from '../actions';
+import { LOAD_DATA_SUB_CATEGORIES, UPDATE_ITEMS_SUB_CATEGORIES } from '../types';
 
 export const subCategory = (state = [], action) => {
     switch (action.type) {

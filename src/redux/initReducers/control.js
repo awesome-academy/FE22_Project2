@@ -1,6 +1,5 @@
 import { REDIRECT, REDIRECT_CATEGORY,
-    REDIRECT_SUB_CATEGORY, REDIRECT_PRODUCTS,
-    CHECK_BUTTON } from '../actions';
+    REDIRECT_SUB_CATEGORY, REDIRECT_PRODUCTS } from '../types';
 
 // 1: redirect TableUsers
 // 2: redirect AddUser
@@ -68,14 +67,3 @@ export const redirectCarts = (state = 1, action) => {
             return state;
     }
 };
-
-export const checkButtonCarts = (state = [], action) => {
-    switch (action.type) {
-        case CHECK_BUTTON: {
-            state = [...action.list];
-            return state;
-        }
-        default: 
-            return state;
-    }
-}

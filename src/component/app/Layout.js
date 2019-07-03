@@ -20,42 +20,29 @@ import Introduce from '../../pages/introduce/Introduce';
 import Contact from '../../pages/contact/Contact';
 import Blog from '../../pages/blog/Blog';
 
-const urlProducts = process.env.REACT_APP_PRODUCTS;
-const urlCategories = process.env.REACT_APP_CATEGORIES;
+import Loading from 'react-loading-bar';
+import 'react-loading-bar/dist/index.css';
 
 class Layout extends Component {
     componentDidMount() {
         // Fetch Data Products from API
         const { data } = this.props;
-        fetch(urlProducts)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    data(result);
-                },
-                (error) => {
-                    console.log(error);
-                }
-            );
+        data(); // Fetch Data with Thunk
 
         // Fetch Data Categories from API
         const { dataCate } = this.props;
-        fetch(urlCategories)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    dataCate(result);
-                },
-                (error) => {
-                    console.log(error);
-                }
-            )
+        dataCate();
     }
 
     render() {
+        const { isFetching } = this.props.products;
         return (
             <Router>
                 <div className="layout--app">
+                    <Loading
+                        show={isFetching}
+                        color="#2d8cf0"
+                    />
                     <Switch>
                         <Route path="/" exact component={() => <Home/>} />
                         <Route path="/products" component={() => <Product/>} />
@@ -77,6 +64,7 @@ class Layout extends Component {
                         <Route component={() => <NotFound/>} />
                     </Switch>
                 </div>
+
             </Router>
         );
     }
@@ -84,16 +72,17 @@ class Layout extends Component {
 
 function mapStateToProps(state) {
     return {
+        products: state.products
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        data: (list) => {
-            dispatch(loadData(list));
+        data: () => {
+            dispatch(loadData());
         },
-        dataCate: (list) => {
-            dispatch(loadDataCate(list));
+        dataCate: () => {
+            dispatch(loadDataCate());
         }
     };
 }

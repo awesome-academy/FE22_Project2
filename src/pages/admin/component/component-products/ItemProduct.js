@@ -4,8 +4,6 @@ import RowItemProduct from "./RowItemProduct";
 import connect from "react-redux/es/connect/connect";
 import {loadData, redirectProducts, updateItemProduct} from "../../../../redux/actions";
 
-const urlProducts = process.env.REACT_APP_PRODUCTS;
-
 class ItemProduct extends Component {
     constructor(props) {
         super(props);
@@ -15,13 +13,7 @@ class ItemProduct extends Component {
 
     componentDidMount() {
         const { data } = this.props;
-        fetch(urlProducts).then(res => res.json())
-            .then(result => {
-                data(result);
-            })
-            .catch(err => {
-                console.log(err);
-            })
+        data();
     }
 
     onEdit(cate) {
@@ -37,7 +29,7 @@ class ItemProduct extends Component {
         return (
             <ItemRowTable>
                 {
-                    products.map((item, idx) => <RowItemProduct key={idx} productName={item.productName}
+                    products.data.map((item, idx) => <RowItemProduct key={idx} productName={item.productName}
                                                                 price={item.price}
                                                                 image={item.image}
                                                                 decription={item.decription}

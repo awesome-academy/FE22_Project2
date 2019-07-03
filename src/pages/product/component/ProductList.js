@@ -52,8 +52,8 @@ class ProductList extends Component {
         const { products } = this.props;
         let temp = [];
         
-        if (products.length > 0) {
-            for(var product of products) {
+        if (products.data.length > 0) {
+            for(var product of products.data) {
                 if (product.isActive) {
                     temp.push(product);
                 }
