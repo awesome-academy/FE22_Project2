@@ -1,4 +1,4 @@
-import { LOAD_DATA_ROLE } from '../actions';
+import { LOAD_DATA_ROLE } from '../types';
 
 export const roles = (state = [], action) => {
   switch (action.type) {

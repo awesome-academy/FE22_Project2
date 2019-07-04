@@ -1,27 +1,34 @@
-export const LOAD_DATA_PRODUCTS = "LOAD_DATA_PRODUCTS";
-export const LOAD_DATA_CATEGORIES = "LOAD_DATA_CATEGORIES";
-export const LOAD_DATA_SUB_CATEGORIES = "LOAD_DATA_SUB_CATEGORIES";
-export const LOAD_DATA_USERS = "LOAD_DATA_USERS";
-export const LOAD_DATA_ROLE = "LOAD_DATA_ROLE";
-export const LOAD_DATA_CARTS = "LOAD_DATA_CARTS";
+import {
+    FETCH_DATA, FETCH_DATA_FAILURE, FETCH_DATA_SUCCESS,
+    LOAD_DATA_CARTS,
+    LOAD_DATA_CATEGORIES,
+    LOAD_DATA_ROLE,
+    LOAD_DATA_SUB_CATEGORIES,
+    LOAD_DATA_USERS, REDIRECT, REDIRECT_CATEGORY, REDIRECT_PRODUCTS, REDIRECT_SUB_CATEGORY,
+    UPDATE_ITEMS_CATEGORIES,
+    UPDATE_ITEMS_PRODUCTS,
+    UPDATE_ITEMS_SELECTED,
+    UPDATE_ITEMS_SUB_CATEGORIES,
+    UPDATE_ITEMS_USERS
+} from "./types";
 
-export const UPDATE_ITEMS_SELECTED = "UPDATE_ITEMS_SELECTED";
-export const UPDATE_ITEMS_USERS = "UPDATE_ITEMS_USERS";
-export const UPDATE_ITEMS_CATEGORIES = "UPDATE_ITEMS_CATEGORIES";
-export const UPDATE_ITEMS_SUB_CATEGORIES = "UPDATE_ITEMS_SUB_CATEGORIES";
-export const UPDATE_ITEMS_PRODUCTS = "UPDATE_ITEMS_PRODUCTS";
-export const UPDATE_ITEMS_CARTS = "UPDATE_ITEMS_CARTS";
+const urlProducts = process.env.REACT_APP_PRODUCTS;
 
-export const REDIRECT = "REDIRECT";
-export const REDIRECT_CATEGORY = "REDIRECT_CATEGORY";
-export const REDIRECT_SUB_CATEGORY = "REDIRECT_SUB_CATEGORY";
-export const REDIRECT_PRODUCTS = "REDIRECT_PRODUCTS";
-export const REDIRECT_CARTS = "REDIRECT_CARTS";
-
-export const CHECK_BUTTON = "CHECK_BUTTON";
-
-export function loadData(list) {
-    return { type: LOAD_DATA_PRODUCTS, list }
+export function loadData() {
+    return (dispatch) => {
+        dispatch(getData());
+        return fetch(urlProducts)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    dispatch(getDataSuccess(result));
+                },
+                (error) => {
+                    dispatch(getDataFailure());
+                    throw (error);
+                }
+            );
+    }
 }
 
 export function loadDataCate(list) {
@@ -64,10 +71,6 @@ export function updateItemProduct(item) {
     return { type: UPDATE_ITEMS_PRODUCTS, item }
 }
 
-export function updateItemCart(item) {
-    return { type: UPDATE_ITEMS_CARTS, item }
-}
-
 export function redirect(item) {
     return { type: REDIRECT, item }
 }
@@ -84,10 +87,14 @@ export function redirectProducts(item) {
     return { type: REDIRECT_PRODUCTS, item }
 }
 
-export function redirectCarts(item) {
-    return { type: REDIRECT_CARTS, item }
+export function getData() {
+    return { type: FETCH_DATA }
 }
 
-export function checkButton(list) {
-    return { type: CHECK_BUTTON, list }
+export function getDataSuccess(data) {
+    return { type: FETCH_DATA_SUCCESS, data }
+}
+
+export function getDataFailure() {
+    return { type: FETCH_DATA_FAILURE }
 }

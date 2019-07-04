@@ -1,10 +1,10 @@
-import { LOAD_DATA_CATEGORIES, UPDATE_ITEMS_CATEGORIES } from '../actions';
+import { LOAD_DATA_CATEGORIES, UPDATE_ITEMS_CATEGORIES } from '../types';
 
 export const categories = (state = [], action) => {
   switch (action.type) {
       case LOAD_DATA_CATEGORIES: {
           if (action.list) {
-              state = [...state, ...action.list];
+              state = [...action.list];
               return state;
           }
           return state;
